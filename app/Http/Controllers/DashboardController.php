@@ -9,10 +9,6 @@ class DashboardController extends Controller
 {
 
 
-    public function __contruct(){
-        $this->middleware(['auth', 'is_admin']);
-    }
-
 
     public function index(Request $request)
     {
