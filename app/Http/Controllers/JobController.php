@@ -83,7 +83,7 @@ class JobController extends Controller
         $job->save();
 
         // Send Email to Engineer About Job
-        Notification::send($engineer, new JobAdded($job));
+        // Notification::send($engineer, new JobAdded($job));
 
         return redirect('jobs')->withSuccess('New Job has been Created');
     }
@@ -190,7 +190,7 @@ class JobController extends Controller
         $thejob->save();
 
         // Send Email to Engineer About Job
-        Notification::send($engineer, new JobAdded($thejob));
+        // Notification::send($engineer, new JobAdded($thejob));
 
 
         return back()->withSuccess('This Job has been Assigned To '.$request->engineername);
