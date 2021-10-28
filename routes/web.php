@@ -34,12 +34,8 @@ Route::get('/', function () {
 
 // No Access
 Route::get('/noaccess', NoaccessController::class)->name('noaccess');
-
-Route::group(
-    [
-        'middleware' => ['auth', 'is_admin'], 
-    ],
-    function () {
+Route::middleware(['auth', isAdmin::class])->group(function ()
+ {
         // Main Dashboard
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::post('calendar-crud-ajax', [DashboardController::class, 'calendarEvents'])->name('calendarEvents');
