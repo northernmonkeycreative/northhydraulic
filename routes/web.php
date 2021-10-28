@@ -37,7 +37,7 @@ Route::get('/noaccess', NoaccessController::class)->name('noaccess');
 
 Route::group(
     [
-        'middleware' => ['auth', ''], 
+        'middleware' => ['auth'], 
     ],
     function () {
         // Main Dashboard
