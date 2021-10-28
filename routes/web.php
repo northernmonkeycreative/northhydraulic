@@ -15,7 +15,7 @@ use App\Http\Controllers\LiftingVariouscertificatesheetController;
 use App\Http\Controllers\ThouroughinspectionsheetController;
 use App\Http\Controllers\CranetestcertificatesheetController;
 
-
+use App\Http\Middleware\isAdmin;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +37,7 @@ Route::get('/noaccess', NoaccessController::class)->name('noaccess');
 
 Route::group(
     [
-        'middleware' => ['auth', 'is_admin'], 
+        'middleware' => ['auth', isAdmin::class], 
     ],
     function () {
         // Main Dashboard
