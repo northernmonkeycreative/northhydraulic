@@ -15,7 +15,7 @@
         </div>
     </x-slot>
 
-    <!-- Alerts -->
+
     @include('layouts.partials.alerts.alerts')
 
         <div class="py-12">

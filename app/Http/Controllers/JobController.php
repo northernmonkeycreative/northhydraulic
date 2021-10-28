@@ -17,7 +17,6 @@ class JobController extends Controller
     // Show Jobs Screen
     public function index()
     {
-        // $jobs = Job::get()->all();
         $jobs = Job::where('status', '!=', 'paid')->get();
         return view('jobs.index', compact('jobs'));
     }
