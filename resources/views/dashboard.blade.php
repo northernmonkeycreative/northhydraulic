@@ -206,7 +206,7 @@
                     //     });
                     // },
                     eventClick: function (event) {
-                        window.open('http://127.0.0.1:8000/jobs/'+event.id, "_self");
+                        window.open('http://46.101.38.100/jobs/'+event.id, "_self");
                         return false;
                         
                     }
