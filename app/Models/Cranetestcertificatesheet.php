@@ -10,6 +10,7 @@ class Cranetestcertificatesheet extends Model
     use HasFactory;
 
     protected $fillable = [
+        'job_id',
         'date_last_tested',
         'vehicle_make',
         'vehicle_model',

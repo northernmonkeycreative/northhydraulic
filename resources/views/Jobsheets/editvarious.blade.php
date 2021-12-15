@@ -37,7 +37,7 @@
 
                     <div class="mt-5 md:mt-0 md:col-span-2">
                         <div class="shadow-sm overflow-hidden sm:rounded-md">
-                                <form action="{{ route('various.update', $thejob) }}" class="form-horizontal" role="form" method="POST">
+                                <form action="{{ route('various.update', $thejobsheet->id) }}" class="form-horizontal" role="form" method="POST">
                                     @csrf
                                     <div class="px-4 py-5 bg-white sm:p-6">
                                         <div class="grid grid-cols-6 gap-6">

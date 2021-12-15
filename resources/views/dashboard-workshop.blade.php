@@ -85,31 +85,17 @@
     
                 var calendar = $('#full_calendar_events').fullCalendar({
                     defaultView: 'agendaWeek',
-                    // customButtons: {
-                    //     myCustomButton: {
-                    //     text: 'Add New Job',
-                    //     click: function() {
-                    //         alert('clicked the custom button!');
-                    //     }
-                    //     }
-                    // },
                     header: {
-                        left: 'prev,next, today, myCustomButton', //note no "buttons
+                        left: 'prev,next, today', //note no "buttons
                         center: 'title',
                         right: 'year,agendaDay,agendaWeek,month,listWeek'
                     
                     },
-                    footer : {
-                        left: 'prev,next, today, myCustomButton', //note no "buttons
-                        center: 'title',
-                        right: 'year,agendaDay,agendaWeek,month,listWeek'
-                    
-                    },
-                    
+                    noEventsMessage:'No Jobs To Display',
 
                     editable: true,
-                    events: SITEURL + "/dashboard",
-                    noEventsMessage:'No Jobs To Display',
+                    events: SITEURL + "/dashboard-workshop",
+
                     minTime:"06:00:00",
                     eventLimit: true,
                     allDayDefault: false,
@@ -269,6 +255,4 @@
 
     
         </script>
-
-
 </x-app-layout>

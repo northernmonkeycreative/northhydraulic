@@ -65,10 +65,10 @@
                                                     <label for="department" class="block text-sm font-medium text-gray-700">Department</label>
                                                     @if ($errors->has('department'))<span class="text-red-700">{{ $errors->first('department') }}</span>@endif
                                                     <select name="department" id="department" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                                                        <option value="tradecounter" @if (old($thejob->department) == 'tradecounter') {{ 'selected' }} @endif>Trade Counter</option>
-                                                        <option value="workshop" @if (old($thejob->department) == 'workshop') {{ 'selected' }} @endif>Workshop</option>
-                                                        <option value="mobilehose" @if (old($thejob->department) == 'mobilehose') {{ 'selected' }} @endif>Mobile Hose</option>
-                                                        <option value="mobileengineer" @if (old($thejob->department) == 'mobileengineer') {{ 'selected' }} @endif>Mobile Engineer</option>
+                                                        <option value="tradecounter" @if ($thejob->department == 'tradecounter')  {{ 'selected' }} @endif>Trade Counter</option>
+                                                        <option value="workshop" @if ($thejob->department == 'workshop')  {{ 'selected' }} @endif>Workshop</option>
+                                                        <option value="mobilehose" @if ($thejob->department == 'mobilehose')  {{ 'selected' }} @endif>Mobile Hose</option>
+                                                        <option value="mobileengineer" @if ($thejob->department == 'mobileengineer')  {{ 'selected' }} @endif>Mobile Engineer</option>
                                                     </select>
                                                 </div>
 
@@ -85,10 +85,29 @@
                                                     </div>
                                 
                                                 <div class="col-span-6 sm:col-span-6 date" id="datepicker">
-                                                <label for="start" class="block text-sm font-medium text-gray-700">Job Start Date</label>
-                                                @if ($errors->has('start'))<span class="text-red-700">{{ $errors->first('start') }}</span>@endif
-                                                <input type="text" name="start" id="start" autocomplete="start" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('start', $thejob->start) }}">
+                                                <label for="start_date" class="block text-sm font-medium text-gray-700">Job Start Date</label>
+                                                @if ($errors->has('start_date'))<span class="text-red-700">{{ $errors->first('start_date') }}</span>@endif
+                                                <input type="text" name="start_date" id="start_date" autocomplete="start_date" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('start_date', $thejob->start_date) }}">
                                                 </div>
+
+                                                <div class="col-span-6 sm:col-span-6 date" id="datepicker">
+                                                <label for="start_time" class="block text-sm font-medium text-gray-700">Job Start Time</label>
+                                                @if ($errors->has('start_time'))<span class="text-red-700">{{ $errors->first('start_time') }}</span>@endif
+                                                <input type="text" name="start_time" id="start" autocomplete="start_time" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('start_time', $thejob->start_time) }}">
+                                                </div>
+
+                                                <div class="col-span-6 sm:col-span-6">
+                                                <label for="site_address" class="block text-sm font-medium text-gray-700">Site Address</label>
+                                                @if ($errors->has('site_address'))<span class="text-red-700">{{ $errors->first('site_address') }}</span>@endif
+                                                <input type="text" name="site_address" id="site_address" autocomplete="site_address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('site_address', $thejob->site_address) }}">
+                                                </div>
+
+                                                <div class="col-span-6 sm:col-span-6">
+                                                <label for="site_contact" class="block text-sm font-medium text-gray-700">Site Contact</label>
+                                                @if ($errors->has('site_contact'))<span class="text-red-700">{{ $errors->first('site_contact') }}</span>@endif
+                                                <input type="text" name="site_contact" id="site_contact" autocomplete="site_contact" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('site_contact', $thejob->site_contact) }}">
+                                                </div>
+                                                
 
                                                 <div class="col-span-6 sm:col-span-6">
                                                 <label for="vehicle" class="block text-sm font-medium text-gray-700">Vehicle</label>
@@ -103,9 +122,9 @@
                                                 </div>
 
                                                 <div class="col-span-6 sm:col-span-6">
-                                                <label for="mileage" class="block text-sm font-medium text-gray-700">Mileage</label>
-                                                @if ($errors->has('mileage'))<span class="text-red-700">{{ $errors->first('mileage') }}</span>@endif
-                                                <input type="text" name="mileage" id="mileage" autocomplete="mileage" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('mileage', $thejob->mileage) }}">
+                                                <label for="purchase_order_number" class="block text-sm font-medium text-gray-700">Purchase Order Number</label>
+                                                @if ($errors->has('purchase_order_number'))<span class="text-red-700">{{ $errors->first('purchase_order_number') }}</span>@endif
+                                                <input type="text" name="purchase_order_number" id="purchase_order_number" autocomplete="purchase_order_number" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('purchase_order_number', $thejob->purchase_order_number) }}">
                                                 </div>
 
                                                 <div class="col-span-6 sm:col-span-6">
@@ -122,7 +141,7 @@
 
                                                 @if($thejob->status == 'invoice' || $thejob->status == 'paid')
                                                 <div class="col-span-6 sm:col-span-6">
-                                                    <label for="mileage" class="block text-sm font-medium text-gray-700">Invoice Number</label>
+                                                    <label for="invoice_number" class="block text-sm font-medium text-gray-700">Invoice Number</label>
                                                     @if ($errors->has('invoice_number'))<span class="text-red-700">{{ $errors->first('invoice_number') }}</span>@endif
                                                     <input type="text" name="invoice_number" id="invoice_number" autocomplete="invoice_number" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('invoice_number', $thejob->invoice_number) }}">
                                                     <small><strong>Please not when Invoice number gets added, job status will update to PAID automatically</strong></small>
@@ -152,7 +171,7 @@
             // });
 
             $(document).ready(function(){
-            var date_input=$('input[name="start"]'); 
+            var date_input=$('input[name="start_date"]'); 
             var options={
                 format: 'yyyy-mm-dd',
                 todayHighlight: true,
@@ -160,6 +179,15 @@
             };
             date_input.datepicker(options);
             })
+
+
+            var time_input=$('input[name="start_time"]'); 
+
+            var timeoptions={
+                timeFormat: 'H:i',
+                minTime: '6:00'
+                };
+            time_input.timepicker(timeoptions);
 
          </script>
     </x-app-layout>

@@ -48,6 +48,8 @@
                                                             <option value="{{$client->id}}">{{$client->company_name}}</option>
                                                         @endforeach
                                                     </select>
+
+                                                    <span style="float:right;margin-top:10px;"><small><a href="Javascript:void" data-toggle="modal" data-target="#clientModal">Create New Client</a></small></span>
                                                 </div>
 
                                                 <div class="col-span-6 sm:col-span-6">
@@ -74,10 +76,29 @@
                                                     </div>
                                 
                                                 <div class="col-span-6 sm:col-span-6 date" id="datepicker">
-                                                <label for="start" class="block text-sm font-medium text-gray-700">Job Start Date</label>
-                                                @if ($errors->has('start'))<span class="text-red-700">{{ $errors->first('start') }}</span>@endif
-                                                <input type="text" name="start" id="start" autocomplete="start" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('start') }}">
+                                                <label for="start_date" class="block text-sm font-medium text-gray-700">Job Start Date</label>
+                                                @if ($errors->has('start_date'))<span class="text-red-700">{{ $errors->first('start_date') }}</span>@endif
+                                                <input type="text" name="start_date" id="start_date" autocomplete="start_date" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('start_date') }}">
                                                 </div>
+
+                                                <div class="col-span-6 sm:col-span-6 date" id="timepicker">
+                                                <label for="start_time" class="block text-sm font-medium text-gray-700">Job Start Time</label>
+                                                @if ($errors->has('start_time'))<span class="text-red-700">{{ $errors->first('start_time') }}</span>@endif
+                                                <input type="text" name="start_time" id="start_time" autocomplete="start_time" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('start_time') }}">
+                                                </div>
+
+                                                <div class="col-span-6 sm:col-span-6">
+                                                <label for="site_address" class="block text-sm font-medium text-gray-700">Site Address</label>
+                                                @if ($errors->has('site_address'))<span class="text-red-700">{{ $errors->first('site_address') }}</span>@endif
+                                                <input type="text" name="site_address" id="site_address" autocomplete="site_address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('site_address') }}">
+                                                </div>
+
+                                                <div class="col-span-6 sm:col-span-6">
+                                                <label for="site_contact" class="block text-sm font-medium text-gray-700">Site Contact</label>
+                                                @if ($errors->has('site_contact'))<span class="text-red-700">{{ $errors->first('site_contact') }}</span>@endif
+                                                <input type="text" name="site_contact" id="site_contact" autocomplete="site_contact" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('site_contact') }}">
+                                                </div>
+
 
                                                 <div class="col-span-6 sm:col-span-6">
                                                 <label for="vehicle" class="block text-sm font-medium text-gray-700">Vehicle</label>
@@ -92,9 +113,9 @@
                                                 </div>
 
                                                 <div class="col-span-6 sm:col-span-6">
-                                                <label for="mileage" class="block text-sm font-medium text-gray-700">Mileage</label>
-                                                @if ($errors->has('mileage'))<span class="text-red-700">{{ $errors->first('mileage') }}</span>@endif
-                                                <input type="text" name="mileage" id="mileage" autocomplete="mileage" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('mileage') }}">
+                                                <label for="purchase_order_number" class="block text-sm font-medium text-gray-700">Purchase Order Number</label>
+                                                @if ($errors->has('purchase_order_number'))<span class="text-red-700">{{ $errors->first('purchase_order_number') }}</span>@endif
+                                                <input type="text" name="purchase_order_number" id="purchase_order_number" autocomplete="purchase_order_number" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('purchase_order_number') }}">
                                                 </div>
 
                                                 <div class="col-span-6 sm:col-span-6">
@@ -128,20 +149,150 @@
                 </div>       
             </div>
         </div>
+
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="clientModal" tabindex="-1" role="dialog" aria-labelledby="clientModalLabel" aria-hidden="true">
+            <form class="form-horizontal" role="form" method="POST" id="ajax-client-form">
+            @csrf 
+            @method('POST')   
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="clientModalLabel">Add New Client</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                                    
+                                        <div class="px-4 py-5 bg-white sm:p-6">
+                                            <div class="grid grid-cols-6 gap-6">
+                                                <div class="col-span-6 sm:col-span-6">
+                                                <label for="company_name" class="block text-sm font-medium text-gray-700">Company Name</label>
+                                                @if ($errors->has('company_name'))<span class="text-red-700">{{ $errors->first('company_name') }}</span>@endif
+                                                <input type="text" name="company_name" id="company_name" autocomplete="company_name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('company_name') }}">
+                                                </div>
+                                
+                                                <div class="col-span-6 sm:col-span-6">
+                                                <label for="contact_name" class="block text-sm font-medium text-gray-700">Contact Name</label>
+                                                @if ($errors->has('contact_name'))<span class="text-red-700">{{ $errors->first('contact_name') }}</span>@endif
+                                                <input type="text" name="contact_name" id="contact_name" autocomplete="contact_name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('contact_name') }}">
+                                                </div>
+
+                                                <div class="col-span-6 sm:col-span-6">
+                                                <label for="contact_number" class="block text-sm font-medium text-gray-700">Contact Number</label>
+                                                @if ($errors->has('contact_number'))<span class="text-red-700">{{ $errors->first('contact_number') }}</span>@endif
+                                                <input type="text" name="contact_number" id="contact_number" autocomplete="contact_number" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('contact_number') }}">
+                                                </div>
+
+                                                <div class="col-span-6 sm:col-span-6">
+                                                <label for="contact_email" class="block text-sm font-medium text-gray-700">Contact Email</label>
+                                                @if ($errors->has('contact_email'))<span class="text-red-700">{{ $errors->first('contact_email') }}</span>@endif
+                                                <input type="text" name="contact_email" id="contact_email" autocomplete="contact_email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('contact_email') }}">
+                                                </div>
+
+                                                <div class="col-span-6 sm:col-span-6">
+                                                <label for="site_name" class="block text-sm font-medium text-gray-700">Site Name</label>
+                                                @if ($errors->has('site_name'))<span class="text-red-700">{{ $errors->first('site_name') }}</span>@endif
+                                                <input type="text" name="site_name" id="site_name" autocomplete="site_name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('site_name') }}">
+                                                </div>
+
+                                                <div class="col-span-6 sm:col-span-6">
+                                                <label for="site_address" class="block text-sm font-medium text-gray-700">Site Address</label>
+                                                @if ($errors->has('site_address'))<span class="text-red-700">{{ $errors->first('site_address') }}</span>@endif
+                                                <input type="text" name="site_address" id="site_address" autocomplete="site_address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('site_address') }}">
+                                                </div>
+
+                                                <div class="col-span-6 sm:col-span-6">
+                                                <label for="postcode" class="block text-sm font-medium text-gray-700">Postcode</label>
+                                                @if ($errors->has('postcode'))<span class="text-red-700">{{ $errors->first('postcode') }}</span>@endif
+                                                <input type="text" name="postcode" id="postcode" autocomplete="postcode" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('postcode') }}">
+                                                </div>
+
+                                                <div class="col-span-6 sm:col-span-6">
+                                                <label for="company_notes" class="block text-sm font-medium text-gray-700">Company Notes</label>
+                                                @if ($errors->has('company_notes'))<span class="text-red-700">{{ $errors->first('company_notes') }}</span>@endif
+                                                <textarea name="company_notes" id="company_notes" autocomplete="company_notes" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ old('company_notes') }}</textarea>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                              
+                                    
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" id="submit" class="btn btn-primary">Save Client</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+       
+           <script>
+$.ajaxSetup({
+    headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+$("#submit").on('click', function(e){
+
+    $('#submit').html('Please Wait...');
+    $("#submit"). attr("disabled", true);
+    $.ajax({
+        url: "{{route('clients.store')}}",
+        type: "POST",
+        data: $('#ajax-client-form').serialize(),
+            success: function( response ) {
+                $('#submit').html('Save Client');
+                $("#submit"). attr("disabled", false);
+                document.getElementById("ajax-client-form").reset(); 
+                location.reload();
+            }
+   });
+});
+  
+</script>
+           
+
+
+
+
+
+
+
+
         <script type="text/javascript">
             // $(function () {
             //     $('#datepicker').datepicker();
             // });
 
             $(document).ready(function(){
-            var date_input=$('input[name="start"]'); 
-            var options={
-                format: 'yyyy-mm-dd',
-                todayHighlight: true,
-                autoclose: true,
-            };
-            date_input.datepicker(options);
+                var date_input=$('input[name="start_date"]'); 
+                var options={
+                    format: 'yyyy-mm-dd',
+                    todayHighlight: true,
+                    autoclose: true,
+                };
+                date_input.datepicker(options);
             })
+
+
+            var time_input=$('input[name="start_time"]'); 
+
+            var timeoptions={
+                timeFormat: 'H:i',
+                minTime: '6:00'
+                };
+            time_input.timepicker(timeoptions);
+
 
          </script>
     </x-app-layout>

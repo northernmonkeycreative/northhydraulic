@@ -11,6 +11,7 @@ class Engineercontrolsheet extends Model
     use HasFactory;
 
     protected $fillable = [
+        'job_id',
         'action_taken',
         'parts_used',
         'further_action',

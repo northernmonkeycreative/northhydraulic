@@ -38,6 +38,7 @@ Route::middleware(['auth', isAdmin::class])->group(function ()
  {
         // Main Dashboard
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/dashboard-workshop', [DashboardController::class, 'workshop'])->name('dashboard-workshop');
         Route::post('calendar-crud-ajax', [DashboardController::class, 'calendarEvents'])->name('calendarEvents');
         
 

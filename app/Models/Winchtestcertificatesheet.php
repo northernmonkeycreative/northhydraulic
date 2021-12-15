@@ -11,6 +11,7 @@ class Winchtestcertificatesheet extends Model
     use HasFactory;
 
     protected $fillable = [
+        'job_id',
         'exam_location',
         'date_last_exam',
         'cert_no',

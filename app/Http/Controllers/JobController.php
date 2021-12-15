@@ -59,26 +59,65 @@ class JobController extends Controller
     {
       
         // get client name from client_id
-        $client = Client::where('id', $request->customer_id)->firstOrFail();
-        $engineer = User::where('id', $request->engineer_id)->firstOrFail();
+        if($request->department == 'tradecounter') {
+            
+
+            $job = new Job([
+                'customer_id' => NULL,
+                'customer_name' => NULL,
+                'department' => $request->department,
+                'start' => $request->start_date .' '. $request->start_time.':00',
+                'start_time' => $request->start_time,
+                'start_date' => $request->start_date,
+                'site_address' => NULL,
+                'site_contact' => NULL,
+                'vehicle' => $request->vehicle,
+                'reg' => strtoupper($request->reg),
+                'purchase_order_number' => $request->purchase_order_number,
+                'details' => $request->details,
+                'internal_notes' => $request->internal_notes,
+                'engineer_id' => NULL,
+                'engineer_name' => NULL,
+                'title' => NULL,
+                'status' => 'ongoing',
+                'invoice_number' => $request->invoice_number,
+                'customer_address' => NULL,
+            ]);
+        } else {
+
+            $client = Client::where('id', $request->customer_id)->firstOrFail();
+            $engineer = User::where('id', $request->engineer_id)->firstOrFail();
+            $clientaddress = $client->site_address.' '.$client->postcode;
+
+            
+            $job = new Job([
+                'customer_id' => $request->customer_id,
+                'customer_name' => $client->company_name,
+                'department' => $request->department,
+                'start' => $request->start_date .' '. $request->start_time.':00',
+                'start_time' => $request->start_time,
+                'start_date' => $request->start_date,
+                'site_address' => $request->site_address,
+                'site_contact' => $request->site_contact,
+                'vehicle' => $request->vehicle,
+                'reg' => strtoupper($request->reg),
+                'purchase_order_number' => $request->purchase_order_number,
+                'details' => $request->details,
+                'internal_notes' => $request->internal_notes,
+                'engineer_id' => $request->engineer_id,
+                'engineer_name' => $engineer->name,
+                'title' => $engineer->name,
+                'status' => 'ongoing',
+                'invoice_number' => $request->invoice_number,
+                'customer_address' => $clientaddress,
+            ]);
+        }
+        
+
+        
 
 
-        $job = new Job([
-            'customer_id' => $request->customer_id,
-            'customer_name' => $client->company_name,
-            'department' => $request->department,
-            'start' => $request->start,
-            'vehicle' => $request->vehicle,
-            'reg' => strtoupper($request->reg),
-            'mileage' => $request->mileage,
-            'details' => $request->details,
-            'internal_notes' => $request->internal_notes,
-            'engineer_id' => $request->engineer_id,
-            'engineer_name' => $engineer->name,
-            'title' => $engineer->name,
-            'status' => 'ongoing',
-            'invoice_number' => $request->invoice_number,
-        ]);
+        
 
         $job->save();
 
@@ -103,7 +142,7 @@ class JobController extends Controller
     // Update Job
     public function update(Request $request, $job)
     {
-        // dd($request);
+
 
         $thejob = Job::where('id', $job)->firstOrFail();
         $theclient = Client::where('id', $request->customer_id)->firstOrFail();
@@ -113,10 +152,14 @@ class JobController extends Controller
         $thejob->customer_id = $request->customer_id;
         $thejob->customer_name = $theclient->company_name;
         $thejob->department = $request->department;
-        $thejob->start = $request->start;
+        $thejob->start_time = $request->start_time;
+        $thejob->start = $request->start_date .' '. $request->start_time.':00';
+        $thejob->start_date = $request->start_date;
+        $thejob->site_address = $request->site_address;
+        $thejob->site_contact = $request->site_contact;
         $thejob->vehicle = $request->vehicle;
         $thejob->reg = strtoupper($request->reg);
-        $thejob->mileage = $request->mileage;
+        $thejob->purchase_order_number = $request->purchase_order_number;
         $thejob->details = $request->details;
         $thejob->internal_notes = $request->internal_notes;
         $thejob->engineer_id = $request->engineer_id;
@@ -140,6 +183,9 @@ class JobController extends Controller
             $thejob->invoice_number = '';
         }
         // $thejob->invoice_number = $request->invoice_number;
+
+        
+
 
         $thejob->save();
         return back()->withSuccess('Job has been Updated');
@@ -167,7 +213,7 @@ class JobController extends Controller
             $thejob->status = 'invoice';
         }
         if($request->paid) {
-            $thejob->status = 'paid';
+            $thejob->status = 'Invoiced';
         }
         
         $thejob->save();
@@ -209,10 +255,10 @@ class JobController extends Controller
         // Build the CSV
         $filename = "Jobs.csv";
         $handle = fopen($filename, 'w+');
-        fputcsv($handle, array('Job Number', 'Customer Name', 'Department', 'Start Date', 'Vehicle', 'Reg', 'Mileage', 'Details', 'Engineer', 'Status'));
+        fputcsv($handle, array('Job Number', 'Customer Name', 'Department', 'Start Date', 'Vehicle', 'Reg', 'purchase_order_number', 'Details', 'Engineer', 'Status'));
 
         foreach($jobs as $row) {
-            fputcsv($handle, array($row['id'], $row['customer_name'], $row['department'], $row['start'], $row['vehicle'], $row['reg'], $row['mileage'], $row['details'], $row['engineer_name'], $row['status']));
+            fputcsv($handle, array($row['id'], $row['customer_name'], $row['department'], $row['start'], $row['vehicle'], $row['reg'], $row['purchase_order_number'], $row['details'], $row['engineer_name'], $row['status']));
         }
 
         fclose($handle);

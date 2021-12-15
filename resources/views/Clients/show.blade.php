@@ -37,33 +37,35 @@
                                     @forelse($jobs as $job)
                                         <li class="pr-4 py-3 flex items-center justify-between text-sm">
                                             <div class="w-0 flex-1 flex items-center">
-                                                <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                                </svg>
+                                        
                                                 <span class="ml-2 flex-1 w-0">
                                                     #{{$job->id}}
                                                 </span>
                                                 @if($job->status == 'ongoing')
-                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-200 text-yellow-900 uppercase">Job Ongoing</span>
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-200 text-yellow-900 uppercase">Ongoing</span>
                                                 @endif
                                                 @if($job->status == 'complete')
-                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 uppercase">Job Complete</span>
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 uppercase">Complete</span>
                                                 @endif
                                                 @if($job->status == 'furtheraction')
-                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-300 text-red-800 uppercase">Further Action</span>
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-300 text-red-800 uppercase">Action</span>
                                                 @endif
                                                 @if($job->status == 'invoice')
-                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-500 text-white uppercase">Invoice Job</span>
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-500 text-white uppercase">Job</span>
                                                 @endif
                                                 @if($job->status == 'paid')
-                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-900 text-white uppercase">PAID</span>
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-900 text-white uppercase">Invoiced</span>
                                                 @endif
-                                                </div>
-                                                <div class="ml-4 flex-shrink-0">
+                                            </div>
+                                            <div>
+                                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-500 text-white uppercase ml-2">{{$job->reg}}</span>
+                                            </div>
+                                            <div class="ml-4 flex-shrink-0">
                                                 <a href="{{ route('jobs.show', $job->id) }}" class="font-medium text-indigo-600 hover:text-indigo-500">
                                                     View Job
                                                 </a>
                                             </div>
+                                            
                                       </li>
                                       @empty
                                       No Jobs Added for this Client

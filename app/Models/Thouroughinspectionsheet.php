@@ -10,6 +10,7 @@ class Thouroughinspectionsheet extends Model
     use HasFactory;
 
     protected $fillable = [
+        'job_id',
         'date_last_inspection',
         'vehicle_type',
         'vehicle_reg',

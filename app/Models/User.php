@@ -58,4 +58,9 @@ class User extends Authenticatable
         return $this->email;
     }
 
+    public function jobs()
+    {
+        return $this->hasMany(Job::class, 'engineer_id');
+    }
+
 }

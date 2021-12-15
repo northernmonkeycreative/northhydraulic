@@ -22,16 +22,22 @@ class Job extends Model
         'customer_name',
         'department',
         'start',
+        'start_time',
+        'start_date',
+        'site_address',
+        'site_contact',
         'vehicle',
         'reg',
         'mileage',
+        'purchase_order_number',
         'details',
         'internal_notes',
         'engineer_id',
         'engineer_name',
         'status',
         'invoice_number',
-        'title'
+        'title',
+        'customer_address'
     ];
 
     /**

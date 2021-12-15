@@ -27,7 +27,10 @@ class DashboardController extends Controller
  
          $data = Job::whereDate('start', '>=', $start)
          ->whereDate('start', '<=', $end)
-         ->get(['id','title','start', 'status', 'customer_name']);
+         ->where('department', '!=', 'workshop')
+         ->get(['id','title','start','start_time','status', 'customer_name']);
+
+         
 
          return Response::json($data);
         
@@ -35,6 +38,36 @@ class DashboardController extends Controller
         }
         
         return view('dashboard', compact('jobs', 'ongoing', 'complete', 'furtheraction', 'invoice', 'unassinged'));
+    }
+
+    public function workshop(Request $request)
+    {
+
+        $jobs = Job::get()->all();
+        $ongoing = Job::where('status', 'ongoing')->get()->all();
+        $complete = Job::where('status', 'complete')->get()->all();
+        $furtheraction = Job::where('status', 'furtheraction')->get()->all();
+        $invoice = Job::where('status', 'invoice')->get()->all();
+        $unassinged = Job::where('status', 'unassinged')->get()->all();
+
+        
+        if($request->ajax()) {  
+            $start = (!empty($_GET["start"])) ? ($_GET["start"]) : ('');
+            $end = (!empty($_GET["end"])) ? ($_GET["end"]) : ('');
+ 
+         $data = Job::whereDate('start', '>=', $start)
+         ->whereDate('start', '<=', $end)
+         ->where('department', 'workshop')
+         ->get(['id','title','start','start_time','status', 'customer_name']);
+
+         
+
+         return Response::json($data);
+        
+     
+        }
+        
+        return view('dashboard-workshop', compact('jobs', 'ongoing', 'complete', 'furtheraction', 'invoice', 'unassinged'));
     }
  
     public function calendarEvents(Request $request)
@@ -55,6 +88,8 @@ class DashboardController extends Controller
               $event = Job::find($request->id)->update([
                   'event_name' => $request->engineer_name,
                   'start' => $request->start,
+                  'start_time' => $request->start_time,
+                  'start_date' => $request->start_date,
                   'event_end' => $request->start,
               ]);
  

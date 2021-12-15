@@ -47,7 +47,7 @@
                                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-500 border border-gray-50 text-gray-500 uppercase">Status: Un-Assigned</span>
                                             @endif
                                             @if($thejob->status == 'paid')
-                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-500 border border-gray-50 text-gray-500 uppercase">Status: PAID</span>
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-500 border border-gray-50 text-gray-500 uppercase">Status: Invoiced</span>
                                             @endif
                                         </p>
                                 </span>
@@ -85,7 +85,7 @@
                                             </x-dropdown-link>
 
                                             <x-dropdown-link onclick="document.getElementById('paid-entity-{{ $thejob->id }}').submit();return false;">
-                                                {{ __('Paid') }}
+                                                {{ __('Invoiced') }}
                                             </x-dropdown-link>
                                             
                                         </x-slot>
@@ -172,11 +172,42 @@
                                       </dt>
                                       <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                          {{-- {{date('d-m-Y', strtotime($thejob->start))}} --}}
-                                        <span class="mt-1 font-bold text-gray-900 sm:mt-0 sm:col-span-2">{{date('d-m-Y', strtotime($thejob->start))}}</span> 
-                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-200 text-green-800">{{ \Carbon\Carbon::parse($thejob->start)->diffForHumans() }}</span>
+                                        <span class="mt-1 font-bold text-gray-900 sm:mt-0 sm:col-span-2">{{date('d-m-Y', strtotime($thejob->start_date))}}</span> 
+                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-200 text-green-800">{{ \Carbon\Carbon::parse($thejob->start_date)->diffForHumans() }}</span>
                                       </dd>
                                     </div>
+
                                     <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium text-gray-500">
+                                          Job Start Time
+                                        </dt>
+                                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                           {{-- {{date('d-m-Y', strtotime($thejob->start))}} --}}
+                                          <span class="mt-1 font-bold text-gray-900 sm:mt-0 sm:col-span-2">{{$thejob->start_time}}</span> 
+                                        </dd>
+                                      </div>
+
+                                    <div class="bg-gray-50 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium text-gray-500">
+                                            Site Address
+                                        </dt>
+                                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                                {{$thejob->site_address}}
+                                        </dd>
+                                    </div>
+
+
+                                    <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <dt class="text-sm font-medium text-gray-500">
+                                            Site Contact
+                                        </dt>
+                                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                                {{$thejob->site_contact}}
+                                        </dd>
+                                    </div>
+
+
+                                    <div class="bg-gray-50 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                       <dt class="text-sm font-medium text-gray-500">
                                         Vehicle
                                       </dt>
@@ -184,7 +215,7 @@
                                             {{$thejob->vehicle}}
                                       </dd>
                                     </div>
-                                    <div class="bg-gray-50 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                    <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium text-gray-500">
                                             Vehicle Registration
                                         </dt>
@@ -192,16 +223,16 @@
                                                 {{$thejob->reg}}
                                         </dd>
                                     </div>
-                                    <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                    <div class="bg-gray-50 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                         <dt class="text-sm font-medium text-gray-500">
-                                            Vehicle Mileage
+                                            Purchase Order Nuber
                                         </dt>
                                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                                {{$thejob->mileage}} Miles
+                                                {{$thejob->purchase_order_number}}
                                         </dd>
                                     </div>
                                     
-                                    <div class="bg-gray-50 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                    <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                       <dt class="text-sm font-medium text-gray-500">
                                         Details
                                       </dt>
@@ -210,7 +241,7 @@
                                       </dd>
                                     </div>
 
-                                    <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                    <div class="bg-gray-50 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                             <dt class="text-sm font-medium text-gray-500">
                                                 Internal Notes
                                             </dt>
@@ -220,7 +251,7 @@
                                         </div>
 
                                         @if($thejob->status == 'invoice' || $thejob->status == 'paid')
-                                        <div class="bg-gray-50 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                        <div class="bg-white px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                             <dt class="text-sm font-medium text-gray-500">
                                                 Invoice Number
                                             </dt>

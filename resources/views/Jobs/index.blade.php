@@ -43,10 +43,10 @@
                                 <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                   </svg>
-                            Paid
+                            Invoiced
                         </a>
                     </div>
-
+                    
                 <div class="flex flex-col bg-white">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -58,11 +58,14 @@
                                         <tr>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Job Number</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Vehicle Reg</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Department</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Start Date</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Engineer</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                            @if (request()->is('jobs/paid'))
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Invoice Number</th>
+                                            @endif
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                                         </tr>
                                     </thead>
@@ -70,11 +73,14 @@
                                         <tr>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Job Number</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Vehicle Reg</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Department</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Start Date</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Engineer</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                            @if (request()->is('jobs/paid'))
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Invoice Number</th>
+                                            @endif
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                                         </tr>
                                     </tfoot>
@@ -83,8 +89,9 @@
                                         <tr class="py-4">
                                             <td class="py-4 py-4 font-bold">{{$job->id}}</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$job->customer_name }}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><strong>{{$job->reg }}</strong></td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$job->department }}</td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{date('d-m-Y', strtotime($job->start))}}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{date('d-m-Y', strtotime($job->start))}} @if($job->start_time)(<strong><small>{{$job->start_time}}</small></strong>)@endif</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$job->engineer_name}}</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                 @if($job->status == 'ongoing')
@@ -103,10 +110,12 @@
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-500 text-gray-500 uppercase border border-gray-300">Un-Assigned Job</span>
                                                 @endif
                                                 @if($job->status == 'paid')
-                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-500 text-gray-500 uppercase border border-gray-300">Paid</span>
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-500 text-gray-500 uppercase border border-gray-300">Invoiced</span>
                                                 @endif
                                             </td>
+                                            @if (request()->is('jobs/paid'))
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$job->invoice_number}}</td>
+                                            @endif
                                             <td class="py-4">
                                                 <a href="{{ route('jobs.show', $job->id) }}"  class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                                     <svg class="-ml-1 mr-2 h-5 w-5 text-gray-500"xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

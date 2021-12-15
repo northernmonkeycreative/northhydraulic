@@ -28,7 +28,7 @@ class ClientController extends Controller
             'company_name' => 'required',
             'contact_name' => 'required',
             'contact_number' => 'required',
-            'contact_email' => 'required|email',
+            'contact_email' => 'email',
             'site_name' => 'required',
             'site_address' => 'required',
             'postcode' => 'required',
