@@ -51,7 +51,7 @@
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-300 text-red-800 uppercase">Action</span>
                                                 @endif
                                                 @if($job->status == 'invoice')
-                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-500 text-white uppercase">Job</span>
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-500 text-white uppercase">Invoice</span>
                                                 @endif
                                                 @if($job->status == 'Invoiced')
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-900 text-white uppercase">Invoiced</span>
