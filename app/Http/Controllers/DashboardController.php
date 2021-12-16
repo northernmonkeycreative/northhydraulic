@@ -19,7 +19,7 @@ class DashboardController extends Controller
         $furtheraction = Job::where('status', 'furtheraction')->get()->all();
         $invoice = Job::where('status', 'invoice')->get()->all();
         $unassinged = Job::where('status', 'unassinged')->get()->all();
-
+        $Invoiced = Job::where('status', 'Invoiced')->get()->all();
         
         if($request->ajax()) {  
             $start = (!empty($_GET["start"])) ? ($_GET["start"]) : ('');
@@ -49,6 +49,7 @@ class DashboardController extends Controller
         $furtheraction = Job::where('status', 'furtheraction')->get()->all();
         $invoice = Job::where('status', 'invoice')->get()->all();
         $unassinged = Job::where('status', 'unassinged')->get()->all();
+        $Invoiced = Job::where('status', 'Invoiced')->get()->all();
 
         
         if($request->ajax()) {  
