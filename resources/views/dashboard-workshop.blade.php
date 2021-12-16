@@ -126,7 +126,7 @@
                             element.css('padding', '0px 5px');
                             element.css('cursor', 'pointer');
                             element.css('box-shadow', '0px 0px 4px 1px #A0A0A0');
-                            element.text('Job: ' + event.id + ' - ' + event.title);
+                            element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
                             
                         } 
                         if (event.status == 'furtheraction') {
@@ -137,7 +137,7 @@
                             element.css('padding', '0px 5px');
                             element.css('cursor', 'pointer');
                             element.css('box-shadow', '0px 0px 4px 1px #A0A0A0');
-                            element.text('Job: ' + event.id + ' - ' + event.title);
+                            element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
                         } 
                         if (event.status == 'invoice') {
                             // event.color = "#FFB347"; //Em andamento
@@ -147,7 +147,7 @@
                             element.css('padding', '0px 5px');
                             element.css('cursor', 'pointer');
                             element.css('box-shadow', '0px 0px 4px 1px #A0A0A0');
-                            element.text('Job: ' + event.id + ' - ' + event.title);
+                            element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
                         } 
                         if (event.status == 'unassinged') {
                             // event.color = "#FFB347"; //Em andamento
@@ -157,7 +157,7 @@
                             element.css('padding', '0px 5px');
                             element.css('cursor', 'pointer');
                             element.css('box-shadow', '0px 0px 4px 1px #A0A0A0');
-                            element.text('Job: ' + event.id + ' - ' + event.title);
+                            element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
                         } 
 
                         if (event.status == 'paid') {
@@ -168,7 +168,7 @@
                             element.css('padding', '0px 5px');
                             element.css('cursor', 'pointer');
                             element.css('box-shadow', '0px 0px 4px 1px #A0A0A0');
-                            element.text('Job: ' + event.id + ' - ' + event.title);
+                            element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
                         } 
                     },
                     eventDrop: function (event, delta) {
