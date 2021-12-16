@@ -53,7 +53,7 @@
                                                 @if($job->status == 'invoice')
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-500 text-white uppercase">Job</span>
                                                 @endif
-                                                @if($job->status == 'paid')
+                                                @if($job->status == 'Invoiced')
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-900 text-white uppercase">Invoiced</span>
                                                 @endif
                                             </div>
