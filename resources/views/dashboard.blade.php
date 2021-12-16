@@ -174,7 +174,7 @@
                             element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
                         } 
 
-                        if (event.status == 'paid') {
+                        if (event.status == 'invoiced') {
                             // event.color = "#FFB347"; //Em andamento
                             element.css('background-color', 'rgba(0, 0, 0, var(--tw-bg-opacity))');
                             element.css('border-color', 'rgba(0, 0, 0, var(--tw-bg-opacity))');
