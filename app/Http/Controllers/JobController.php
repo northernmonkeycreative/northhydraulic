@@ -24,7 +24,6 @@ class JobController extends Controller
     public function getpaidJobs()
     {
         $jobs = Job::where('status', 'Invoiced')->get();
-        dd($jobs);
         return view('jobs.index', compact('jobs'));
     }
 
