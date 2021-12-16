@@ -109,7 +109,7 @@
                                                 @if($job->status == 'unassinged')
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-500 text-gray-500 uppercase border border-gray-300">Un-Assigned Job</span>
                                                 @endif
-                                                @if($job->status == 'paid')
+                                                @if($job->status == 'invoiced')
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-500 text-gray-500 uppercase border border-gray-300">Invoiced</span>
                                                 @endif
                                             </td>
