@@ -17,7 +17,7 @@ class JobController extends Controller
     // Show Jobs Screen
     public function index()
     {
-        $jobs = Job::where('status', '!=', 'paid')->get();
+        $jobs = Job::where('status', '!=', 'Invoiced')->get();
         return view('jobs.index', compact('jobs'));
     }
 
@@ -177,7 +177,7 @@ class JobController extends Controller
         if($request->invoice_number != ''){
             // if so, add the invoice number and update status to paid automatically
             $thejob->invoice_number = $request->invoice_number;
-            $thejob->status = 'paid';
+            $thejob->status = 'Invoiced';
         } else {
             // else leave the invoice number empty
             $thejob->invoice_number = '';
