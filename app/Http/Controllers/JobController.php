@@ -62,6 +62,12 @@ class JobController extends Controller
         if($request->department == 'tradecounter') {
             $client = Client::where('id', $request->customer_id)->first();
             $engineer = User::where('id', $request->engineer_id)->first();
+
+            $validated = $request->validate([
+                'customer_id' => 'required',
+                'department' => 'required',
+                'engineer_id' => 'required',
+            ]);
             
 
             $job = new Job([
@@ -90,6 +96,12 @@ class JobController extends Controller
             $client = Client::where('id', $request->customer_id)->first();
             $engineer = User::where('id', $request->engineer_id)->first();
             $clientaddress = $client->site_address.' '.$client->postcode;
+
+            $validated = $request->validate([
+                'customer_id' => 'required',
+                'department' => 'required',
+                'engineer_id' => 'required',
+            ]);
 
             
             $job = new Job([
