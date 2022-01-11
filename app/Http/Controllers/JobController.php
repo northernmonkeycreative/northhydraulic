@@ -162,6 +162,12 @@ class JobController extends Controller
         $theclient = Client::where('id', $request->customer_id)->first();
         $engineer = User::where('id', $request->engineer_id)->first();
 
+        $validated = $request->validate([
+            'customer_id' => 'required',
+            'department' => 'required',
+            'engineer_id' => 'required',
+        ]);
+
 
         $thejob->customer_id = $request->customer_id;
         $thejob->customer_name = $theclient->company_name;
