@@ -18,10 +18,10 @@ class CreateClientsTable extends Migration
             $table->string('company_name'); 
             $table->string('contact_name'); 
             $table->string('contact_number'); 
-            $table->string('contact_email'); 
-            $table->string('site_name'); 
-            $table->longText('site_address');
-            $table->string('postcode'); 
+            $table->string('contact_email')->nullable(); 
+            $table->string('site_name')->nullable(); 
+            $table->longText('site_address')->nullable();
+            $table->string('postcode')->nullable(); 
             $table->longText('company_notes')->nullable();
             $table->timestamps();
         });
