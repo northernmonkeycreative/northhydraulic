@@ -60,11 +60,13 @@ class JobController extends Controller
       
         // get client name from client_id
         if($request->department == 'tradecounter') {
+            $client = Client::where('id', $request->customer_id)->first();
+            $engineer = User::where('id', $request->engineer_id)->first();
             
 
             $job = new Job([
-                'customer_id' => NULL,
-                'customer_name' => NULL,
+                'customer_id' => $request->customer_id,
+                'customer_name' => $client->company_name,
                 'department' => $request->department,
                 'start' => $request->start_date .' '. $request->start_time.':00',
                 'start_time' => $request->start_time,
@@ -76,8 +78,8 @@ class JobController extends Controller
                 'purchase_order_number' => $request->purchase_order_number,
                 'details' => $request->details,
                 'internal_notes' => $request->internal_notes,
-                'engineer_id' => NULL,
-                'engineer_name' => NULL,
+                'engineer_id' => $request->engineer_id,
+                'engineer_name' => $engineer->name,
                 'title' => NULL,
                 'status' => 'ongoing',
                 'invoice_number' => $request->invoice_number,
