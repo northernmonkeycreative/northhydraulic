@@ -144,9 +144,9 @@ class JobController extends Controller
     {
 
 
-        $thejob = Job::where('id', $job)->firstOrFail();
-        $theclient = Client::where('id', $request->customer_id)->firstOrFail();
-        $engineer = User::where('id', $request->engineer_id)->firstOrFail();
+        $thejob = Job::where('id', $job)->first();
+        $theclient = Client::where('id', $request->customer_id)->first();
+        $engineer = User::where('id', $request->engineer_id)->first();
 
 
         $thejob->customer_id = $request->customer_id;

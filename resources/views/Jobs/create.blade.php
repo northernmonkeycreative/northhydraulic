@@ -42,7 +42,7 @@
                                                 <div class="col-span-6 sm:col-span-6">
                                                     <label for="customer_id" class="block text-sm font-medium text-gray-700">Choose Client</label>
                                                     @if ($errors->has('customer_id'))<span class="text-red-700">{{ $errors->first('customer_id') }}</span>@endif
-                                                    <select name="customer_id" id="customer_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                                    <select name="customer_id" id="customer_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
                                                             <option value="">Please Choose The Client</option>
                                                         @foreach($clients as $client)
                                                             <option value="{{$client->id}}">{{$client->company_name}}</option>
@@ -67,7 +67,7 @@
                                                 <div class="col-span-6 sm:col-span-6">
                                                         <label for="engineer_id" class="block text-sm font-medium text-gray-700">Choose Engineer</label>
                                                         @if ($errors->has('engineer_id'))<span class="text-red-700">{{ $errors->first('engineer_id') }}</span>@endif
-                                                        <select name="engineer_id" id="engineer_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                                        <select name="engineer_id" id="engineer_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
                                                                 <option value="">Please Choose The Engineer</option>
                                                             @foreach($engineers as $engineer)
                                                                 <option value="{{$engineer->id}}">{{$engineer->name}}</option>
@@ -78,7 +78,7 @@
                                                 <div class="col-span-6 sm:col-span-6 date" id="datepicker">
                                                 <label for="start_date" class="block text-sm font-medium text-gray-700">Job Start Date</label>
                                                 @if ($errors->has('start_date'))<span class="text-red-700">{{ $errors->first('start_date') }}</span>@endif
-                                                <input type="text" name="start_date" id="start_date" autocomplete="start_date" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('start_date') }}">
+                                                <input type="text" name="start_date" id="start_date" autocomplete="start_date" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('start_date') }}" required>
                                                 </div>
 
                                                 <div class="col-span-6 sm:col-span-6 date" id="timepicker">

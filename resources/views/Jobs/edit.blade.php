@@ -53,7 +53,7 @@
                                                 <div class="col-span-6 sm:col-span-6">
                                                     <label for="customer_id" class="block text-sm font-medium text-gray-700">Choose Client</label>
                                                     @if ($errors->has('customer_id'))<span class="text-red-700">{{ $errors->first('customer_id') }}</span>@endif
-                                                    <select name="customer_id" id="customer_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                                    <select name="customer_id" id="customer_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
                                                             <option value="">Please Choose The Client</option>
                                                         @foreach($clients as $client)
                                                             <option value="{{$client->id}}" @if (old('customer_id', $client->id) == $thejob->customer_id) {{ 'selected' }} @endif>{{$client->company_name}}</option>
@@ -75,7 +75,7 @@
                                                 <div class="col-span-6 sm:col-span-6">
                                                         <label for="engineer_id" class="block text-sm font-medium text-gray-700">Choose Engineer</label>
                                                         @if ($errors->has('engineer_id'))<span class="text-red-700">{{ $errors->first('engineer_id') }}</span>@endif
-                                                        <select name="engineer_id" id="engineer_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                                        <select name="engineer_id" id="engineer_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
                                                                 <option value="">Please Choose The Engineer</option>
                                                             @foreach($engineers as $engineer)
                                                                 <option value="{{$engineer->id}}" @if (old('engineer_id', $thejob->engineer_id) == $engineer->id) {{ 'selected' }} @endif>{{$engineer->name}}</option>
