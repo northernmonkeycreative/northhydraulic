@@ -53,7 +53,7 @@
                         <span class="px-2 mt-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-300 text-red-800 uppercase"><span class="font-bold pr-2">{{count($furtheraction)}}</span> Further Action</span>
                         <span class="px-2 mt-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-500 text-white uppercase"><span class="font-bold pr-2">{{count($invoice)}}</span> Invoice</span>
                         <span class="px-2 mt-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-500 text-gray-500 uppercase border border-gray-300"><span class="font-bold pr-2">{{count($unassinged)}}</span> UnAssigned</span>
-                        <span class="px-2 mt-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-900 text-white uppercase border border-gray-300"><span class="font-bold pr-2">{{count($unassinged)}}</span> Invoiced</span>
+                        <span class="px-2 mt-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-900 text-white uppercase border border-gray-300"><span class="font-bold pr-2">{{count($Invoiced)}}</span> Invoiced</span>
                     </div>
                     <a href="{{ route('jobs') }}" class="px-4 py-2 border border-gray-300 rounded-md text-gray-700" >
                         Total Jobs {{count($jobs)}}
