@@ -87,8 +87,8 @@ class JobController extends Controller
             ]);
         } else {
 
-            $client = Client::where('id', $request->customer_id)->firstOrFail();
-            $engineer = User::where('id', $request->engineer_id)->firstOrFail();
+            $client = Client::where('id', $request->customer_id)->first();
+            $engineer = User::where('id', $request->engineer_id)->first();
             $clientaddress = $client->site_address.' '.$client->postcode;
 
             
