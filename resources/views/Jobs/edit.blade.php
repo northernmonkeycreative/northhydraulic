@@ -144,7 +144,7 @@
                                                     <label for="invoice_number" class="block text-sm font-medium text-gray-700">Invoice Number</label>
                                                     @if ($errors->has('invoice_number'))<span class="text-red-700">{{ $errors->first('invoice_number') }}</span>@endif
                                                     <input type="text" name="invoice_number" id="invoice_number" autocomplete="invoice_number" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('invoice_number', $thejob->invoice_number) }}">
-                                                    <small><strong>Please note, when Invoice number gets added, job status will update to Invoiced automatically</strong></small>
+                                                    <small><strong>Please note: when Invoice number gets added, job status will update to Invoiced automatically</strong></small>
                                                 </div>
                                                 @endif
 
