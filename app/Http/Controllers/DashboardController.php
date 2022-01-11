@@ -37,7 +37,7 @@ class DashboardController extends Controller
      
         }
         
-        return view('dashboard', compact('jobs', 'ongoing', 'complete', 'furtheraction', 'invoice', 'unassinged'));
+        return view('dashboard', compact('jobs', 'ongoing', 'complete', 'furtheraction', 'invoice', 'unassinged', 'Invoiced'));
     }
 
     public function workshop(Request $request)
@@ -68,7 +68,7 @@ class DashboardController extends Controller
      
         }
         
-        return view('dashboard-workshop', compact('jobs', 'ongoing', 'complete', 'furtheraction', 'invoice', 'unassinged'));
+        return view('dashboard-workshop', compact('jobs', 'ongoing', 'complete', 'furtheraction', 'invoice', 'unassinged', 'Invoiced'));
     }
  
     public function calendarEvents(Request $request)
