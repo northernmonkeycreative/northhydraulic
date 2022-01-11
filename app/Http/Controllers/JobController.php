@@ -67,6 +67,7 @@ class JobController extends Controller
                 'customer_id' => 'required',
                 'department' => 'required',
                 'engineer_id' => 'required',
+                'start_date' => 'required',
             ]);
             
 
@@ -101,6 +102,7 @@ class JobController extends Controller
                 'customer_id' => 'required',
                 'department' => 'required',
                 'engineer_id' => 'required',
+                'start_date' => 'required',
             ]);
 
             
@@ -166,6 +168,7 @@ class JobController extends Controller
             'customer_id' => 'required',
             'department' => 'required',
             'engineer_id' => 'required',
+            'start_date' => 'required',
         ]);
 
 
