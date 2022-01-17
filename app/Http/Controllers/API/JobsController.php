@@ -46,7 +46,7 @@ class JobsController extends Controller
         $jobs = Job::where('engineer_id', $engineer->id)
             ->where('department', 'mobileengineer')
             ->where('status', '!=', 'paid')
-            ->where('status', '!=', 'invoice')
+            ->where('status', '!=', 'Invoiced')
             ->where('status', '!=', 'complete')
             ->where('status', '!=', 'furtheraction')
             ->orderby('start_date', 'asc')->get();
@@ -65,7 +65,7 @@ class JobsController extends Controller
         $jobs = Job::where('engineer_id', $engineer->id)
             ->where('department', 'mobileengineer')
             ->where('status', '!=', 'paid')
-            ->where('status', '!=', 'invoice')
+            ->where('status', '!=', 'Invoiced')
             ->where('status', '!=', 'complete')
             ->where('status', '!=', 'ongoing')
             ->orderby('start_date', 'asc')->get();
@@ -84,7 +84,7 @@ class JobsController extends Controller
         $jobs = Job::where('engineer_id', $engineer->id)
             ->where('department', 'mobileengineer')
             ->where('status', '!=', 'paid')
-            ->where('status', '!=', 'invoice')
+            ->where('status', '!=', 'Invoiced')
             ->where('status', '!=', 'ongoing')
             ->where('status', '!=', 'furtheraction')
             ->orderby('start_date', 'asc')->get();
