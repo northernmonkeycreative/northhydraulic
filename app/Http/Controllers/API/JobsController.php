@@ -30,7 +30,7 @@ class JobsController extends Controller
             ->where('department', 'mobileengineer')
             ->where('status', '!=', 'paid')
             ->where('status', '!=', 'invoice')
-            ->orderby('start_date', 'desc')->get();
+            ->orderby('start_date', 'asc')->get();
         if ($jobs->count()) {
             return Response::json($jobs);
             // return response()->json(['jobs' => $jobs], 200);
