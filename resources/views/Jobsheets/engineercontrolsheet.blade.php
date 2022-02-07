@@ -160,7 +160,7 @@
                                             Customer Signatures
                                         </dt>
                                         <img id="" src="{{$customersignature}}" width="auto">
-                                       
+                                        <img src="data:image/png;base64, {{ $customersignature }}" alt="Customer Signature" />
                                         
 
                                         

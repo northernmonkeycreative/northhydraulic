@@ -24,7 +24,7 @@ class EngineercontrolsheetController extends Controller
         $image = str_replace('data:image/png;base64,', '', $thejobsheet->customer_signature);
         $image = str_replace(' ', '+', $image);
         $imageName = Str::random(10) . '.png';
-        $customersignature = Storage::disk('local')->put($imageName, base64_decode($image));
+        $customersignature = $thejobsheet->customer_signature;
 
         // Get the job this job sheet belongs to - to grab other details
         $thejob = Job::where('id', $thejobsheet->job_id)->firstOrFail();
