@@ -159,7 +159,7 @@
                                         <dt class="text-sm font-medium text-gray-500">
                                             Customer Signatures
                                         </dt>
-                                        <img id="" src="{{$customersignature}}" width="auto">
+                                        <img id="" src="{{ base64_decode($thejobsheet->customer_signature) }}" width="auto">
                                     </div>
 
                                     <div class=" px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
