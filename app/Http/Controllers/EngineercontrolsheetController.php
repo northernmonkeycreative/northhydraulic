@@ -17,13 +17,17 @@ class EngineercontrolsheetController extends Controller
         // Get The Selected Job Sheet
         $thejobsheet = Engineercontrolsheet::where('id', $jobsheet)->firstOrFail();
 
+
+        $imageStr = $thejobsheet->customer_signature; 
+        $customersignature = base64_decode(str_replace('data:image/png;base64,', '', $imageStr));
+
         // Get the job this job sheet belongs to - to grab other details
         $thejob = Job::where('id', $thejobsheet->job_id)->firstOrFail();
 
         // Get the job this job sheet belongs to - to grab other details
         $theclient = Client::where('id', $thejob->customer_id)->firstOrFail();
 
-        return view('jobsheets.engineercontrolsheet', compact('thejobsheet', 'thejob', 'theclient'));
+        return view('jobsheets.engineercontrolsheet', compact('thejobsheet', 'thejob', 'theclient', 'customersignature'));
     }
 
     // Show Edit Job Sheet Screen

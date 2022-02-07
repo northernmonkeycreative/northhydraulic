@@ -160,7 +160,8 @@
                                             Customer Signature
                                         </dt>
                                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                            {{$thejobsheet->customer_signature}}
+                                            {{-- {{$thejobsheet->customer_signature}} --}}
+                                            <img id="headerImage" src="{{$customersignature}}" width="60">
                                         </dd>
                                     </div>
 
