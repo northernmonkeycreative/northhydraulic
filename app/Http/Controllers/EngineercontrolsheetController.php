@@ -7,6 +7,8 @@ use App\Models\Engineercontrolsheet;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use PDF;
+use Illuminate\Support\Str;
+
 
 class EngineercontrolsheetController extends Controller
 {
@@ -21,7 +23,7 @@ class EngineercontrolsheetController extends Controller
         // store signature and get url
         $image = str_replace('data:image/png;base64,', '', $thejobsheet->customer_signature);
         $image = str_replace(' ', '+', $image);
-        $imageName = str_random(10) . '.png';
+        $imageName = Str::random(10) . '.png';
         $customersignature = Storage::disk('local')->put($imageName, base64_decode($image));
 
         // Get the job this job sheet belongs to - to grab other details
