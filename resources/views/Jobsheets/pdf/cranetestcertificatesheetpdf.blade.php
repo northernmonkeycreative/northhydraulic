@@ -306,7 +306,7 @@ th {
 
             <tr>
                 <td colspan="3"><span class="formtitle">Examination Date:</span><br> {{$date_tested}}</td>
-                <td colspan="3"><span class="formtitle">Engineer Signature:</span><br> {{$engineer_signature}}</td>
+                <td colspan="3"><span class="formtitle">Engineer Signature:</span><br> <img id="" src="{{$engineer_signature}}" width="auto"></td>
             </tr>
             
         </tbody>
