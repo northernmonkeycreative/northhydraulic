@@ -159,8 +159,11 @@
                                         <dt class="text-sm font-medium text-gray-500">
                                             Customer Signatures
                                         </dt>
-                                        <img id="" src="{{$customersignature}}" width="auto">
-                                        <img src="data:image/png;base64, {{ $customersignature }}" alt="Customer Signature" />
+                                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                            <img id="" src="{{$customersignature}}" width="auto">
+                                        </dd>
+                                        
+                                        
                                         
 
                                         

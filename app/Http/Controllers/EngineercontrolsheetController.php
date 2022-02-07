@@ -7,8 +7,7 @@ use App\Models\Engineercontrolsheet;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use PDF;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
+
 
 class EngineercontrolsheetController extends Controller
 {
@@ -20,10 +19,7 @@ class EngineercontrolsheetController extends Controller
         $thejobsheet = Engineercontrolsheet::where('id', $jobsheet)->firstOrFail();
 
 
-        // store signature and get url
-        $image = str_replace('data:image/png;base64,', '', $thejobsheet->customer_signature);
-        $image = str_replace(' ', '+', $image);
-        $imageName = Str::random(10) . '.png';
+        // get customer signature to embed
         $customersignature = $thejobsheet->customer_signature;
 
         // Get the job this job sheet belongs to - to grab other details
