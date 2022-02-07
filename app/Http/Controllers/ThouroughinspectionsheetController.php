@@ -24,7 +24,13 @@ class ThouroughinspectionsheetController extends Controller
         // Get the job this job sheet belongs to - to grab other details
         $theclient = Client::where('id', $thejob->customer_id)->firstOrFail();
 
-        return view('jobsheets.thouroughinspectionsheet', compact('thejobsheet', 'thejob', 'theclient'));
+         // get engineer signature to embed
+         $engineersignature = $thejobsheet->engineer_signature;
+
+          // get customer signature to embed
+          $customersignature = $thejobsheet->customer_signature;
+
+        return view('jobsheets.thouroughinspectionsheet', compact('thejobsheet', 'thejob', 'theclient', 'engineersignature', 'customersignature'));
     }
 
     // Show Edit Job Sheet Screen

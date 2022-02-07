@@ -1043,7 +1043,7 @@
                                         Engineer Signature
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                            {{$thejobsheet->engineer_signature}}
+                                        <img id="" src="{{$engineersignature}}" width="auto">
                                     </dd>
                                 </div>
                                 <div class="bg-gray-50 px-4 py-3 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -1051,7 +1051,7 @@
                                         Customer Signature
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                            {{$thejobsheet->customer_signature}}
+                                        <img id="" src="{{$customersignature}}" width="auto">
                                     </dd>
                                 </div>
     
