@@ -182,7 +182,7 @@ th {
                 <td colspan="3"><p style="font-size:20px;">FOR AND BEHALF OF NORTH HYDRAULIC SERVICES LTD </p></td>
             </tr>
             <tr>
-                <td colspan="2"><span class="formtitle">Signature of Engineer:</span><img id="" src="{{$engineer_signature}}" width="auto"></td>
+                <td colspan="2"><span class="formtitle">Signature of Engineer:</span><img id="" src="{{$engineer_signature}}" width="200" height="100"></td>
                 <td colspan="1"><span class="formtitle">Engineer Name:</span> {{$engineer_name}}</td>
             </tr>
             <tr>
