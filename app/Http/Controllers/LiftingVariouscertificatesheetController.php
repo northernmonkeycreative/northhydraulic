@@ -24,7 +24,10 @@ class LiftingVariouscertificatesheetController extends Controller
         // Get the job this job sheet belongs to - to grab other details
         $theclient = Client::where('id', $thejob->customer_id)->firstOrFail();
 
-        return view('jobsheets.liftvarioustestcertificatesheet', compact('thejobsheet', 'thejob', 'theclient'));
+         // get signature to embed
+         $signature = $thejobsheet->engineer_signature;
+
+        return view('jobsheets.liftvarioustestcertificatesheet', compact('thejobsheet', 'thejob', 'theclient', 'signature'));
     }
 
     // Show Edit Job Sheet Screen

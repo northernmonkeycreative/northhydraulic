@@ -216,7 +216,8 @@
                                         Engineer Signed
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        {{$thejobsheet->engineer_signature}}
+                                        {{-- {{$thejobsheet->engineer_signature}} --}}
+                                        <img id="" src="{{$signature}}" width="auto">
                                     </dd>
                                 </div>
 
