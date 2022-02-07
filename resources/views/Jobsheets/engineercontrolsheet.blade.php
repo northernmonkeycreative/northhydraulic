@@ -159,8 +159,8 @@
                                         <dt class="text-sm font-medium text-gray-500">
                                             Customer Signatures
                                         </dt>
-                                        <img id="" src="{{ base64_decode($thejobsheet->customer_signature) }}" width="auto">
-                                        <img id="" src="{{ base64_decode(str_replace('data:image/png;base64,', '', $thejobsheet->customer_signature)) }}" width="auto">
+                                        <img id="" src="{{$customersignature}}" width="auto">
+                                       
                                         
 
                                         
