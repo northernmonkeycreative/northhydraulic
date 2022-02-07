@@ -163,7 +163,7 @@ th {
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><span class="formtitle">Signature:</span> <img id="" src="{{$signature}}" width="auto"></td>
+                <td colspan="2"><span class="formtitle">Signature:</span> <img id="" src="{{$signature}}" width="200" height="100"></td>
                 <td colspan="1"><span class="formtitle">Date Tested:</span><br> {{$date_tested}}</td>
                 <td colspan="1"><span class="formtitle">Date Next Due:</span><br> {{$date_next_due}}</td>
             </tr>

@@ -512,8 +512,8 @@ th {
                 <td colspan="6"><span class="formtitle">Additional Comments/Advisory:</span> {{$additional_info}}</td>
             </tr>
             <tr>
-                <td colspan="3"><span class="formtitle">Customer Signature:</span> <img id="" src="{{$customer_signature}}" width="auto"></td>
-                <td colspan="3"><span class="formtitle">Engineer Signature:</span><img id="" src="{{$engineer_signature}}" width="auto"></td>
+                <td colspan="3"><span class="formtitle">Customer Signature:</span> <img id="" src="{{$customer_signature}}" width="200" height="100"></td>
+                <td colspan="3"><span class="formtitle">Engineer Signature:</span><img id="" src="{{$engineer_signature}}" width="200" height="100"></td>
             </tr>
         </tbody>
         <tfoot style="background:#3377FF;color:white;" class="text-center">

@@ -143,7 +143,7 @@ th {
                 <td colspan="3"><span class="formtitle">Further Action:</span> {{$furtheraction}}</td>
             </tr>
             <tr>
-                <td colspan="2"><span class="formtitle">Customer Signature:</span> <img id="" src="{{$customersignature}}" width="auto"></td>
+                <td colspan="2"><span class="formtitle">Customer Signature:</span> <img id="" src="{{$customersignature}}" width="200" height="100"></td>
                 <td><span class="formtitle">Date:</span> {{$customersignaturedate}}</td>
             </tr>
         </tbody>
