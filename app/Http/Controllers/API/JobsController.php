@@ -22,7 +22,7 @@ class JobsController extends Controller
     public function uploadimages(Request $request)
     {
         if ($request) {
-            return Response::json($request);
+            return Response::json($request->image);
         } else {
             return response()->json('Error.', 404);
         }
