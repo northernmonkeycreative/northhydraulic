@@ -28,6 +28,11 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
+
+    //Upload Images/////////////////////////////////////////////////////////////////////
+    Route::post('/uploadimages', [JobsController::class, 'uploadimages']);
+
+
     Route::post('/signout', [AuthController::class, 'signout']);
     // get all jobs
     Route::get('/jobs', [JobsController::class, 'index']);
@@ -40,6 +45,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     
     Route::get('/jobs/{id}', [JobsController::class, 'show']);
     Route::post('/jobs/{id}', [JobsController::class, 'updateStatus']);
+    
 
     //Lift Test sheets/////////////////////////////////////////////////////////////////////
     Route::get('/jobs/{id}/lifttestsheets', [JobsController::class, 'lifttestsheets']);
