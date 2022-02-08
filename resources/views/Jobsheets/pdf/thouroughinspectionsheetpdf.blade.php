@@ -107,6 +107,7 @@ th {
                 <th colspan="3">
                     <p style="font-size:30px;">{{$companyname}}</p>
                     <p style="font-size:20px;">Thourough Inspection Sheet For Access Platforms</p>
+                    {{-- <p style="font-size:20px;">Thourough Inspection Sheet For Access Platforms</p> --}}
                 </th>
             </tr>
         </thead>

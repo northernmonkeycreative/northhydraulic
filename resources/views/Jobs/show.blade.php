@@ -298,6 +298,7 @@
                                             @endforelse
                                           @endif
                                           <!-- Lift Test Certificates -->
+                                          <!-- Tail Lift Certificates -->
                                           @if($lifttestcertificates->count() >= 1)
                                             @forelse($lifttestcertificates as $lifttestcertificate)
                                             <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
@@ -306,7 +307,8 @@
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                                                     </svg>
                                                     <span class="ml-2 flex-1 w-0 truncate">
-                                                    Lift Test Certificate - Job Number {{$lifttestcertificate->job_id}}
+                                                    Tail Lift Certificate - Job Number {{$lifttestcertificate->job_id}}
+                                                    {{-- Lift Test Certificate - Job Number {{$lifttestcertificate->job_id}} --}}
                                                     </span>
                                                 </div>
                                                 <div class="ml-4 flex-shrink-0">
@@ -318,7 +320,7 @@
                                             @empty
                                             <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
                                                     <div class="w-0 flex-1 flex items-center">
-                                                        No Lift Test Sheets Added To This Job
+                                                        No Tail Lift Sheets Added To This Job
                                                     </div>
                                             </li>
                                             @endforelse
@@ -352,6 +354,7 @@
                                           @endif
 
                                           <!-- Lift Various Test Certificates -->
+                                          <!-- Miscellaneous Test Certificates -->
                                           @if($liftvarioustestcertificates->count() >= 1)
                                             @forelse($liftvarioustestcertificates as $liftvarioustestcertificate)
                                             <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
@@ -360,7 +363,8 @@
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                                                     </svg>
                                                     <span class="ml-2 flex-1 w-0 truncate">
-                                                    Lift/Various Test Certificate - Job Number {{$liftvarioustestcertificate->job_id}}
+                                                        Miscellaneous Test Certificate - Job Number {{$liftvarioustestcertificate->job_id}}
+                                                        {{-- Lift/Various Test Certificate - Job Number {{$liftvarioustestcertificate->job_id}} --}}
                                                     </span>
                                                 </div>
                                                 <div class="ml-4 flex-shrink-0">
@@ -372,7 +376,7 @@
                                             @empty
                                             <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
                                                 <div class="w-0 flex-1 flex items-center">
-                                                    No Lift/Various Test Sheets Added To This Job
+                                                    No Miscellaneous Test Sheets Added To This Job
                                                 </div>
                                             </li>
                                             @endforelse
@@ -380,6 +384,7 @@
 
 
                                           <!-- Thourough Inspection Sheets -->
+                                          <!-- Access Platform Sheets -->
                                           @if($thouroughinspections->count() >= 1)
                                             @forelse($thouroughinspections as $thouroughinspection)
                                             <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
@@ -388,7 +393,8 @@
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                                                     </svg>
                                                     <span class="ml-2 flex-1 w-0 truncate">
-                                                    Thourough Inspection - Job Number {{$thouroughinspection->job_id}}
+                                                        Access Platform - Job Number {{$thouroughinspection->job_id}}
+                                                    {{-- Thourough Inspection - Job Number {{$thouroughinspection->job_id}} --}}
                                                     </span>
                                                 </div>
                                                 <div class="ml-4 flex-shrink-0">
@@ -400,7 +406,7 @@
                                             @empty
                                             <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
                                                 <div class="w-0 flex-1 flex items-center">
-                                                    No Thourough Inspection Sheets Added To This Job
+                                                    No Access Platform Sheets Added To This Job
                                                 </div>
                                             </li>
                                             @endforelse

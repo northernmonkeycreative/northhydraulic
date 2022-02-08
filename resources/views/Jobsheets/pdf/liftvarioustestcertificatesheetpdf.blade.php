@@ -106,7 +106,8 @@ th {
             <tr>
                 <th colspan="3">
                     <p style="font-size:30px;">{{$companyname}}</p>
-                    <p style="font-size:20px;">Equipment Test Certificate</p>
+                    <p style="font-size:20px;">Miscellaneous Test Certificate</p>
+                    {{-- <p style="font-size:20px;">Equipment Test Certificate</p> --}}
                 </th>
             </tr>
         </thead>
