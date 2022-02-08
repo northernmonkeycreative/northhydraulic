@@ -21,8 +21,6 @@ class JobsController extends Controller
     // get single engineer control sheet
     public function uploadimages(Request $request)
     {
-        
-
         if ($request) {
             return Response::json($request);
         } else {
