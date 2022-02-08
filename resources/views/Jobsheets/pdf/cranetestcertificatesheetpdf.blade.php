@@ -211,93 +211,93 @@ th {
                 <td colspan="6"><p style="font-size:20px;">Test</p></td>
             </tr>
             <tr>
-                <td colspan="3"><span class="formtitle">Locking Pins On Legs & Leg Operation</span></td>
-                <td colspan="1"><span class="formtitle"></span>{{$test1}}</td>
-                <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test1_workdone}}</td>
+                <td colspan="4"><span class="formtitle">Locking Pins On Legs & Leg Operation</span></td>
+                <td colspan="2"><span class="formtitle"></span>{{$test1}}</td>
+                {{-- <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test1_workdone}}</td> --}}
             </tr>
 
             <tr>
-                <td colspan="3"><span class="formtitle">Flitch Plates Movement Under Crane</span></td>
-                <td colspan="1"><span class="formtitle"></span>{{$test2}}</td>
-                <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test2_workdone}}</td>
+                <td colspan="4"><span class="formtitle">Flitch Plates Movement Under Crane</span></td>
+                <td colspan="4"><span class="formtitle"></span>{{$test2}}</td>
+                {{-- <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test2_workdone}}</td> --}}
             </tr>
 
             <tr>
-                <td colspan="3"><span class="formtitle">Movement To Crane Bolts</span></td>
-                <td colspan="1"><span class="formtitle"></span>{{$test3}}</td>
-                <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test3_workdone}}</td>
+                <td colspan="4"><span class="formtitle">Movement To Crane Bolts</span></td>
+                <td colspan="2"><span class="formtitle"></span>{{$test3}}</td>
+                {{-- <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test3_workdone}}</td> --}}
             </tr>
 
             <tr>
-                <td colspan="3"><span class="formtitle">Height Warning and Overhead</span></td>
-                <td colspan="1"><span class="formtitle"></span>{{$test4}}</td>
-                <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test4_workdone}}</td>
+                <td colspan="4"><span class="formtitle">Height Warning and Overhead</span></td>
+                <td colspan="2"><span class="formtitle"></span>{{$test4}}</td>
+                {{-- <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test4_workdone}}</td> --}}
             </tr>
 
             <tr>
-                <td colspan="3"><span class="formtitle">All Moving Points i.e. Pins.</span></td>
-                <td colspan="1"><span class="formtitle"></span>{{$test5}}</td>
-                <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test5_workdone}}</td>
+                <td colspan="4"><span class="formtitle">All Moving Points i.e. Pins.</span></td>
+                <td colspan="2"><span class="formtitle"></span>{{$test5}}</td>
+                {{-- <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test5_workdone}}</td> --}}
             </tr>
 
             <tr>
-                <td colspan="3"><span class="formtitle">Movement To Column</span></td>
-                <td colspan="1"><span class="formtitle"></span>{{$test6}}</td>
-                <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test6_workdone}}</td>
+                <td colspan="4"><span class="formtitle">Movement To Column</span></td>
+                <td colspan="2"><span class="formtitle"></span>{{$test6}}</td>
+                {{-- <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test6_workdone}}</td> --}}
             </tr>
 
             <tr>
-                <td colspan="3"><span class="formtitle">Nylon Slides On Tele Ext</span></td>
-                <td colspan="1"><span class="formtitle"></span>{{$test7}}</td>
-                <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test7_workdone}}</td>
+                <td colspan="4"><span class="formtitle">Nylon Slides On Tele Ext</span></td>
+                <td colspan="2"><span class="formtitle"></span>{{$test7}}</td>
+                {{-- <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test7_workdone}}</td> --}}
             </tr>
 
             <tr>
-                <td colspan="3"><span class="formtitle">Any Cracks or Defects To Crane</span></td>
-                <td colspan="1"><span class="formtitle"></span>{{$test8}}</td>
-                <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test8_workdone}}</td>
+                <td colspan="4"><span class="formtitle">Any Cracks or Defects To Crane</span></td>
+                <td colspan="2"><span class="formtitle"></span>{{$test8}}</td>
+                {{-- <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test8_workdone}}</td> --}}
             </tr>
 
             <tr>
-                <td colspan="3"><span class="formtitle">Movement To Valve Block Levers & Teleflex</span></td>
-                <td colspan="1"><span class="formtitle"></span>{{$test9}}</td>
-                <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test9_workdone}}</td>
+                <td colspan="4"><span class="formtitle">Movement To Valve Block Levers & Teleflex</span></td>
+                <td colspan="2"><span class="formtitle"></span>{{$test9}}</td>
+                {{-- <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test9_workdone}}</td> --}}
             </tr>
 
             <tr>
-                <td colspan="3"><span class="formtitle">Control Box Operation & Illumination</span></td>
-                <td colspan="1"><span class="formtitle"></span>{{$test10}}</td>
-                <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test10_workdone}}</td>
+                <td colspan="4"><span class="formtitle">Control Box Operation & Illumination</span></td>
+                <td colspan="2"><span class="formtitle"></span>{{$test10}}</td>
+                {{-- <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test10_workdone}}</td> --}}
             </tr>
 
             <tr>
-                <td colspan="3"><span class="formtitle">Any Leaks</span></td>
-                <td colspan="1"><span class="formtitle"></span>{{$test11}}</td>
-                <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test11_workdone}}</td>
+                <td colspan="4"><span class="formtitle">Any Leaks</span></td>
+                <td colspan="2"><span class="formtitle"></span>{{$test11}}</td>
+                {{-- <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test11_workdone}}</td> --}}
             </tr>
 
             <tr>
-                <td colspan="3"><span class="formtitle">Any Pipes Worn To Excess</span></td>
-                <td colspan="1"><span class="formtitle"></span>{{$test12}}</td>
-                <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test12_workdone}}</td>
+                <td colspan="4"><span class="formtitle">Any Pipes Worn To Excess</span></td>
+                <td colspan="2"><span class="formtitle"></span>{{$test12}}</td>
+                {{-- <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test12_workdone}}</td> --}}
             </tr>
 
             <tr>
-                <td colspan="3"><span class="formtitle">Pipe Guides</span></td>
-                <td colspan="1"><span class="formtitle"></span>{{$test13}}</td>
-                <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test13_workdone}}</td>
+                <td colspan="4"><span class="formtitle">Pipe Guides</span></td>
+                <td colspan="2"><span class="formtitle"></span>{{$test13}}</td>
+                {{-- <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test13_workdone}}</td> --}}
             </tr>
 
             <tr>
-                <td colspan="3"><span class="formtitle">Load Test</span></td>
-                <td colspan="1"><span class="formtitle"></span>{{$test14}}</td>
-                <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test14_workdone}}</td>
+                <td colspan="4"><span class="formtitle">Load Test</span></td>
+                <td colspan="2"><span class="formtitle"></span>{{$test14}}</td>
+                {{-- <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test14_workdone}}</td> --}}
             </tr>
 
             <tr>
-                <td colspan="3"><span class="formtitle">Overload Warning</span></td>
-                <td colspan="1"><span class="formtitle"></span>{{$test15}}</td>
-                <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test15_workdone}}</td>
+                <td colspan="4"><span class="formtitle">Overload Warning</span></td>
+                <td colspan="2"><span class="formtitle"></span>{{$test15}}</td>
+                {{-- <td colspan="2"><span class="formtitle">Work Done:</span><br> {{$test15_workdone}}</td> --}}
             </tr>
 
             <tr>

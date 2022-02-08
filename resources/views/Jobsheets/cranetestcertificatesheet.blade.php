@@ -340,7 +340,8 @@
                                       Locking Pins On Legs & Leg Operation
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        {{$thejobsheet->test1}} - {{$thejobsheet->test1_workdone}}
+                                        {{$thejobsheet->test1}}
+                                         {{-- - {{$thejobsheet->test1_workdone}} --}}
                                     </dd>
                                 </div>
 
@@ -349,7 +350,8 @@
                                       Flitch Plates Movement Under Crane
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        {{$thejobsheet->test2}} - {{$thejobsheet->test2_workdone}}
+                                        {{$thejobsheet->test2}} 
+                                        {{-- - {{$thejobsheet->test2_workdone}} --}}
                                     </dd>
                                 </div>
 
@@ -358,7 +360,8 @@
                                       Movement To Crane Bolts
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        {{$thejobsheet->test3}} - {{$thejobsheet->test3_workdone}}
+                                        {{$thejobsheet->test3}} 
+                                        {{-- - {{$thejobsheet->test3_workdone}} --}}
                                     </dd>
                                 </div>
 
@@ -367,7 +370,8 @@
                                       Height Warning & Overhead
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        {{$thejobsheet->test4}} - {{$thejobsheet->test4_workdone}}
+                                        {{$thejobsheet->test4}} 
+                                        {{-- - {{$thejobsheet->test4_workdone}} --}}
                                     </dd>
                                 </div>
 
@@ -376,7 +380,8 @@
                                       All Moving Points. i.e Pins
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        {{$thejobsheet->test5}} - {{$thejobsheet->test5_workdone}}
+                                        {{$thejobsheet->test5}} 
+                                        {{-- - {{$thejobsheet->test5_workdone}} --}}
                                     </dd>
                                 </div>
 
@@ -385,7 +390,8 @@
                                       Movement To Column
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        {{$thejobsheet->test6}} - {{$thejobsheet->test6_workdone}}
+                                        {{$thejobsheet->test6}} 
+                                        {{-- - {{$thejobsheet->test6_workdone}} --}}
                                     </dd>
                                 </div>
 
@@ -394,7 +400,8 @@
                                       Nylon Slides On Tele Ext
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        {{$thejobsheet->test7}} - {{$thejobsheet->test7_workdone}}
+                                        {{$thejobsheet->test7}} 
+                                        {{-- - {{$thejobsheet->test7_workdone}} --}}
                                     </dd>
                                 </div>
 
@@ -403,7 +410,8 @@
                                       Any Cracks Or Defects On Crane
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        {{$thejobsheet->test8}} - {{$thejobsheet->test6_workdone}}
+                                        {{$thejobsheet->test8}}
+                                         {{-- - {{$thejobsheet->test6_workdone}} --}}
                                     </dd>
                                 </div>
 
@@ -412,7 +420,8 @@
                                       Movement To Valve Block Levers & Teleflex
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        {{$thejobsheet->test9}} - {{$thejobsheet->test9_workdone}}
+                                        {{$thejobsheet->test9}} 
+                                        {{-- - {{$thejobsheet->test9_workdone}} --}}
                                     </dd>
                                 </div>
 
@@ -421,7 +430,8 @@
                                       Control Box Operation & Illumination
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        {{$thejobsheet->test10}} - {{$thejobsheet->test10_workdone}}
+                                        {{$thejobsheet->test10}} 
+                                        {{-- - {{$thejobsheet->test10_workdone}} --}}
                                     </dd>
                                 </div>
 
@@ -430,7 +440,8 @@
                                       Any Leaks
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        {{$thejobsheet->test11}} - {{$thejobsheet->test11_workdone}}
+                                        {{$thejobsheet->test11}} 
+                                        {{-- - {{$thejobsheet->test11_workdone}} --}}
                                     </dd>
                                 </div>
 
@@ -439,7 +450,8 @@
                                       Any Pipes Worn To Excess
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        {{$thejobsheet->test12}} - {{$thejobsheet->test12_workdone}}
+                                        {{$thejobsheet->test12}} 
+                                        {{-- - {{$thejobsheet->test12_workdone}} --}}
                                     </dd>
                                 </div>
 
@@ -448,7 +460,8 @@
                                       Pipe Guides
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        {{$thejobsheet->test13}} - {{$thejobsheet->test13_workdone}}
+                                        {{$thejobsheet->test13}} 
+                                        {{-- - {{$thejobsheet->test13_workdone}} --}}
                                     </dd>
                                 </div>
 
@@ -457,7 +470,8 @@
                                       Load Test
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        {{$thejobsheet->test14}} - {{$thejobsheet->test14_workdone}}
+                                        {{$thejobsheet->test14}}
+                                         {{-- - {{$thejobsheet->test14_workdone}} --}}
                                     </dd>
                                 </div>
 
@@ -466,7 +480,8 @@
                                       Overload Warning
                                     </dt>
                                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                        {{$thejobsheet->test15}} - {{$thejobsheet->test15_workdone}}
+                                        {{$thejobsheet->test15}}
+                                         {{-- - {{$thejobsheet->test15_workdone}} --}}
                                     </dd>
                                 </div>
 
