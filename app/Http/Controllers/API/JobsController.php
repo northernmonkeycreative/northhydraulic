@@ -26,15 +26,22 @@ class JobsController extends Controller
         $jobid = $request->job_id;
 
         $arr = $request->images;
-        for ($i = 0; $i < count($arr); $i++) {
+        $amount = count($request->images);
+
+       for ($i = 0; $i < count($amount); $i++)  {
+            $image = new Image;
+            $image->job_id =$jobid ;
+            $image->image = $i;
+            $image->save();
+        }
     
 
-            $image = new Image;
-                $image->job_id =$jobid ;
-                $image->image = $arr[$i];
-                $image->save();
+            // $image = new Image;
+            //     $image->job_id =$jobid ;
+            //     $image->image = $arr[$i];
+            //     $image->save();
 
-        }
+        
 
 
             // foreach($images as $i) {
