@@ -22,7 +22,7 @@ class JobsController extends Controller
     // get single engineer control sheet
     public function uploadimages(Request $request)
     {
-        return Response::json(stringify($request));
+        return Response::json($request);
         $images = $request->images;
         $jobid = $request->job_id;
 
