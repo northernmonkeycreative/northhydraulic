@@ -27,7 +27,7 @@ class JobsController extends Controller
 
         $arr = $request->images;
         // $amount = count($images);
-        return Response($arr);
+        return Response($images);
         
        for ($i = 0; $i < count($amount); $i++)  {
             $image = new Image;
