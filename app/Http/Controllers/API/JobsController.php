@@ -22,10 +22,13 @@ class JobsController extends Controller
     // get single engineer control sheet
     public function uploadimages(Request $request)
     {
+        console.log('$request ' + $request);
+        $images = $request->images;
+        $jobid = $request->job_id;
 
-        foreach($request->images as $image) {
+        foreach($images as $image) {
             $image = new Image;
-            $image->job_id = $request->job_id;
+            $image->job_id =$jobid ;
             $image->image = $image;
             $image->save();
         }
