@@ -26,16 +26,10 @@ class JobsController extends Controller
 
             $images = json_decode($request->images);
             $jobid = $request->job_id;
-
-
-           
-
-
-
-            foreach($images as $image) {
+            foreach($images as $i) {
                 $image = new Image;
                 $image->job_id =$jobid ;
-                $image->image = $image;
+                $image->image = $i;
                 $image->save();
             }
         }
