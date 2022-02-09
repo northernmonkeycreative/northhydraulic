@@ -26,7 +26,7 @@ class JobsController extends Controller
         $jobid = $request->job_id;
 
         $arr = $request->images;
-        for ($i = 0; $i < $arr.count(); $i++) {
+        for ($i = 0; $i < count($arr); $i++) {
     
 
             $image = new Image;
