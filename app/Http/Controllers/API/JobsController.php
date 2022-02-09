@@ -23,13 +23,26 @@ class JobsController extends Controller
     public function uploadimages(Request $request)
     {
         $images = json_decode($request->images);
-            $jobid = $request->job_id;
-            foreach($images as $i) {
-                $image = new Image;
+        $jobid = $request->job_id;
+
+        $arr = $request->images;
+        for ($i = 0; $i < $arr.length; $i++) {
+    
+
+            $image = new Image;
                 $image->job_id =$jobid ;
-                $image->image = $i;
+                $image->image = $arr[$i];
                 $image->save();
-            }
+
+        }
+
+
+            // foreach($images as $i) {
+            //     $image = new Image;
+            //     $image->job_id =$jobid ;
+            //     $image->image = $i;
+            //     $image->save();
+            // }
         
 
         
