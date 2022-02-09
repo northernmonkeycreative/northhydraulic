@@ -25,11 +25,10 @@ class JobsController extends Controller
         $images = json_decode($request->images);
         $jobid = $request->job_id;
 
-        $arr = $request->images;
-        // $amount = count($images);
-        return response()->json(['images' => $request->images], 200);
+ 
+        // return response()->json(['images' => $request->images], 200);
         
-       for ($i = 0; $i < count($amount); $i++)  {
+       for ($i = 0; $i < count($request->images); $i++)  {
             $image = new Image;
             $image->job_id =$jobid ;
             $image->image = $i;
