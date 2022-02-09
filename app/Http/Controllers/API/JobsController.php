@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Job;
+use App\Models\Image;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Response;
@@ -21,7 +22,15 @@ class JobsController extends Controller
     // get single engineer control sheet
     public function uploadimages(Request $request)
     {
-        return Response::json($request);
+
+        foreach($request->images as $image) {
+            $image = new Image;
+            $image->job_id = $request->job_id;
+            $image->image = $image;
+            $image->save();
+        }
+
+        return Response::json('ok');
         // if ($request) {
         //     return Response::json($request);
         // } else {
