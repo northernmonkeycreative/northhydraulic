@@ -26,7 +26,7 @@ class JobsController extends Controller
         $jobid = $request->job_id;
 
         $arr = $request->images;
-        $amount = count($images);
+        // $amount = count($images);
         return Response($amount);
         
        for ($i = 0; $i < count($amount); $i++)  {
