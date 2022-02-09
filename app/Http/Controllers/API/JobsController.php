@@ -30,37 +30,12 @@ class JobsController extends Controller
 
             foreach($images['images'] as $i => $v)
             {
-                return Response::json($v['images'].'<br/>');
+
+                $image = new Image;
+                $image->job_id =$jobid ;
+                $image->image = $v['images'];
+                $image->save();
             }
-
- 
-        // return response()->json(['images' => $request->images], 200);
-        
-       for ($i = 0; $i < count($request->images); $i++)  {
-            $image = new Image;
-            $image->job_id =$jobid ;
-            $image->image = $i;
-            $image->save();
-        }
-    
-
-            // $image = new Image;
-            //     $image->job_id =$jobid ;
-            //     $image->image = $arr[$i];
-            //     $image->save();
-
-        
-
-
-            // foreach($images as $i) {
-            //     $image = new Image;
-            //     $image->job_id =$jobid ;
-            //     $image->image = $i;
-            //     $image->save();
-            // }
-        
-
-        
 
         return Response::json('ok');
         // if ($request) {
