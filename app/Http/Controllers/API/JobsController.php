@@ -34,7 +34,7 @@ class JobsController extends Controller
 
                 $image = new Image;
                 $image->job_id =$jobid ;
-                $image->image = $v['images'];
+                $image->image = $v;
                 $image->save();
             }
 
