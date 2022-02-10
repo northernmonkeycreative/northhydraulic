@@ -452,7 +452,7 @@
                                     <hr>
                                     <div class="bg-white">
                                         <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">   
-                                                <h2 class="text font-extrabold tracking-tight text-gray-900">Images Uploaded To This Job</h2>                                   
+                                                <h4 class="text font-extrabold tracking-tight text-gray-900">Images Uploaded To This Job</h4>                                   
                                             <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                                                 @foreach($images as $image)
                                                 
@@ -464,12 +464,12 @@
                                                 
 
                                                     <a data-toggle="lightbox" href="#demoLightbox{{$image->id}}">
-                                                        <img src="https://dummyimage.com/600x500/000/fff" class="small-img">
+                                                        <img src="{{$image->image}}" class="small-img">
                                                       </a>
                                                       <div id="demoLightbox{{$image->id}}" class="lightbox fade"  tabindex="-1" role="dialog" aria-hidden="true">
                                                         <div class='lightbox-dialog'>
                                                             <div class='lightbox-content'>
-                                                                <img src="https://dummyimage.com/600x500/000/fff">
+                                                                <img src="{{$image->image}}">
                                                                 <div class='lightbox-caption'>
                                                                     Write here your caption here
                                                                 </div>
