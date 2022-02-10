@@ -78,6 +78,9 @@ Route::middleware(['auth', isAdmin::class])->group(function ()
 
         Route::get('/exportjobs',[JobController::class, 'exportcsv'])->name('jobs.export');
 
+        // delete image from job
+        Route::delete('delete-image/{image_id}',[JobController::class, 'deleteimage'])->name('deleteimage');
+
 
         // Job Sheet - Engineer Control Sheet
         Route::get('/engineercontrolsheet/{job}',[EngineercontrolsheetController::class, 'show'])->name('engineercontrolsheet.show');

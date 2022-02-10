@@ -28,6 +28,13 @@ class JobController extends Controller
         return view('jobs.index', compact('jobs'));
     }
 
+    public function deleteimage($image_id, Request $request)
+    {
+        $theimage = Image::where('id', $image_id)->first();
+        $theimage->delete();
+        return Redirect::back()->withSuccess('Image Deleted');
+    }
+
     // Show Selected Job 
     public function show($job)
     {

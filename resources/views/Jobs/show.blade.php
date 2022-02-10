@@ -478,6 +478,14 @@ $(".single_image").fancybox();
                                                             <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
                                                                 <a class="single_image" href="{{$image->image}}"> <img src="{{$image->image}}" class="w-full h-full object-center object-cover lg:w-full lg:h-full"></a>
                                                             </div>
+                                                            <form method="POST" action="/delete-image/{{$image->id}}">
+                                                                {{ csrf_field() }}
+                                                                {{ method_field('DELETE') }}
+                                                        
+                                                                <div class="form-group">
+                                                                    <input type="submit" class="btn btn-danger delete-user" value="Delete Image">
+                                                                </div>
+                                                            </form>
                                                     </div>
                                             
                                                 @endforeach
