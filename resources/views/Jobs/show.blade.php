@@ -445,9 +445,19 @@
 
                                     <!-- Images -->
                                     <hr>
-                                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                        images
-                                    </div>
+                                    <div class="bg-white">
+                                        <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">                                      
+                                          <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                                            @foreach($images as $image)
+                                            <div class="group relative">
+                                                <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                                                    <img id="" src="{{$image}}" class="w-full h-full object-center object-cover lg:w-full lg:h-full">
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                          </div>
+                                        </div>
+                                      </div>
 
                                   </dl>
                                 </div>

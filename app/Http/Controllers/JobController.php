@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use DateTime;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\JobAdded;
+use App\Models\Image;
 
 class JobController extends Controller
 {
@@ -32,6 +33,9 @@ class JobController extends Controller
     {
         $thejob = Job::where('id', $job)->firstOrFail();
 
+        // get any images with job
+        $images = Image::where('jobid', '==', $thejob->id)->get();
+
         $engineercontrolsheets = Job::find($job)->engineercontrolsheets()->get();
         $lifttestcertificates = Job::find($job)->lifttestcertificatessheets()->get();
         $winchtestcertificates = Job::find($job)->winchtestcertificatessheets()->get();
@@ -41,7 +45,7 @@ class JobController extends Controller
 
         $engineers = User::where('is_admin', 0)->get()->all();
 
-        return view('jobs.show', compact('thejob', 'engineercontrolsheets', 'lifttestcertificates', 'winchtestcertificates', 'liftvarioustestcertificates', 'thouroughinspections', 'cranetestcertificates', 'engineers'));
+        return view('jobs.show', compact('thejob', 'images', 'engineercontrolsheets', 'lifttestcertificates', 'winchtestcertificates', 'liftvarioustestcertificates', 'thouroughinspections', 'cranetestcertificates', 'engineers'));
     }
 
     // Create New Job Screen
