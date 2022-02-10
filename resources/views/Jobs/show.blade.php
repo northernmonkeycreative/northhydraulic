@@ -473,32 +473,13 @@ $(".single_image").fancybox();
 });
 </script>
                                                 @foreach($images as $image)
-                                                <a class="single_image" href="{{$image->image}}"> <img src="{{$image->image}}" ></a>
-                                            
-                                                    {{-- <div class="group relative">
-                                                            <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                                                                <a data-remote="{{$image->image}}" data-gallery="multiimages" data-toggle="lightbox">
-                                                                    <img src="{{$image->image}}" class="w-full h-full object-center object-cover lg:w-full lg:h-full">
-                                                                </a>
-                                                            </div>
-                                                    </div> --}}
                                                 
-
-                                                    {{-- <a data-toggle="lightbox" href="#demoLightbox{{$image->id}}">
-                                                        <img src="{{$image->image}}" class="small-img">
-                                                      </a>
-                                                      <div id="demoLightbox{{$image->id}}" class="lightbox fade"  tabindex="-1" role="dialog" aria-hidden="true">
-                                                        <div class='lightbox-dialog'>
-                                                            <div class='lightbox-content'>
-                                                                <img src="{{$image->image}}">
-                                                                <div class='lightbox-caption'>
-                                                                    Write here your caption here
-                                                                </div>
+                                                    <div class="group relative">
+                                                            <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                                                                <a class="single_image" href="{{$image->image}}"> <img src="{{$image->image}}" class="w-full h-full object-center object-cover lg:w-full lg:h-full"></a>
                                                             </div>
-                                                        </div>
-                                                      </div> --}}
-
-
+                                                    </div>
+                                            
                                                 @endforeach
                                             </div>
                                         </div>
