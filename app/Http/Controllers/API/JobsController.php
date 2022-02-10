@@ -26,24 +26,19 @@ class JobsController extends Controller
         $images = $request->images;
         $jobid = $request->jobid;
 
-
-     
-
+        if($images){
             foreach($images as $v)
             {
-
+    
                 $image = new Image;
                 $image->job_id =$jobid ;
                 $image->image = $v;
                 $image->save();
             }
-
-        return Response::json('ok');
-        // if ($request) {
-        //     return Response::json($request);
-        // } else {
-        //     return response()->json('Error.', 404);
-        // }
+            return Response::json('images uploaded');
+        } else {
+            return Response::json('There was an error');
+        }
 
     }
 
