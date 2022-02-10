@@ -454,11 +454,42 @@
                                         <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">   
                                                 <h4 class="text font-extrabold tracking-tight text-gray-900">Images Uploaded To This Job</h4>                                   
                                             <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+<script>
+$("a[href^='data:image']").each(function(){
+    $(this).fancybox({
+        content: $("<img/>").attr("src", this.href)
+    });
+});
 
+
+
+$(document).ready(function() {
+
+/* This is basic - uses default settings */
+
+$("a.single_image").fancybox();
+
+/* Using custom settings */
+
+$("a.inline").fancybox({
+    'hideOnContentClick': true
+});
+
+/* Apply fancybox to multiple items */
+
+$("a.group").fancybox({
+    'transitionIn'	:	'elastic',
+    'transitionOut'	:	'elastic',
+    'speedIn'		:	600, 
+    'speedOut'		:	200, 
+    'overlayShow'	:	false
+});
+
+});
+</script>
                                                 @foreach($images as $image)
-                                                <a data-remote="{{$image->image}}" data-gallery="multiimages" data-toggle="lightbox">
-                                                        <img src="{{$image->image}}" >
-                                                    </a>
+                                                <a class="single_image" href="{{$image->image}}"> <img src="{{$image->image}}" ></a>
+                                            
                                                     {{-- <div class="group relative">
                                                             <div class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
                                                                 <a data-remote="{{$image->image}}" data-gallery="multiimages" data-toggle="lightbox">
