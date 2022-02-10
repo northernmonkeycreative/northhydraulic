@@ -32,7 +32,7 @@ class JobController extends Controller
     {
         $theimage = Image::where('id', $image_id)->first();
         $theimage->delete();
-        return Redirect::back()->withSuccess('Image Deleted');
+        return redirect()->back()->withSuccess('Image Deleted');
     }
 
     // Show Selected Job 
