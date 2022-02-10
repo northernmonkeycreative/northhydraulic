@@ -448,7 +448,7 @@
                                  
 
 
-                                    @if($images)
+                                    @if($images.count() >= 1)
                                     <hr>
                                     <div class="bg-white">
                                         <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">   
