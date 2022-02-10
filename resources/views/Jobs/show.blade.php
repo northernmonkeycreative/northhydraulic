@@ -454,24 +454,24 @@
                                         <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">   
                                                 <h4 class="text font-extrabold tracking-tight text-gray-900">Images Uploaded To This Job</h4>                                   
                                             <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-<script>
-$("a[href^='data:image']").each(function(){
-    $(this).fancybox({
-        content: $("<img/>").attr("src", this.href)
-    });
-});
+                                                <script>
+                                                    $("a[href^='data:image']").each(function(){
+                                                        $(this).fancybox({
+                                                            content: $("<img/>").attr("src", this.href)
+                                                        });
+                                                    });
 
 
 
-$(document).ready(function() {
+                                                    $(document).ready(function() {
 
-/* This is basic - uses default settings */
+                                                    /* This is basic - uses default settings */
 
-$(".single_image").fancybox();
+                                                    $(".single_image").fancybox();
 
 
-});
-</script>
+                                                    });
+                                                </script>
                                                 @foreach($images as $image)
                                                 
                                                     <div class="group relative">
