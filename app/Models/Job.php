@@ -8,6 +8,7 @@ use App\Models\Winchtestcertificatesheet;
 use App\Models\LiftingVariouscertificatesheet;
 use App\Models\Thouroughinspectionsheet;
 use App\Models\Cranetestcertificatesheet;
+use App\Models\Image;
 
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -86,6 +87,14 @@ class Job extends Model
     public function cranetestcertificatessheets()
     {
         return $this->hasMany(Cranetestcertificatesheet::class);
+    }
+
+     /**
+     * Get the images for the job.
+     */
+    public function images()
+    {
+        return $this->hasMany(Image::class);
     }
 
 }

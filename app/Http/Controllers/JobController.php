@@ -34,8 +34,9 @@ class JobController extends Controller
         $thejob = Job::where('id', $job)->firstOrFail();
 
         // get any images with job
-        $images = Image::where('job_id', '==', $thejob->id)->get();
-        dd($images);
+        // $images = Image::where('job_id', $thejob->id)->get();
+        $images = $thejob->images()->get();
+       
 
         $engineercontrolsheets = Job::find($job)->engineercontrolsheets()->get();
         $lifttestcertificates = Job::find($job)->lifttestcertificatessheets()->get();
