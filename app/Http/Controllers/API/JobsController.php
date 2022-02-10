@@ -24,7 +24,7 @@ class JobsController extends Controller
     {
         // $images = json_decode($request->images);
         $images = $request->images;
-        $jobid = $request->job_id;
+        $jobid = $request->jobid;
 
 
      
