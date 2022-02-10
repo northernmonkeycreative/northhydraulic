@@ -29,7 +29,7 @@ class JobsController extends Controller
 
      
 
-            foreach($images->images as $v)
+            foreach($images as $v)
             {
 
                 $image = new Image;
