@@ -55,6 +55,7 @@ class JobsController extends Controller
             ->where('department', 'mobileengineer')
             ->where('status', '!=', 'paid')
             ->where('status', '!=', 'Invoiced')
+            ->where('status', '!=', 'invoice')
             ->orderby('start_date', 'asc')->get();
         if ($jobs->count()) {
             return Response::json($jobs);
@@ -72,6 +73,7 @@ class JobsController extends Controller
             ->where('department', 'mobileengineer')
             ->where('status', '!=', 'paid')
             ->where('status', '!=', 'Invoiced')
+            ->where('status', '!=', 'invoice')
             ->where('status', '!=', 'complete')
             ->where('status', '!=', 'furtheraction')
             ->orderby('start_date', 'asc')->get();
@@ -91,6 +93,7 @@ class JobsController extends Controller
             ->where('department', 'mobileengineer')
             ->where('status', '!=', 'paid')
             ->where('status', '!=', 'Invoiced')
+            ->where('status', '!=', 'invoice')
             ->where('status', '!=', 'complete')
             ->where('status', '!=', 'ongoing')
             ->orderby('start_date', 'asc')->get();
@@ -110,6 +113,7 @@ class JobsController extends Controller
             ->where('department', 'mobileengineer')
             ->where('status', '!=', 'paid')
             ->where('status', '!=', 'Invoiced')
+            ->where('status', '!=', 'invoice')
             ->where('status', '!=', 'ongoing')
             ->where('status', '!=', 'furtheraction')
             ->orderby('start_date', 'asc')->get();
