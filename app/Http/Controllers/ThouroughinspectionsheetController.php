@@ -282,7 +282,11 @@ class ThouroughinspectionsheetController extends Controller
          else if ($thejobsheet->safety_swl == 'n') $safety_swl = 'N';
          else $safety_swl = 'N/A';
 
-         if($thejobsheet->safety_load_applied) $safety_load_applied = $thejobsheet->safety_load_applied;
+         if($thejobsheet->safety_load_applied){
+            $safety_load_applied = $thejobsheet->safety_load_applied;
+         } else{
+            $safety_load_applied = 0;
+         }
 
          if($thejobsheet->additional_brakes == 'y') $additional_brakes = 'Y';
          else if ($thejobsheet->additional_brakes == 'n') $additional_brakes = 'N';
