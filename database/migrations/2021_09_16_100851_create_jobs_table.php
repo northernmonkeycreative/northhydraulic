@@ -14,7 +14,7 @@ class CreateJobsTable extends Migration
     public function up()
     {
         Schema::create('jobs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->startingValue(18300);
             $table->bigInteger('customer_id')->unsigned()->nullable();
             $table->string('customer_name')->nullable(); 
             $table->string('department')->nullable(); 
