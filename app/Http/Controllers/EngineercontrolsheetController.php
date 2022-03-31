@@ -75,6 +75,13 @@ class EngineercontrolsheetController extends Controller
             $furtheraction = $thejobsheet->further_action;
         }
 
+    
+        if($thejobsheet->customer_signature != '') {
+            $thesignature = $thejobsheet->customer_signature;
+        } else {
+            $thesignature = '';
+        }
+
         // Prepare the data for the PDF
         $data = [
             'companyname' => $settings->company_name,
@@ -92,7 +99,8 @@ class EngineercontrolsheetController extends Controller
             'actiontaken' => $thejobsheet->action_taken,
             'partsused' => $thejobsheet->parts_used,
             'furtheraction' => $furtheraction,
-            'customersignature' => $thejobsheet->customer_signature,
+            // 'customersignature' => $thejobsheet->customer_signature,
+            'customersignature' => $thesignature,
             'customersignaturedate' => $thejobsheet->customer_signature_date,
         ];
           
