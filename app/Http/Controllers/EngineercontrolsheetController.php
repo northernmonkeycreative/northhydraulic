@@ -76,10 +76,10 @@ class EngineercontrolsheetController extends Controller
         }
 
     
-        if($thejobsheet->customer_signature != '') {
-            $thesignature = $thejobsheet->customer_signature;
+        if($thejobsheet->customer_signature == '' || $thejobsheet->customer_signature == null) {
+            $thesignature = null;
         } else {
-            $thesignature = '';
+            $thesignature = $thejobsheet->customer_signature;
         }
 
         // Prepare the data for the PDF
