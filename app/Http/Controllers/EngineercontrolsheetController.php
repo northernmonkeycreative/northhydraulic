@@ -100,7 +100,7 @@ class EngineercontrolsheetController extends Controller
             'partsused' => $thejobsheet->parts_used,
             'furtheraction' => $furtheraction,
             // 'customersignature' => $thejobsheet->customer_signature,
-            'customersignature' => '',
+            'customersignature' => $thesignature,
             'customersignaturedate' => $thejobsheet->customer_signature_date,
         ];
           
