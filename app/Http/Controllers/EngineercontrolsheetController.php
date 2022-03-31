@@ -77,7 +77,7 @@ class EngineercontrolsheetController extends Controller
 
     
         if($thejobsheet->customer_signature == '' || $thejobsheet->customer_signature == null) {
-            $thesignature = null;
+            $thesignature = '';
         } else {
             $thesignature = $thejobsheet->customer_signature;
         }
