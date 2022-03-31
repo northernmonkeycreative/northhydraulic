@@ -97,7 +97,7 @@ class EngineercontrolsheetController extends Controller
             'customersignaturedate' => $thejobsheet->customer_signature_date,
         ];
 
-        //dd($data);
+        dd($thejobsheet->customer_signature);
           
         $pdf = PDF::loadView('jobsheets.pdf.engineercontrolsheetpdf', $data);
     
