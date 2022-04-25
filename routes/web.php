@@ -84,7 +84,7 @@ Route::middleware(['auth', isAdmin::class])->group(function ()
 
         // Job Sheet - Engineer Control Sheet
         Route::get('/engineercontrolsheet/{job}',[EngineercontrolsheetController::class, 'show'])->name('engineercontrolsheet.show');
-        Route::get('/engineercontrolsheet/export/{id}',[EngineercontrolsheetController::class, 'exportpdf'])->name('engineercontrolsheet.exportpdf');
+        Route::get('/engineercontrolsheet/export/{id},{sheetid}',[EngineercontrolsheetController::class, 'exportpdf'])->name('engineercontrolsheet.exportpdf');
         Route::get('/engineercontrolsheet/edit/{id}',[EngineercontrolsheetController::class, 'edit'])->name('controlsheet.edit');
         Route::post('/engineercontrolsheet/edit/{job}',[EngineercontrolsheetController::class, 'update'])->name('controlsheet.update');
 
