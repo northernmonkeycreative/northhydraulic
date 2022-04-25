@@ -54,7 +54,7 @@ class EngineercontrolsheetController extends Controller
          return back()->withSuccess('Jobsheet has been Updated');
      }
 
-    public function exportpdf($job, $jobsheetid) {
+    public function exportpdf($job) {
 
         // Get Settings to use
         $settings = Setting::get()->first();
@@ -63,7 +63,7 @@ class EngineercontrolsheetController extends Controller
          $thejob = Job::where('id', $job)->firstOrFail();
 
          // The Job Sheet
-         $thejobsheet = Engineercontrolsheet::where('id', $jobsheetid)->firstOrFail();
+         $thejobsheet = Engineercontrolsheet::where('job_id', $thejob->id)->firstOrFail();
 
          // Get the job this job sheet belongs to - to grab other details
         $theclient = Client::where('id', $thejob->customer_id)->firstOrFail();
