@@ -58,7 +58,7 @@ class DashboardController extends Controller
  
          $data = Job::whereDate('start', '>=', $start)
          ->whereDate('start', '<=', $end)
-         ->where('department', '==', 'workshop')
+         ->where('department', 'workshop')
          ->get(['id','title','start','start_time','status', 'customer_name']);
 
          
