@@ -71,7 +71,7 @@ class JobsController extends Controller
         $engineer = request()->user();
         // $jobs =  $user->jobs()->get();
         $jobs = Job::where('engineer_id', $engineer->id)
-            // ->where('department', 'mobileengineer')
+            ->where('department', 'mobileengineer')
             ->where('department', 'workshop') 
             ->where('status', '!=', 'paid')
             ->where('status', '!=', 'Invoiced')
