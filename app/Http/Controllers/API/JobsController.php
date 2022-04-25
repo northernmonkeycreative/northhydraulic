@@ -53,7 +53,7 @@ class JobsController extends Controller
         // $jobs =  $user->jobs()->get();
         $jobs = Job::where('engineer_id', $engineer->id)
             ->where('department', 'mobileengineer')
-            ->where('department', 'workshop')            
+            // ->where('department', 'workshop')            
             ->where('status', '!=', 'paid')
             ->where('status', '!=', 'Invoiced')
             ->where('status', '!=', 'invoice')
@@ -72,7 +72,7 @@ class JobsController extends Controller
         // $jobs =  $user->jobs()->get();
         $jobs = Job::where('engineer_id', $engineer->id)
             ->where('department', 'mobileengineer')
-            ->where('department', 'workshop') 
+            // ->where('department', 'workshop') 
             ->where('status', '!=', 'paid')
             ->where('status', '!=', 'Invoiced')
             ->where('status', '!=', 'invoice')
@@ -93,7 +93,7 @@ class JobsController extends Controller
         // $jobs =  $user->jobs()->get();
         $jobs = Job::where('engineer_id', $engineer->id)
             ->where('department', 'mobileengineer')
-            ->where('department', 'workshop') 
+            // ->where('department', 'workshop') 
             ->where('status', '!=', 'paid')
             ->where('status', '!=', 'Invoiced')
             ->where('status', '!=', 'invoice')
@@ -114,7 +114,7 @@ class JobsController extends Controller
         // $jobs =  $user->jobs()->get();
         $jobs = Job::where('engineer_id', $engineer->id)
             ->where('department', 'mobileengineer')
-            ->where('department', 'workshop') 
+            // ->where('department', 'workshop') 
             ->where('status', '!=', 'paid')
             ->where('status', '!=', 'Invoiced')
             ->where('status', '!=', 'invoice')
