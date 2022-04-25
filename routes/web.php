@@ -108,7 +108,7 @@ Route::middleware(['auth', isAdmin::class])->group(function ()
 
         // Job Sheet - Thourough Inspection Sheet
         Route::get('/thouroughinspectionsheet/{job}',[ThouroughinspectionsheetController::class, 'show'])->name('thouroughinspectionsheet.show');
-        Route::get('/thouroughinspectionsheet/export/{id}',[ThouroughinspectionsheetController::class, 'exportpdf'])->name('thouroughinspectionsheet.exportpdf');
+        Route::get('/thouroughinspectionsheet/export/{job}/{jobsheet}',[ThouroughinspectionsheetController::class, 'exportpdf'])->name('thouroughinspectionsheet.exportpdf');
         Route::get('/thouroughinspectionsheet/edit/{id}',[ThouroughinspectionsheetController::class, 'edit'])->name('thourough.edit');
         Route::post('/thouroughinspectionsheet/edit/{job}',[ThouroughinspectionsheetController::class, 'update'])->name('thourough.update');
 

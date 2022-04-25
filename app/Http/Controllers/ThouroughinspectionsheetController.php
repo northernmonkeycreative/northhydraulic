@@ -57,7 +57,7 @@ class ThouroughinspectionsheetController extends Controller
     }
 
 
-    public function exportpdf($job) {
+    public function exportpdf($job, $jobsheet) {
 
         // Get Settings to use
         $settings = Setting::get()->first();
@@ -66,7 +66,7 @@ class ThouroughinspectionsheetController extends Controller
          $thejob = Job::where('id', $job)->firstOrFail();
 
          // The Job Sheet
-         $thejobsheet = Thouroughinspectionsheet::where('job_id', $thejob->id)->firstOrFail();
+         $thejobsheet = Thouroughinspectionsheet::where('id', $jobsheet)->firstOrFail();
 
 
 
