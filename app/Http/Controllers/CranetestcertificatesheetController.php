@@ -55,7 +55,7 @@ class CranetestcertificatesheetController extends Controller
     }
 
 
-    public function exportpdf($job) {
+    public function exportpdf($job, $jobsheet) {
 
         // Get Settings to use
         $settings = Setting::get()->first();
@@ -64,7 +64,7 @@ class CranetestcertificatesheetController extends Controller
          $thejob = Job::where('id', $job)->firstOrFail();
 
          // The Job Sheet
-         $thejobsheet = Cranetestcertificatesheet::where('job_id', $thejob->id)->firstOrFail();
+         $thejobsheet = Cranetestcertificatesheet::where('id', $jobsheet)->firstOrFail();
 
          // Get the job this job sheet belongs to - to grab other details
         $theclient = Client::where('id', $thejob->customer_id)->firstOrFail();

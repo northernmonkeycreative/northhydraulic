@@ -114,7 +114,7 @@ Route::middleware(['auth', isAdmin::class])->group(function ()
 
         // Job Sheet - Crane Test Sheet
         Route::get('/cranetestcertificatesheet/{job}',[CranetestcertificatesheetController::class, 'show'])->name('cranetestcertificatesheet.show');
-        Route::get('/cranetestcertificatesheet/export/{id}',[CranetestcertificatesheetController::class, 'exportpdf'])->name('cranetestcertificatesheet.exportpdf');
+        Route::get('/cranetestcertificatesheet/export/{job}/{jobsheet}',[CranetestcertificatesheetController::class, 'exportpdf'])->name('cranetestcertificatesheet.exportpdf');
         Route::get('/cranetestcertificatesheet/edit/{id}',[CranetestcertificatesheetController::class, 'edit'])->name('crane.edit');
         Route::post('/cranetestcertificatesheet/edit/{job}',[CranetestcertificatesheetController::class, 'update'])->name('crane.update');
 
