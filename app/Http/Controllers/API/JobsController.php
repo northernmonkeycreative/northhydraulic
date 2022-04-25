@@ -52,8 +52,9 @@ class JobsController extends Controller
         $engineer = request()->user();
         // $jobs =  $user->jobs()->get();
         $jobs = Job::where('engineer_id', $engineer->id)
-            ->where('department', 'mobileengineer')
-            // ->where('department', 'workshop')            
+            // ->where('department', 'mobileengineer')
+            ->where('department', '!=', 'tradecounter') 
+            ->where('department', '!=', 'mobilehose')         
             ->where('status', '!=', 'paid')
             ->where('status', '!=', 'Invoiced')
             ->where('status', '!=', 'invoice')
@@ -71,8 +72,9 @@ class JobsController extends Controller
         $engineer = request()->user();
         // $jobs =  $user->jobs()->get();
         $jobs = Job::where('engineer_id', $engineer->id)
-            ->where('department', 'mobileengineer')
-            // ->where('department', 'workshop') 
+            // ->where('department', 'mobileengineer')
+            ->where('department', '!=', 'tradecounter') 
+            ->where('department', '!=', 'mobilehose') 
             ->where('status', '!=', 'paid')
             ->where('status', '!=', 'Invoiced')
             ->where('status', '!=', 'invoice')
@@ -92,8 +94,9 @@ class JobsController extends Controller
         $engineer = request()->user();
         // $jobs =  $user->jobs()->get();
         $jobs = Job::where('engineer_id', $engineer->id)
-            ->where('department', 'mobileengineer')
-            // ->where('department', 'workshop') 
+           // ->where('department', 'mobileengineer')
+           ->where('department', '!=', 'tradecounter') 
+           ->where('department', '!=', 'mobilehose') 
             ->where('status', '!=', 'paid')
             ->where('status', '!=', 'Invoiced')
             ->where('status', '!=', 'invoice')
@@ -113,8 +116,9 @@ class JobsController extends Controller
         $engineer = request()->user();
         // $jobs =  $user->jobs()->get();
         $jobs = Job::where('engineer_id', $engineer->id)
-            ->where('department', 'mobileengineer')
-            // ->where('department', 'workshop') 
+            // ->where('department', 'mobileengineer')
+            ->where('department', '!=', 'tradecounter') 
+            ->where('department', '!=', 'mobilehose') 
             ->where('status', '!=', 'paid')
             ->where('status', '!=', 'Invoiced')
             ->where('status', '!=', 'invoice')
