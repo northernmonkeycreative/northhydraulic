@@ -102,7 +102,7 @@ Route::middleware(['auth', isAdmin::class])->group(function ()
 
         // Job Sheet - Lifting Various Test Certificate Sheet
         Route::get('/liftingvarioustestcertificatesheet/{job}',[LiftingVariouscertificatesheetController::class, 'show'])->name('liftingvarioustestcertificatesheet.show');
-        Route::get('/liftingvarioustestcertificatesheet/export/{id}',[LiftingVariouscertificatesheetController::class, 'exportpdf'])->name('liftingvarioustestcertificatesheet.exportpdf');
+        Route::get('/liftingvarioustestcertificatesheet/export/{job}/{jobsheet}',[LiftingVariouscertificatesheetController::class, 'exportpdf'])->name('liftingvarioustestcertificatesheet.exportpdf');
         Route::get('/liftingvarioustestcertificatesheet/edit/{id}',[LiftingVariouscertificatesheetController::class, 'edit'])->name('various.edit');
         Route::post('/liftingvarioustestcertificatesheet/edit/{job}',[LiftingVariouscertificatesheetController::class, 'update'])->name('various.update');
 
