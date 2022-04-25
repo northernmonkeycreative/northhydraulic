@@ -60,7 +60,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/addengineercontrolsheet', [JobsController::class, 'addengineercontrolsheet']);
 
     //Lift Various sheets/////////////////////////////////////////////////////////////////////
-    Route::get('/jobs/{id}/liftvarioussheets', [JobsController::class, 'liftvarioussheets']);
+    Route::get('/jobs/{id}/liftvariousheets', [JobsController::class, 'liftvariousheets']);
     Route::get('/liftvarioussheet/{id}', [JobsController::class, 'liftvarioussheet']);
     Route::post('/updateliftvarioussheet/{id}', [JobsController::class, 'updateliftvarioussheet']);
     Route::post('/addliftvarioussheet', [JobsController::class, 'addliftvarioussheet']);
