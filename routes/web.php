@@ -90,7 +90,7 @@ Route::middleware(['auth', isAdmin::class])->group(function ()
 
         // Job Sheet - Lift Test Certificate Sheet
         Route::get('/lifttestcertificatesheet/{job}',[LifttestcertificatesheetController::class, 'show'])->name('lifttestcertificatesheet.show');
-        Route::get('/lifttestcertificatesheet/export/{id}',[LifttestcertificatesheetController::class, 'exportpdf'])->name('lifttestcertificatesheet.exportpdf');
+        Route::get('/lifttestcertificatesheet/export/{job}/{jobsheet}',[LifttestcertificatesheetController::class, 'exportpdf'])->name('lifttestcertificatesheet.exportpdf');
         Route::get('/lifttestcertificatesheet/edit/{id}',[LifttestcertificatesheetController::class, 'edit'])->name('lift.edit');
         Route::post('/lifttestcertificatesheet/edit/{job}',[LifttestcertificatesheetController::class, 'update'])->name('lift.update');
 
