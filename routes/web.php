@@ -96,7 +96,7 @@ Route::middleware(['auth', isAdmin::class])->group(function ()
 
         // Job Sheet - Winch Test Certificate Sheet
         Route::get('/winchtestcertificatesheet/{job}',[WinchtestcertificatesheetController::class, 'show'])->name('winchtestcertificatesheet.show');
-        Route::get('/winchtestcertificatesheet/export/{id}',[WinchtestcertificatesheetController::class, 'exportpdf'])->name('winchtestcertificatesheet.exportpdf');
+        Route::get('/winchtestcertificatesheet/export/{job}/{jobsheet}',[WinchtestcertificatesheetController::class, 'exportpdf'])->name('winchtestcertificatesheet.exportpdf');
         Route::get('/winchtestcertificatesheet/edit/{id}',[WinchtestcertificatesheetController::class, 'edit'])->name('winch.edit');
         Route::post('/winchtestcertificatesheet/edit/{job}',[WinchtestcertificatesheetController::class, 'update'])->name('winch.update');
 

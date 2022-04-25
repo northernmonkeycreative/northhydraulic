@@ -53,7 +53,7 @@ class WinchtestcertificatesheetController extends Controller
         return back()->withSuccess('Jobsheet has been Updated');
     }
 
-    public function exportpdf($job) {
+    public function exportpdf($job, $jobsheet) {
 
         // Get Settings to use
         $settings = Setting::get()->first();
@@ -62,7 +62,7 @@ class WinchtestcertificatesheetController extends Controller
          $thejob = Job::where('id', $job)->firstOrFail();
 
          // The Job Sheet
-         $thejobsheet = Winchtestcertificatesheet::where('job_id', $thejob->id)->firstOrFail();
+         $thejobsheet = Winchtestcertificatesheet::where('id', $jobsheet)->firstOrFail();
 
          // Get the job this job sheet belongs to - to grab other details
         $theclient = Client::where('id', $thejob->customer_id)->firstOrFail();
