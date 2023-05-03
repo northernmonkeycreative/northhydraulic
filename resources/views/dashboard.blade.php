@@ -187,17 +187,18 @@
                     },
                     eventDrop: function (event, delta) {
                         var start = $.fullCalendar.formatDate(event.start, "YYYY-MM-DD HH:mm:ss");
+                        
                         var time = $.fullCalendar.formatDate(event.start, "HH:mm");
                         var date = $.fullCalendar.formatDate(event.start, "YYYY-MM-DD");
                         // var event_end = $.fullCalendar.formatDate(event.start, "YYYY-MM-DD");
-                        end.setHours(end.getHours() + event.hours);
+                        var endtime = end.setHours(end.getHours() + event.hours);
                         
                         $.ajax({
                             url: SITEURL + '/calendar-crud-ajax',
                             data: {
                                 title: event.engineer_name,
                                 start: start,
-                                end: start,
+                                end: endtime,
                                 start_time: time,
                                 start_date: date,
                                 id: event.id,
