@@ -163,6 +163,8 @@
                     },
                     "order": [[ 0, 'desc' ]]
                 });
+
+                console.log('databatble loaded')
             });
 
 
