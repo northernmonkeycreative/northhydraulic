@@ -19,7 +19,7 @@ class JobController extends Controller
     public function index()
     {
         $jobs = Job::where('status', '!=', 'Invoiced')->get();
-        return view('jobs.index2', compact('jobs'));
+        return view('jobs.index', compact('jobs'));
     }
 
     public function getpaidJobs()
