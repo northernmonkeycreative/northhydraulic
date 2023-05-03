@@ -114,6 +114,7 @@
                     eventLimit: true,
                     allDayDefault: false,
                     allDaySlot:false,
+                    overlap:false,
                     // slotDuration: "00:01:00",
                     eventRender: function (event, element, view) {
                         event.allDay = false;  
