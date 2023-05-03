@@ -119,7 +119,7 @@
                     eventRender: function (event, element, view) {
                         event.allDay = false;  
                         event.displayEventTime = true;  
-                        event.defaultTimedEventDuration = event.hours;
+                        event.slotDuration = event.hours;
 
                     },
                     eventAfterRender: function (event, element, view) {
