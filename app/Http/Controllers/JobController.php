@@ -60,7 +60,7 @@ class JobController extends Controller
     // Create New Job Screen
     public function create()
     {
-        $clients = Client::orderBy('name')->get()->all();
+        $clients = Client::get()->all();
         $engineers = User::where('is_admin', 0)->get()->all();
 
         return view('jobs.create', compact('clients', 'engineers'));
