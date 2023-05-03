@@ -104,6 +104,7 @@ class JobController extends Controller
                 'status' => 'ongoing',
                 'invoice_number' => $request->invoice_number,
                 'customer_address' => NULL,
+                'hours' => $request->hours,
             ]);
         } else {
 
@@ -139,6 +140,7 @@ class JobController extends Controller
                 'status' => 'ongoing',
                 'invoice_number' => $request->invoice_number,
                 'customer_address' => $clientaddress,
+                'hours' => $request->hours,
             ]);
         }
         
@@ -189,6 +191,7 @@ class JobController extends Controller
         $thejob->customer_name = $theclient->company_name;
         $thejob->department = $request->department;
         $thejob->start_time = $request->start_time;
+        $thejob->hours = $request->hours;
         $thejob->start = $request->start_date .' '. $request->start_time.':00';
         $thejob->start_date = $request->start_date;
         $thejob->site_address = $request->site_address;

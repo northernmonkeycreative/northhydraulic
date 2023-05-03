@@ -88,6 +88,12 @@
                                                 </div>
 
                                                 <div class="col-span-6 sm:col-span-6">
+                                                <label for="start_time" class="block text-sm font-medium text-gray-700">How Many Hours will this job take?</label>
+                                                @if ($errors->has('hours'))<span class="text-red-700">{{ $errors->first('hours') }}</span>@endif
+                                                <input type="number" name="hours" id="hours" autocomplete="hours" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('start_time') }}">
+                                                </div>
+
+                                                <div class="col-span-6 sm:col-span-6">
                                                 <label for="site_address" class="block text-sm font-medium text-gray-700">Site Address</label>
                                                 @if ($errors->has('site_address'))<span class="text-red-700">{{ $errors->first('site_address') }}</span>@endif
                                                 <input type="text" name="site_address" id="site_address" autocomplete="site_address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('site_address') }}">
