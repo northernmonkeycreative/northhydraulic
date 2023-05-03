@@ -159,7 +159,7 @@
                     },
                     stateLoadCallback: function(settings) {
                         return JSON.parse( localStorage.getItem( 'DataTables_' + settings.sInstance ) )
-                    }
+                    },
                     "order": [[ 0, 'desc' ]]
                 });
             });
