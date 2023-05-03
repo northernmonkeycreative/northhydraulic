@@ -190,6 +190,7 @@
                         var time = $.fullCalendar.formatDate(event.start, "HH:mm");
                         var date = $.fullCalendar.formatDate(event.start, "YYYY-MM-DD");
                         // var event_end = $.fullCalendar.formatDate(event.start, "YYYY-MM-DD");
+                        end.setHours(end.getHours() + event.hours);
                         
                         $.ajax({
                             url: SITEURL + '/calendar-crud-ajax',
