@@ -154,6 +154,7 @@
             $(document).ready(function() {
                 $('#dataTable').DataTable({
                     stateSave: true,
+                    stateDuration:-1,
                     stateSaveCallback: function(settings,data) {
                         localStorage.setItem( 'DataTables_' + settings.sInstance, JSON.stringify(data) )
                     },
