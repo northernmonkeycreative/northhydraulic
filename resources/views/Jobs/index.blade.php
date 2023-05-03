@@ -141,7 +141,7 @@
                     </div>
                   </div>
 
-                  {{-- {{ $jobs->links() }} --}}
+                  {{ $jobs->links() }}
             </div>
         </div>
 
