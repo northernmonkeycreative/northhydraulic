@@ -88,9 +88,9 @@
                                                 </div>
 
                                                 <div class="col-span-6 sm:col-span-6">
-                                                <label for="start_time" class="block text-sm font-medium text-gray-700">How Many Hours will this job take?</label>
+                                                <label for="hours" class="block text-sm font-medium text-gray-700">How Many Hours will this job take?</label>
                                                 @if ($errors->has('hours'))<span class="text-red-700">{{ $errors->first('hours') }}</span>@endif
-                                                <input type="number" name="hours" id="hours" autocomplete="hours" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('start_time') }}">
+                                                <input type="number" name="hours" id="hours" autocomplete="hours" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('hours') }}">
                                                 </div>
 
                                                 <div class="col-span-6 sm:col-span-6">
