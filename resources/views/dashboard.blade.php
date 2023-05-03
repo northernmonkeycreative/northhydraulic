@@ -119,7 +119,7 @@
                     eventRender: function (event, element, view) {
                         event.allDay = false;  
                         event.displayEventTime = true;  
-                        event.duration = event.hours;
+                        event.defaultTimedEventDuration = event.hours;
 
                     },
                     eventAfterRender: function (event, element, view) {
