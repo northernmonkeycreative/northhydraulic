@@ -151,7 +151,7 @@
                                                         $(".internalnotes{{$job->id}}").css("display", "none");
 
                                                         $("#addInternalNote{{$job->id}}").click(function(e){
-                                                            e.preventDefault();
+                                                            // e.preventDefault();
                                                             console.log("The button was clicked.");
                                                         }); 
 
