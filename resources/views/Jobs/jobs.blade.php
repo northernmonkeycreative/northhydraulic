@@ -113,9 +113,10 @@
                                                 @endif
                                                 @if($job->status == 'Invoiced')
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-500 text-gray-500 uppercase border border-gray-300">Invoiced</span>
-                                                
-                                               
-                                                <span class="px-2 inline-flex text-xs leading-5 text-gray-500">
+                                                @endif
+                                            </td>
+                                            <td>
+                                            <span class="px-2 inline-flex text-xs leading-5 text-gray-500">
                                                     <span>
                                                         @if($job->internal_notes)
                                                             <span class="note">
@@ -137,7 +138,6 @@
                                                         }
                                                     </style>
                                                 </span>
-                                                @endif
                                             </td>
                                             @if (request()->is('jobs/paid'))
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{$job->invoice_number}}</td>
