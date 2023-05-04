@@ -138,7 +138,17 @@
                                                         
                                                        
 
-                                                        <script>
+                                                        
+
+                                                        @endif
+                                                    </span>
+                                                    <span class="internalnotes{{$job->id}}">
+                                                        {{$job->internal_notes}}
+                                                    </span>
+
+                                                    <script>
+
+                                                        $(".internalnotes{{$job->id}}").css("display", "none");
 
                                                         $("#addInternalNote{{$job->id}}").click(function(){
                                                             console.log("The button was clicked.");
@@ -149,12 +159,6 @@
                                                         }); 
                                                         
                                                         </script>
-
-                                                        @endif
-                                                    </span>
-                                                    <span class="internalnotes{{$job->id}} hidden">
-                                                        {{$job->internal_notes}}
-                                                    </span>
                                
                                                 </span>
                                             </td>
