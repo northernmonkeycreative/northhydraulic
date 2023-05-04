@@ -66,7 +66,8 @@ Route::middleware(['auth', isAdmin::class])->group(function ()
         Route::post('/settings/{id}',[SettingController::class, 'update'])->name('settings.update');
 
         // Holidays
-        Route::get('/holiday',[HolidayController::class, 'index'])->name('holiday');
+        // Route::get('/holiday',[HolidayController::class, 'index'])->name('holiday');
+        Route::get('/holiday',[HolidayController::class, 'index'])->name('holiday.new');
         Route::post('/holiday',[HolidayController::class, 'store'])->name('holiday.store');
         Route::get('/holiday/edit/{holidayid}',[HolidayController::class, 'edit'])->name('holiday.edit');
         Route::post('/holiday/edit/{holiday}',[HolidayController::class, 'update'])->name('holiday.update');
