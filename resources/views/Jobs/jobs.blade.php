@@ -115,8 +115,8 @@
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-500 text-gray-500 uppercase border border-gray-300">Invoiced</span>
                                                 @endif
                                             </td>
-                                            <td class="py-4 inline-flex items-center">
-                                            <span class="px-2 inline-flex text-xs leading-5 text-gray-500">
+                                            <td>
+                                            <span class="px-4 inline-flex text-xs leading-5 text-gray-500">
                                                     <span>
                                                         @if($job->internal_notes != "")
                                                             <span class="note inline-flex items-center px-2 py-2 text-sm font-medium text-gray-700">
