@@ -155,8 +155,8 @@
                                                         }); 
 
                                                         $(".note{{$job->id}}").hover(function(){
-                                                            $(".internalnotes{{$job->id}}").css("display", "block");
-                                                            $(".internalnotes{{$job->id}}").css("display", "none");
+                                                            $(".internalnotes{{$job->id}}").css("display", "block"),
+                                                            $(".internalnotes{{$job->id}}").css("display", "none")
                                                         }); 
                                                         
                                                         </script>
