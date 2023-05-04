@@ -108,7 +108,19 @@
                     
 
                     editable: true,
-                    events: SITEURL + "/dashboard",
+                    // events: SITEURL + "/dashboard",
+                    eventSources: [
+
+                    // your event source
+                    {
+                    url: SITEURL + "/dashboard", // use the `url` property
+                    color: 'yellow',    // an option!
+                    textColor: 'black'  // an option!
+                    }
+
+                    // any other sources...
+
+                    ],
                     noEventsMessage:'No Jobs To Display',
                     minTime:"06:00:00",
                     eventLimit: true,
