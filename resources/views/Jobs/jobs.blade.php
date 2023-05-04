@@ -119,7 +119,7 @@
                                                 <span class="py-4">
                                                     <span>
                                                         @if($job->internal_notes != "")
-                                                            <span class="note px-2 py-2 text-sm font-medium text-green-700">
+                                                            <span class="note{{$job->id}} px-2 py-2 text-sm font-medium text-green-700">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" />
                                                                 </svg>
@@ -128,7 +128,7 @@
                                                         @if($job->internal_notes == "")
                                                         <button id="addInternalNote{{$job->id}}" title="Add Internal Note">
                                                         <!-- <a href="{{ route('jobs.show', $job->id) }}"  title="Add Internal Note"> -->
-                                                            <span class="note{{$job->id}} px-2 py-2 text-sm font-medium text-gray-300">
+                                                            <span class="px-2 py-2 text-sm font-medium text-gray-300">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                                 </svg>
@@ -141,10 +141,10 @@
                                                         <script>
 
                                                         // Call the dataTables jQuery plugin
-                                                        $(document).ready(function() {
+                                                       
                                                                 (function($) {
                                                                         "use strict";
-                                                                            $("#addInternalNote{{$job->id}}").click(function(){
+                                                                        $("#addInternalNote{{$job->id}}").click(function(){
                                                                                 console.log("The button was clicked.");
                                                                             }); 
 
@@ -153,7 +153,7 @@
                                                                             }); 
 
                                                                 });
-                                                            });
+                                                        
                                                         </script>
 
                                                         @endif
