@@ -114,8 +114,8 @@
                                                 @if($job->status == 'Invoiced')
                                                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-500 text-gray-500 uppercase border border-gray-300">Invoiced</span>
                                                 @endif
-                                                @if($job->notes)
-                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-500 text-gray-500 uppercase border border-gray-300">{{$job->notes}}</span>
+                                                @if($job->internal_notes)
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-500 text-gray-500 uppercase border border-gray-300">{{$job->internal_notes}}</span>
                                                 @endif
                                             </td>
                                             @if (request()->is('jobs/paid'))
