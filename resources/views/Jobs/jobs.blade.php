@@ -126,11 +126,14 @@
                                                             </span>
                                                         @endif
                                                         @if($job->internal_notes == "")
-                                                            <span class="note px-2 py-2 text-sm font-medium text-gray-200">
+                                                        <a href=""  title="Add Internal Note">
+                                                        <!-- <a href="{{ route('jobs.show', $job->id) }}"  title="Add Internal Note"> -->
+                                                            <span class="note px-2 py-2 text-sm font-medium text-gray-300">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                                 </svg>
                                                             </span>
+                                                        </a>
                                                         @endif
                                                     </span>
                                                     <span class="internalnotes hidden">
