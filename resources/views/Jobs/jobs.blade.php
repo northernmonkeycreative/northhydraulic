@@ -138,6 +138,29 @@
                                                         
                                                        
 
+                                                        <script>
+
+                                                        (function($) {
+                                                            "use strict";
+
+                                                            // Call the dataTables jQuery plugin
+                                                            $(document).ready(function() {
+                                                                (function($) {
+                                                                        "use strict";
+                                                                            $("#addInternalNote").click(function(){
+                                                                                console.log("The button was clicked.");
+                                                                            }); 
+
+                                                                            $(".note").hover(function(){
+                                                                                $(".internalnotes").css("display", "block");
+                                                                            }); 
+
+                                                                });
+                                                            });
+
+                                                        });
+                                                        </script>
+
                                                         @endif
                                                     </span>
                                                     <span class="internalnotes hidden">
@@ -185,6 +208,8 @@
             </div>
         </div>
 
+
+
         <script>
 
             (function($) {
@@ -210,9 +235,7 @@
 
 
 
-                    $("#addInternalNote").click(function(){
-                    console.log("The button was clicked.");
-                    }); 
+                    
 
 
                 });
