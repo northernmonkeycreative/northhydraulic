@@ -140,19 +140,13 @@
 
                                                         <script>
 
-                                                        // Call the dataTables jQuery plugin
-                                                       
-                                                                (function($) {
-                                                                        "use strict";
-                                                                        $("#addInternalNote{{$job->id}}").click(function(){
-                                                                                console.log("The button was clicked.");
-                                                                            }); 
+                                                        $("#addInternalNote{{$job->id}}").click(function(){
+                                                            console.log("The button was clicked.");
+                                                        }); 
 
-                                                                            $(".note{{$job->id}}").hover(function(){
-                                                                                $(".internalnotes{{$job->id}}").css("display", "block");
-                                                                            }); 
-
-                                                                });
+                                                        $(".note{{$job->id}}").hover(function(){
+                                                            $(".internalnotes{{$job->id}}").css("display", "block");
+                                                        }); 
                                                         
                                                         </script>
 
