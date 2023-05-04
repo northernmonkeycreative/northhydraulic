@@ -142,7 +142,7 @@
 
                                                         @endif
                                                     </span>
-                                                    <span class="internalnotes{{$job->id}}">
+                                                    <span class="internalnotes{{$job->id}} absolute">
                                                         {{$job->internal_notes}}
                                                     </span>
 
