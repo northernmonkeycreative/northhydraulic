@@ -22,6 +22,14 @@
                         Add New Client
                     </a>
                 </span>  
+                <span class="sm:ml-3">
+                    <a href="{{ route('holiday') }}" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg>
+                        Add New Holiday
+                    </a>
+                </span>  
             </div>
 
         </div>
@@ -107,18 +115,26 @@
                     },
                     
 
-                    editable: true,
+                    
                     // events: SITEURL + "/dashboard",
                     eventSources: [
 
-                    // your event source
-                    {
-                    url: SITEURL + "/dashboard", // use the `url` property
-                    color: 'yellow',    // an option!
-                    textColor: 'black'  // an option!
-                    }
+                        // main jobs
+                        {
+                            url: SITEURL + "/dashboard", // use the `url` property
+                            color: 'yellow',   
+                            textColor: 'black',
+                            editable: true,  
+                        },
 
-                    // any other sources...
+
+                        // holidays
+                        {
+                            url: SITEURL + "/holiday", // use the `url` property
+                            color: 'blue',    
+                            textColor: 'white',  
+                            editable:false,
+                        },
 
                     ],
                     noEventsMessage:'No Jobs To Display',
@@ -129,7 +145,7 @@
                     overlap:false,
                     // slotDuration: "00:01:00",
                     eventRender: function (event, element, view) {
-                        event.allDay = false;  
+                        // event.allDay = false;  
                         event.displayEventTime = true;  
 
                     },
@@ -205,24 +221,27 @@
                         var date = $.fullCalendar.formatDate(event.start, "YYYY-MM-DD");
                         // var event_end = $.fullCalendar.formatDate(event.start, "YYYY-MM-DD");
                         
+                        if(event.type != 'holiday') {
+                            $.ajax({
+                                url: SITEURL + '/calendar-crud-ajax',
+                                data: {
+                                    title: event.engineer_name,
+                                    start: start,
+                                    end: start,
+                                    start_time: time,
+                                    start_date: date,
+                                    id: event.id,
+                                    description: event.customer_name,
+                                    type: 'edit'
+                                },
+                                type: "POST",
+                                success: function (response) {
+                                
+                                }
+                            });
+                        }
                         
-                        $.ajax({
-                            url: SITEURL + '/calendar-crud-ajax',
-                            data: {
-                                title: event.engineer_name,
-                                start: start,
-                                end: start,
-                                start_time: time,
-                                start_date: date,
-                                id: event.id,
-                                description: event.customer_name,
-                                type: 'edit'
-                            },
-                            type: "POST",
-                            success: function (response) {
-                              
-                            }
-                        });
+                        
                     },
                     // selectable: true,
                     // selectHelper: true,
@@ -274,8 +293,15 @@
                     //     });
                     // },
                     eventClick: function (event) {
-                        window.open('http://46.101.38.100/jobs/'+event.id, "_self");
-                        return false;
+                        if(event.type == 'holiday'){
+                            window.open(SITEURL +'/holiday/edit/'+event.id, "_self");
+                            
+                            return false;
+                        } else {
+                            window.open(SITEURL +'/jobs/'+event.id, "_self");
+                            return false;
+                        }
+                        
                         
                     }
                 });

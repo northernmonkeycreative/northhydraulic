@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\EngineerController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\HolidayController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EngineercontrolsheetController;
 use App\Http\Controllers\LifttestcertificatesheetController;
@@ -63,6 +64,12 @@ Route::middleware(['auth', isAdmin::class])->group(function ()
         // System Settings
         Route::get('/settings',[SettingController::class, 'index'])->name('settings');
         Route::post('/settings/{id}',[SettingController::class, 'update'])->name('settings.update');
+
+        // Holidays
+        Route::get('/holiday',[HolidayController::class, 'index'])->name('holiday');
+        Route::post('/holiday',[HolidayController::class, 'store'])->name('holiday.store');
+        Route::get('/holiday/edit/{holidayid}',[HolidayController::class, 'edit'])->name('holiday.edit');
+        Route::post('/holiday/edit/{holiday}',[HolidayController::class, 'update'])->name('holiday.update');
 
         // Jobs
         Route::get('/jobs',[JobController::class, 'index'])->name('jobs');
