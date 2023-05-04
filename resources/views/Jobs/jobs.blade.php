@@ -140,11 +140,8 @@
 
                                                         <script>
 
-                                                        (function($) {
-                                                            "use strict";
-
-                                                            // Call the dataTables jQuery plugin
-                                                            $(document).ready(function() {
+                                                        // Call the dataTables jQuery plugin
+                                                        $(document).ready(function() {
                                                                 (function($) {
                                                                         "use strict";
                                                                             $("#addInternalNote{{$job->id}}").click(function(){
@@ -157,8 +154,6 @@
 
                                                                 });
                                                             });
-
-                                                        });
                                                         </script>
 
                                                         @endif
