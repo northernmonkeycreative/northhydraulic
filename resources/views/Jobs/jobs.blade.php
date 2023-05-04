@@ -154,9 +154,12 @@
                                                             console.log("The button was clicked.");
                                                         }); 
 
-                                                        $(".note{{$job->id}}").hover(function(){
-                                                            $(".internalnotes{{$job->id}}").css("display", "block"),
-                                                            $(".internalnotes{{$job->id}}").css("display", "none")
+                                                        $(".note{{$job->id}}").mouseenter(function(){
+                                                            $(".internalnotes{{$job->id}}").css("display", "block");
+                                                        }); 
+
+                                                        $(".note{{$job->id}}").mouseleave(function(){
+                                                            $(".internalnotes{{$job->id}}").css("display", "none");
                                                         }); 
                                                         
                                                         </script>
