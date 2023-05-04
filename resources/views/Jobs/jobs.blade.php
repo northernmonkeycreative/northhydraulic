@@ -126,7 +126,7 @@
                                                             </span>
                                                         @endif
                                                         @if($job->internal_notes == "")
-                                                        <button id="addInternalNote"  title="Add Internal Note">
+                                                        <button id="addInternalNote{{$job->id}}" title="Add Internal Note">
                                                         <!-- <a href="{{ route('jobs.show', $job->id) }}"  title="Add Internal Note"> -->
                                                             <span class="note px-2 py-2 text-sm font-medium text-gray-300">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -147,7 +147,7 @@
                                                             $(document).ready(function() {
                                                                 (function($) {
                                                                         "use strict";
-                                                                            $("#addInternalNote").click(function(){
+                                                                            $("#addInternalNote{{$job->id}}").click(function(){
                                                                                 console.log("The button was clicked.");
                                                                             }); 
 
