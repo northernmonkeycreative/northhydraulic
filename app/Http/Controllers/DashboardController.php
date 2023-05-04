@@ -30,9 +30,12 @@ class DashboardController extends Controller
          ->where('department', '!=', 'workshop')
          ->get(['id','title','start','start_time','status', 'customer_name']);
 
-         
+         $data2 = Job::whereDate('start', '>=', $start)
+         ->whereDate('start', '<=', $end)
+         ->where('department', 'workshop')
+         ->get(['id','title','start','start_time','status', 'customer_name']);
 
-         return Response::json($data);
+         return Response::json([$data,$data2]);
         
      
         }
