@@ -135,6 +135,17 @@
                                                             </span>
                                                         </button>
 
+                                                         <!-- The Modal -->
+                                                         <div id="myModal" class="modal">
+
+                                                            <!-- Modal content -->
+                                                            <div class="modal-content">
+                                                            <span class="closemodal">&times;</span>
+                                                            <p>Some text in the Modal..</p>
+                                                            </div>
+
+                                                        </div>
+
                                                         <style>
                                                             .modal {
                                                                 display: none; /* Hidden by default */
@@ -182,7 +193,7 @@
                                                             var btn = document.getElementById("myBtn");
 
                                                             // Get the <span> element that closes the modal
-                                                            var span = document.getElementsByClassName("close")[0];
+                                                            var span = document.getElementsByClassName("closemodal")[0];
 
                                                             // When the user clicks on the button, open the modal
                                                             btn.onclick = function(e) {
@@ -203,16 +214,7 @@
                                                             } 
                                                         </script>
 
-                                                        <!-- The Modal -->
-                                                        <div id="myModal" class="modal">
-
-                                                            <!-- Modal content -->
-                                                            <div class="modal-content">
-                                                            <span class="close">&times;</span>
-                                                            <p>Some text in the Modal..</p>
-                                                            </div>
-
-                                                        </div>
+                                                       
 
                                                         @endif
                                                     </span>
