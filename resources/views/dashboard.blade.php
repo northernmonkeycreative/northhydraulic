@@ -119,7 +119,6 @@
                     eventRender: function (event, element, view) {
                         event.allDay = false;  
                         event.displayEventTime = true;  
-                        event.slotDuration = event.hours;
 
                     },
                     eventAfterRender: function (event, element, view) {
