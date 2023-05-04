@@ -126,26 +126,99 @@
                                                             </span>
                                                         @endif
                                                         @if($job->internal_notes == "")
-                                                        <a href=""  title="Add Internal Note">
+                                                        <button id="myBtn"  title="Add Internal Note">
                                                         <!-- <a href="{{ route('jobs.show', $job->id) }}"  title="Add Internal Note"> -->
                                                             <span class="note px-2 py-2 text-sm font-medium text-gray-300">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                                 </svg>
                                                             </span>
-                                                        </a>
+                                                        </button>
+
+                                                        <style>
+                                                            .modal {
+                                                                display: none; /* Hidden by default */
+                                                                position: fixed; /* Stay in place */
+                                                                z-index: 1; /* Sit on top */
+                                                                left: 0;
+                                                                top: 0;
+                                                                width: 100%; /* Full width */
+                                                                height: 100%; /* Full height */
+                                                                overflow: auto; /* Enable scroll if needed */
+                                                                background-color: rgb(0,0,0); /* Fallback color */
+                                                                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+                                                                }
+
+                                                                /* Modal Content/Box */
+                                                                .modal-content {
+                                                                background-color: #fefefe;
+                                                                margin: 15% auto; /* 15% from the top and centered */
+                                                                padding: 20px;
+                                                                border: 1px solid #888;
+                                                                width: 80%; /* Could be more or less, depending on screen size */
+                                                                }
+
+                                                                /* The Close Button */
+                                                                .close {
+                                                                color: #aaa;
+                                                                float: right;
+                                                                font-size: 28px;
+                                                                font-weight: bold;
+                                                                }
+
+                                                                .close:hover,
+                                                                .close:focus {
+                                                                color: black;
+                                                                text-decoration: none;
+                                                                cursor: pointer;
+                                                                }
+                                                        </style>
+
+                                                        <script>
+                                                            // Get the modal
+                                                            var modal = document.getElementById("myModal");
+
+                                                            // Get the button that opens the modal
+                                                            var btn = document.getElementById("myBtn");
+
+                                                            // Get the <span> element that closes the modal
+                                                            var span = document.getElementsByClassName("close")[0];
+
+                                                            // When the user clicks on the button, open the modal
+                                                            btn.onclick = function() {
+                                                            modal.style.display = "block";
+                                                            }
+
+                                                            // When the user clicks on <span> (x), close the modal
+                                                            span.onclick = function() {
+                                                            modal.style.display = "none";
+                                                            }
+
+                                                            // When the user clicks anywhere outside of the modal, close it
+                                                            window.onclick = function(event) {
+                                                            if (event.target == modal) {
+                                                                modal.style.display = "none";
+                                                            }
+                                                            } 
+                                                        </script>
+
+                                                        <!-- The Modal -->
+                                                        <div id="myModal" class="modal">
+
+                                                            <!-- Modal content -->
+                                                            <div class="modal-content">
+                                                            <span class="close">&times;</span>
+                                                            <p>Some text in the Modal..</p>
+                                                            </div>
+
+                                                        </div>
+
                                                         @endif
                                                     </span>
                                                     <span class="internalnotes hidden">
                                                         {{$job->internal_notes}}
                                                     </span>
-                                                    <style>
-                                                        
-                                                   
-                                                        .note:hover .internalnotes {
-                                                            display:block;
-                                                        }
-                                                    </style>
+                               
                                                 </span>
                                             </td>
                                             @if (request()->is('jobs/paid'))
