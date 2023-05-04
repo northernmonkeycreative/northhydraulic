@@ -116,7 +116,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                            <span class="py-4 inline-flex items-center">
+                                            <span class="py-4">
                                                     <span>
                                                         @if($job->internal_notes != "")
                                                             <span class="note px-2 py-2 text-sm font-medium text-gray-700">
