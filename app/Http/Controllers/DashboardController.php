@@ -35,7 +35,7 @@ class DashboardController extends Controller
          ->where('department', 'workshop')
          ->get(['id','title','start','start_time','status', 'customer_name']);
 
-         return Response::json([$data,$data2]);
+         return Response::json($data);
         
      
         }
