@@ -27,7 +27,7 @@
         </div>
     </x-slot>
 
-    <div class="pt-12">
+    <!-- <div class="pt-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200 flex justify-start align-center">
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     
     <div class="pt-2">
@@ -55,6 +55,14 @@
                         <span class="px-2 mt-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-500 text-gray-500 uppercase border border-gray-300"><span class="font-bold pr-2">{{count($unassinged)}}</span> UnAssigned</span>
                         <span class="px-2 mt-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-900 text-white uppercase border border-gray-300"><span class="font-bold pr-2">{{count($Invoiced)}}</span> Invoiced</span>
                     </div>
+                    <div class="">
+                    <a href="{{ route('dashboard') }}" class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 inline-flex" >
+                        Jobs
+                    </a>
+                    <a href="{{ route('dashboard-workshop') }}" class="ml-2 px-4 py-2 border border-gray-300 rounded-md text-gray-700 inline-flex" >
+                        Workshop
+                    </a>
+                </div>
                     <a href="{{ route('jobs') }}" class="px-4 py-2 border border-gray-300 rounded-md text-gray-700" >
                         Total Jobs {{count($jobs)}}
                     </a>
