@@ -28,7 +28,7 @@
                             <div class="px-4 sm:px-0">
                                 <h3 class="text-lg font-medium leading-6 text-gray-900">Holiday Information</h3>
                                 <p class="mt-1 text-sm text-gray-600">
-                                Create a new holiday to display a car in the calendar. This will help you visually manage when to schedule jobs as you can position holiday cards where needed.
+                                Create a new holiday to display a card event in the calendar. This will help you visually manage when to schedule jobs as you can position holiday cards where needed.
                                 </p>
                             </div>
                         </div>
