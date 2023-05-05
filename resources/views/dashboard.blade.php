@@ -157,10 +157,10 @@
                         } 
 
                         var theevent = element.find('.fc-event');
-                        var noteelement = '<div class="internal_note">' + event.internal_notes+'</div>'
+                        var noteelement = '<div class="internal_note" style="position:relative;width:100%;background:white;padding:5px;color:gray;">' + event.internal_notes+'</div>'
 
                         $(element).mouseenter(function(){
-                            if(event.type!='holiday' && event.internal_note != null){
+                            if(event.type!='holiday'){
                                 console.log(event.internal_notes)
                                 element.append(noteelement); 
                             }
