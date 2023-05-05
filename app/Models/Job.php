@@ -23,6 +23,7 @@ class Job extends Model
         'customer_name',
         'department',
         'start',
+        'end',
         'start_time',
         'start_date',
         'site_address',

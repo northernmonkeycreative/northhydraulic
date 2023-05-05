@@ -70,7 +70,7 @@ class JobController extends Controller
     // Save Job
     public function store(Request $request)
     {
-      
+    //   dd($request);
         // get client name from client_id
         if($request->department == 'tradecounter') {
             $client = Client::where('id', $request->customer_id)->first();
@@ -83,12 +83,19 @@ class JobController extends Controller
                 'start_date' => 'required',
             ]);
             
+            $start = $request->start_date .' '. $request->start_time.':00';
+            $end = date('Y-m-d H:i:s', strtotime($start. ' + '.$request->hours.' hours'));
+
+  
+
+            // dd($end);
 
             $job = new Job([
                 'customer_id' => $request->customer_id,
                 'customer_name' => $client->company_name,
                 'department' => $request->department,
                 'start' => $request->start_date .' '. $request->start_time.':00',
+                'end' => $end,
                 'start_time' => $request->start_time,
                 'start_date' => $request->start_date,
                 'site_address' => NULL,
@@ -119,12 +126,15 @@ class JobController extends Controller
                 'start_date' => 'required',
             ]);
 
-            
+            $start = $request->start_date .' '. $request->start_time.':00';
+            $end = date('Y-m-d H:i:s', strtotime($start. ' + '.$request->hours.' hours'));
+
             $job = new Job([
                 'customer_id' => $request->customer_id,
                 'customer_name' => $client->company_name,
                 'department' => $request->department,
                 'start' => $request->start_date .' '. $request->start_time.':00',
+                'end' => $end,
                 'start_time' => $request->start_time,
                 'start_date' => $request->start_date,
                 'site_address' => $request->site_address,
@@ -193,6 +203,10 @@ class JobController extends Controller
         $thejob->start_time = $request->start_time;
         $thejob->hours = $request->hours;
         $thejob->start = $request->start_date .' '. $request->start_time.':00';
+
+        // $start = $request->start_date .' '. $request->start_time.':00';
+        $thejob->end = date('Y-m-d H:i:s', strtotime( $thejob->start. ' + '.$request->hours.' hours'));
+        
         $thejob->start_date = $request->start_date;
         $thejob->site_address = $request->site_address;
         $thejob->site_contact = $request->site_contact;

@@ -148,29 +148,60 @@
                         // event.allDay = false;  
                         event.displayEventTime = true;  
 
+                        // console.log('event',event);
+                        // console.log('element',element);
+                        // console.log('view',view);
+
+                        if (event.type != 'holiday'){
+                            element.find('.fc-title').append("<br/>" + 'Job: ' + event.id + ' - ' + event.customer_name); 
+                        } 
+
+                        var theevent = element.find('.fc-event');
+                        var noteelement = '<div class="internal_note">' + event.internal_notes+'</div>'
+
+                        $(element).mouseenter(function(){
+                            if(event.type!='holiday'){
+                                console.log(event.internal_notes)
+                                element.append(noteelement); 
+                            }
+                             
+                            
+                        }); 
+
+                        $(element).mouseleave(function(){
+                            // element.hide(noteelement); 
+                             $('.internal_note').remove();
+
+                        }); 
+
+                       
+
+                       
+                       
+                        
                     },
                     eventAfterRender: function (event, element, view) {
               
                         if (event.status == 'ongoing') {
                             
-                            // event.color = "#FFB347"; //Em andamento
+                            // event.color = "rgba(253, 230, 138, 1)"; 
                             element.css('background-color', 'rgba(253, 230, 138, var(--tw-bg-opacity))');
                             element.css('border-color', 'rgba(253, 230, 138, var(--tw-bg-opacity))');
                             element.css('color', '#000000');
-                            element.css('padding', '0px 5px');
-                            element.css('cursor', 'pointer');
-                            element.css('box-shadow', '0px 0px 1px 1px #898989');
-                            element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
+                            // element.css('padding', '0px 5px');
+                            // element.css('cursor', 'pointer');
+                            // element.css('box-shadow', '0px 0px 1px 1px #898989');
+                            // element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
                         } 
                         if (event.status == 'complete') {
-                            // event.color = "#FFB347"; //Em andamento
+                            // event.color = "red"; 
                             element.css('background-color', 'rgba(209, 250, 229, var(--tw-bg-opacity))');
                             element.css('border-color', 'rgba(209, 250, 229, var(--tw-bg-opacity))');
                             element.css('color', '#000000');
-                            element.css('padding', '0px 5px');
-                            element.css('cursor', 'pointer');
-                            element.css('box-shadow', '0px 0px 4px 1px #A0A0A0');
-                            element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
+                            // element.css('padding', '0px 5px');
+                            // element.css('cursor', 'pointer');
+                            // element.css('box-shadow', '0px 0px 4px 1px #A0A0A0');
+                            // element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
                             
                         } 
                         if (event.status == 'furtheraction') {
@@ -178,30 +209,30 @@
                             element.css('background-color', 'rgba(252, 165, 165, var(--tw-bg-opacity))');
                             element.css('border-color', 'rgba(252, 165, 165, var(--tw-bg-opacity))');
                             element.css('color', '#000000');
-                            element.css('padding', '0px 5px');
-                            element.css('cursor', 'pointer');
-                            element.css('box-shadow', '0px 0px 4px 1px #A0A0A0');
-                            element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
+                            // element.css('padding', '0px 5px');
+                            // element.css('cursor', 'pointer');
+                            // element.css('box-shadow', '0px 0px 4px 1px #A0A0A0');
+                            // element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
                         } 
                         if (event.status == 'invoice') {
                             // event.color = "#FFB347"; //Em andamento
                             element.css('background-color', 'rgba(107, 114, 128, var(--tw-bg-opacity))');
                             element.css('border-color', 'rgba(107, 114, 128, var(--tw-bg-opacity))');
                             element.css('color', '#ffffff');
-                            element.css('padding', '0px 5px');
-                            element.css('cursor', 'pointer');
-                            element.css('box-shadow', '0px 0px 4px 1px #A0A0A0');
-                            element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
+                            // element.css('padding', '0px 5px');
+                            // element.css('cursor', 'pointer');
+                            // element.css('box-shadow', '0px 0px 4px 1px #A0A0A0');
+                            // element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
                         } 
                         if (event.status == 'unassinged') {
                             // event.color = "#FFB347"; //Em andamento
                             element.css('background-color', 'rgba(255, 255, 255, var(--tw-bg-opacity))');
                             element.css('border-color', 'rgba(107, 114, 128, var(--tw-bg-opacity))');
                             element.css('color', 'rgba(107, 114, 128)');
-                            element.css('padding', '0px 5px');
-                            element.css('cursor', 'pointer');
-                            element.css('box-shadow', '0px 0px 4px 1px #A0A0A0');
-                            element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
+                            // element.css('padding', '0px 5px');
+                            // element.css('cursor', 'pointer');
+                            // element.css('box-shadow', '0px 0px 4px 1px #A0A0A0');
+                            // element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
                         } 
 
                         if (event.status == 'Invoiced') {
@@ -209,10 +240,10 @@
                             element.css('background-color', 'rgba(0, 0, 0, var(--tw-bg-opacity))');
                             element.css('border-color', 'rgba(0, 0, 0, var(--tw-bg-opacity))');
                             element.css('color', '#ffffff');
-                            element.css('padding', '0px 5px');
-                            element.css('cursor', 'pointer');
-                            element.css('box-shadow', '0px 0px 4px 1px #A0A0A0');
-                            element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
+                            // element.css('padding', '0px 5px');
+                            // element.css('cursor', 'pointer');
+                            // element.css('box-shadow', '0px 0px 4px 1px #A0A0A0');
+                            // element.text('Job: ' + event.id + ' - ' + event.title + ' - ' + event.start_time + ' - ' + event.customer_name);
                         } 
                     },
                     eventDrop: function (event, delta) {
