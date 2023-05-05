@@ -105,10 +105,10 @@
                         stateSave: true, //statesave to help keep pagination state
                         stateDuration:-1,
                         stateSaveCallback: function(settings,data) {
-                            localStorage.setItem( 'DataTables_' + settings.sInstance, JSON.stringify(data) )
+                            localStorage.setItem( 'DataTable2s_' + settings.sInstance, JSON.stringify(data) )
                         },
                         stateLoadCallback: function(settings) {
-                            return JSON.parse( localStorage.getItem( 'DataTables_' + settings.sInstance ) )
+                            return JSON.parse( localStorage.getItem( 'DataTables2_' + settings.sInstance ) )
                         },
                         "order": [[ 0, 'desc' ]]
                     });
