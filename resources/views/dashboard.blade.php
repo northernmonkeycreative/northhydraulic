@@ -160,7 +160,7 @@
                         var noteelement = '<div class="internal_note">' + event.internal_notes+'</div>'
 
                         $(element).mouseenter(function(){
-                            if(event.type!='holiday'){
+                            if(event.type!='holiday' && event.internal_note != null){
                                 console.log(event.internal_notes)
                                 element.append(noteelement); 
                             }
