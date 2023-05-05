@@ -167,7 +167,7 @@
 
                         var theevent = element.find('.fc-event');
                        
-                        var noteelement = '<div class="internal_note" style="background:white;padding:5px;">' + event.internal_notes+'</div>'
+                        var noteelement = '<div class="internal_note" style="position:absolute;background:white;padding:5px;">' + event.internal_notes+'</div>'
                         var jobDetails = document.getElementById(jobDetails);
 
                         
