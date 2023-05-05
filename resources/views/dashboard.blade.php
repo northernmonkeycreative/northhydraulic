@@ -111,6 +111,8 @@
                     //     }
                     //     }
                     // },
+                    
+
                     header: {
                         left: 'prev,next, today, myCustomButton', //note no "buttons
                         center: 'title',
@@ -153,6 +155,21 @@
                     allDayDefault: false,
                     allDaySlot:false,
                     overlap:false,
+
+
+                    businessHours: {
+                        // days of week. an array of zero-based day of week integers (0=Sunday)
+                        dow: [0, 1, 2, 3, 4 ,5, 6], 
+
+                        
+                        start: '06:00', 
+                        end: '18:30', // an end time (6pm in this example)
+                    },
+                    minTime: '05:00', 
+                    maxTime: '22:00', 
+
+
+                    
                     // slotDuration: "00:01:00",
                     eventRender: function (event, element, view) {
                         // event.allDay = false;  
