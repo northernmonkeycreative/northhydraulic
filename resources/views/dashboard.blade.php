@@ -1,4 +1,7 @@
 <x-app-layout>
+<!-- <div id="jobDetails" style="display:none;width:400px;height:100vh;position:fixed;right:0;background:white;padding:20px;z-index;9999">test</div> -->
+
+
     <x-slot name="header">
         <div class="flex justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -70,11 +73,17 @@
             </div>
         </div>
     </div>
+
+
+   
+
+
     <div class="pt-2 pb-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                        <div id='full_calendar_events'></div>
+                    
+                    <div id='full_calendar_events'></div>
                 </div>
             </div>
         </div>
@@ -157,7 +166,11 @@
                         } 
 
                         var theevent = element.find('.fc-event');
-                        var noteelement = '<div class="internal_note" style="position:relative;width:100%;background:white;padding:5px;color:gray;">' + event.internal_notes+'</div>'
+                       
+                        var noteelement = '<div class="internal_note" style="background:white;padding:5px;">' + event.internal_notes+'</div>'
+                        var jobDetails = document.getElementById(jobDetails);
+
+                        
 
                         jQuery(element).mouseenter(function(){
                             if(event.type!='holiday'){
@@ -166,6 +179,9 @@
                                 } else {
                                     console.log(event.internal_notes)
                                     element.append(noteelement); 
+                                    // jQuery('#jobDetails').show();
+                                    // jQuery('#jobDetails').html(noteelement);
+
                                 }
                                
                             }
@@ -176,6 +192,7 @@
                         $(element).mouseleave(function(){
                             // element.hide(noteelement); 
                              $('.internal_note').remove();
+                            //  jQuery('#jobDetails').hide();
 
                         }); 
 
@@ -344,6 +361,10 @@
             });
     
 
+
+
+
+           
     
         </script>
 
