@@ -1,4 +1,9 @@
 <x-app-layout>
+<style>
+    fc-list-item:hover td{
+    color: #444!important;
+}
+</style>
     <x-slot name="header">
         <div class="flex justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">

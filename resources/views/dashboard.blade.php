@@ -1,7 +1,13 @@
 <x-app-layout>
 <!-- <div id="jobDetails" style="display:none;width:400px;height:100vh;position:fixed;right:0;background:white;padding:20px;z-index;9999">test</div> -->
 
+<style>
+    fc-list-item:hover td{
 
+    color: #444!important;
+}
+
+</style>
     <x-slot name="header">
         <div class="flex justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
