@@ -261,23 +261,8 @@ class JobController extends Controller
         }
         // $thejob->invoice_number = $request->invoice_number;
 
-
-        $jobExists = Job::where('start', $thejob->start)
-        // ->where('end', $end)
-        ->where('department', $thejob->department)
-        ->exists();
-        
-        if ($jobExists) {
-
-
-        return redirect()->back()->withError('A Job is already starting in this department at this date and time')->withInput();
-            
-        } else {
-            // Job with this date and time does not exist
-            $thejob->save();
+        $thejob->save();
         return back()->withSuccess('Job has been Updated');
-
-        }
 
         
 
