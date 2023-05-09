@@ -45,7 +45,7 @@
                                                     <select name="customer_id" id="customer_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
                                                             <option value="">Please Choose The Client</option>
                                                         @foreach($clients as $client)
-                                                            <option value="{{$client->id}}">{{$client->company_name}}</option>
+                                                            <option value="{{$client->id}}" {{ old('customer_id') == $client->id ? 'selected' : '' }} >{{$client->company_name}}</option>
                                                         @endforeach
                                                     </select>
 
@@ -57,10 +57,10 @@
                                                     @if ($errors->has('department'))<span class="text-red-700">{{ $errors->first('department') }}</span>@endif
                                                     <select name="department" id="department" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                                             <option value="">Please Choose The Department</option>
-                                                            <option value="tradecounter">Trade Counter</option>
-                                                            <option value="workshop">Workshop</option>
-                                                            <option value="mobilehose">Mobile Hose</option>
-                                                            <option value="mobileengineer">Mobile Engineer</option>
+                                                            <option value="tradecounter" {{ old('department') == 'tradecounter' ? 'selected' : '' }}>Trade Counter</option>
+                                                            <option value="workshop" {{ old('department') == 'workshop' ? 'selected' : '' }}>Workshop</option>
+                                                            <option value="mobilehose" {{ old('department') == 'mobilehose' ? 'selected' : '' }}>Mobile Hose</option>
+                                                            <option value="mobileengineer" {{ old('department') == 'mobileengineer' ? 'selected' : '' }}>Mobile Engineer</option>
                                                     </select>
                                                 </div>
 
@@ -70,7 +70,7 @@
                                                         <select name="engineer_id" id="engineer_id" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" required>
                                                                 <option value="">Please Choose The Engineer</option>
                                                             @foreach($engineers as $engineer)
-                                                                <option value="{{$engineer->id}}">{{$engineer->name}}</option>
+                                                                <option value="{{$engineer->id}}"  {{ old('engineer_id') == $engineer->id ? 'selected' : '' }}>{{$engineer->name}}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>

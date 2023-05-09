@@ -70,7 +70,9 @@ class JobController extends Controller
     // Save Job
     public function store(Request $request)
     {
-    //   dd($request);
+    
+        
+        
         // get client name from client_id
         if($request->department == 'tradecounter') {
             $client = Client::where('id', $request->customer_id)->first();
@@ -80,11 +82,14 @@ class JobController extends Controller
                 'customer_id' => 'required',
                 'department' => 'required',
                 'engineer_id' => 'required',
-                'start_date' => 'required',
+                'start_date' => ['required'],
             ]);
             
             $start = $request->start_date .' '. $request->start_time.':00';
             $end = date('Y-m-d H:i:s', strtotime($start. ' + '.$request->hours.' hours'));
+
+
+           
 
   
 
@@ -155,17 +160,36 @@ class JobController extends Controller
         }
         
 
+        $jobExists = Job::where('start', $start)
+        // ->where('end', $end)
+        ->where('department', $job->department)
+        ->exists();
+        
+        if ($jobExists) {
+            // get the job if it exsists
+            $jobExists = Job::where('start', $start)
+            ->where('end', $end)
+            ->first();
+
+        return redirect()->back()->withError('A Job is already starting in this department at this date and time')->withInput();
+            
+        } else {
+            // Job with this date and time does not exist
+            $job->save();
+
+            return redirect('jobs')->withSuccess('New Job has been Created');
+
+        }
+                
         
 
-
-        
-
-        $job->save();
+      
+       
 
         // Send Email to Engineer About Job
         // Notification::send($engineer, new JobAdded($job));
 
-        return redirect('jobs')->withSuccess('New Job has been Created');
+        
     }
 
 
@@ -237,11 +261,28 @@ class JobController extends Controller
         }
         // $thejob->invoice_number = $request->invoice_number;
 
+
+        $jobExists = Job::where('start', $thejob->start)
+        // ->where('end', $end)
+        ->where('department', $thejob->department)
+        ->exists();
+        
+        if ($jobExists) {
+
+
+        return redirect()->back()->withError('A Job is already starting in this department at this date and time')->withInput();
+            
+        } else {
+            // Job with this date and time does not exist
+            $thejob->save();
+        return back()->withSuccess('Job has been Updated');
+
+        }
+
         
 
 
-        $thejob->save();
-        return back()->withSuccess('Job has been Updated');
+       
     }
 
 

@@ -28,12 +28,12 @@ class DashboardController extends Controller
          $data = Job::whereDate('start', '>=', $start)
          ->whereDate('start', '<=', $end)
          ->where('department', '!=', 'workshop')
-         ->get(['id','title','start','start_time','status', 'end','customer_name', 'internal_notes']);
+         ->get(['id','title','start','start_time','status', 'end','customer_name', 'internal_notes', 'department']);
 
          $data2 = Job::whereDate('start', '>=', $start)
          ->whereDate('start', '<=', $end)
          ->where('department', 'workshop')
-         ->get(['id','title','start','start_time','status', 'end', 'customer_name']);
+         ->get(['id','title','start','start_time','status', 'end', 'customer_name', 'department']);
 
          // merge both jobs and workshop
          $merged = $data->merge($data2); 

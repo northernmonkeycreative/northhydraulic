@@ -3,7 +3,6 @@
 
 <style>
     fc-list-item:hover td{
-
     color: #444!important;
 }
 
@@ -181,7 +180,7 @@
                     minTime: '05:00', 
                     maxTime: '22:00', 
 
-
+             
                     
                     // slotDuration: "00:01:00",
                     eventRender: function (event, element, view) {
@@ -191,6 +190,15 @@
                         // console.log('event',event);
                         // console.log('element',element);
                         // console.log('view',view);
+
+                       
+
+                        // element.find('.fc-list-heading').after('<td colspan="4">Department</td>');
+
+                        // if (event.department === 'workshop'){
+                            
+                        //     element.find(".fc-list-item-time").after("<td>Extra column 1 here</td>");
+                        // }
 
                         if (event.type != 'holiday'){
                             element.find('.fc-title').append("<br/>" + 'Job: ' + event.id + ' - ' + event.customer_name); 
@@ -234,6 +242,7 @@
                        
                         
                     },
+                    
                     eventAfterRender: function (event, element, view) {
               
                         if (event.status == 'ongoing') {
