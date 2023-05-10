@@ -218,6 +218,13 @@
                     $('#dataTable').DataTable({
                         stateSave: true, //statesave to help keep pagination state
                         stateDuration:-1,
+                        responsive: true,
+            processing: true,
+            serverSide: true,
+            ajax: $.fn.dataTable.pipeline({
+               
+                pages: 20 // number of pages
+            }),
                         stateSaveCallback: function(settings,data) {
                             localStorage.setItem( 'DataTables_' + settings.sInstance, JSON.stringify(data) )
                         },
