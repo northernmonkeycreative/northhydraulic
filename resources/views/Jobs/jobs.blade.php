@@ -220,8 +220,7 @@
                         stateDuration:-1,
                         responsive: true,
             processing: true,
-            serverSide: true,\
-            pageLength: 30,
+            serverSide: true,
             ajax: $.fn.dataTable.pipeline({
                
                 pages: 20 // number of pages
