@@ -65,14 +65,17 @@ composer require meilisearch/meilisearch-php symfony/http-client nyholm/psr7:^1.
 
 There are many easy ways to [download and run a MeiliSearch instance](https://docs.meilisearch.com/reference/features/installation.html#download-and-launch).
 
-For example, if you use Docker:
+For example, using the `curl` command in your [Terminal](https://itconnect.uw.edu/learn/workshops/online-tutorials/web-publishing/what-is-a-terminal/):
 
-```bash
-docker pull getmeili/meilisearch:latest # Fetch the latest version of MeiliSearch image from Docker Hub
-docker run -it --rm -p 7700:7700 getmeili/meilisearch:latest ./meilisearch --master-key=masterKey
+```sh
+#Install MeiliSearch
+curl -L https://install.meilisearch.com | sh
+
+# Launch MeiliSearch
+./meilisearch --master-key=masterKey
 ```
 
-NB: you can also download MeiliSearch from **Homebrew** or **APT**.
+NB: you can also download MeiliSearch from **Homebrew** or **APT** or even run it using **Docker**.
 
 ## 🚀 Getting Started
 
@@ -88,29 +91,28 @@ use MeiliSearch\Client;
 $client = new Client('http://127.0.0.1:7700', 'masterKey');
 
 # An index is where the documents are stored.
-$index = $client->index('books');
+$index = $client->index('movies');
 
 $documents = [
-    ['book_id' => 123,  'title' => 'Pride and Prejudice', 'author' => 'Jane Austen'],
-    ['book_id' => 456,  'title' => 'Le Petit Prince', 'author' => 'Antoine de Saint-Exupéry'],
-    ['book_id' => 1,    'title' => 'Alice In Wonderland', 'author' => 'Lewis Carroll'],
-    ['book_id' => 1344, 'title' => 'The Hobbit', 'author' => 'J. R. R. Tolkien'],
-    ['book_id' => 4,    'title' => 'Harry Potter and the Half-Blood Prince', 'author' => 'J. K. Rowling'],
-    ['book_id' => 42,   'title' => 'The Hitchhiker\'s Guide to the Galaxy', 'author' => 'Douglas Adams, Eoin Colfer, Thomas Tidholm'],
+    ['id' => 1,  'title' => 'Carol', 'genres' => ['Romance, Drama']],
+    ['id' => 2,  'title' => 'Wonder Woman', 'genres' => ['Action, Adventure']],
+    ['id' => 3,  'title' => 'Life of Pi', 'genres' => ['Adventure, Drama']],
+    ['id' => 4,  'title' => 'Mad Max: Fury Road', 'genres' => ['Adventure, Science Fiction']],
+    ['id' => 5,  'title' => 'Moana', 'genres' => ['Fantasy, Action']],
+    ['id' => 6,  'title' => 'Philadelphia', 'genres' => ['Drama']],
 ];
 
-# If the index 'books' does not exist, MeiliSearch creates it when you first add the documents.
+# If the index 'movies' does not exist, MeiliSearch creates it when you first add the documents.
 $index->addDocuments($documents); // => { "updateId": 0 }
 ```
 
 With the `updateId`, you can check the status (`enqueued`, `processing`, `processed` or `failed`) of your documents addition using the [update endpoint](https://docs.meilisearch.com/reference/api/updates.html#get-an-update-status).
 
-
 #### Basic Search <!-- omit in toc -->
 
 ```php
 // MeiliSearch is typo-tolerant:
-$hits = $index->search('harry pottre')->getHits();
+$hits = $index->search('wondre woman')->getHits();
 print_r($hits);
 ```
 
@@ -121,8 +123,12 @@ Array
 (
     [0] => Array
         (
-            [id] => 4
-            [title] => Harry Potter and the Half-Blood Prince
+            [id] => 2
+            [title] => Wonder Woman
+            [genres] => Array
+                (
+                     [0] => Action, Adventure
+                )
         )
 )
 ```
@@ -135,7 +141,7 @@ All the supported options are described in the [search parameters](https://docs.
 
 ```php
 $index->search(
-    'hob',
+    'phil',
     [
         'attributesToHighlight' => ['*'],
     ]
@@ -148,24 +154,68 @@ JSON output:
 {
     "hits": [
         {
-            "book_id": 1344,
-            "title": "The Hobbit",
+            "id": 6,
+            "title": "Philadelphia",
+            "genre": ["Drama"],
             "_formatted": {
-                "book_id": 1344,
-                "title": "The <em>Hob</em>bit"
+                "id": 6,
+                "title": "<em>Phil</em>adelphia",
+                "genre": ["Drama"]
             }
         }
     ],
     "offset": 0,
     "limit": 20,
     "processingTimeMs": 0,
-    "query": "hob"
+    "query": "phil"
+}
+```
+#### Custom Search With Filters <!-- omit in toc -->
+
+If you want to enable filtering, you must add your attributes to the `filterableAttributes` index setting.
+
+```php
+$index->updateFilterableAttributes([
+  'id',
+  'genres'
+]);
+```
+
+You only need to perform this operation once.
+
+Note that MeiliSearch will rebuild your index whenever you update `filterableAttributes`. Depending on the size of your dataset, this might take time. You can track the process using the [update status](https://docs.meilisearch.com/reference/api/updates.html#get-an-update-status).
+
+Then, you can perform the search:
+
+```php
+$index->search(
+  'wonder',
+  [
+    'filter' => ['id > 1 AND genres = Action']
+  ]
+);
+```
+
+```json
+{
+  "hits": [
+    {
+      "id": 2,
+      "title": "Wonder Woman",
+      "genres": ["Action","Adventure"]
+    }
+  ],
+  "offset": 0,
+  "limit": 20,
+  "nbHits": 1,
+  "processingTimeMs": 0,
+  "query": "wonder"
 }
 ```
 
 ## 🤖 Compatibility with MeiliSearch
 
-This package only guarantees the compatibility with the [version v0.22.0 of MeiliSearch](https://github.com/meilisearch/MeiliSearch/releases/tag/v0.22.0).
+This package only guarantees the compatibility with the [version v0.24.0 of MeiliSearch](https://github.com/meilisearch/MeiliSearch/releases/tag/v0.24.0).
 
 ## 💡 Learn More
 

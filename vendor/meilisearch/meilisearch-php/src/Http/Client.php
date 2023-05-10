@@ -13,6 +13,7 @@ use MeiliSearch\Exceptions\ApiException;
 use MeiliSearch\Exceptions\CommunicationException;
 use MeiliSearch\Exceptions\FailedJsonDecodingException;
 use MeiliSearch\Exceptions\FailedJsonEncodingException;
+use MeiliSearch\Exceptions\InvalidResponseBodyException;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Client\NetworkExceptionInterface;
@@ -24,7 +25,7 @@ use Psr\Http\Message\StreamFactoryInterface;
 class Client implements Http
 {
     /**
-     * @var Http
+     * @var ClientInterface
      */
     private $http;
 
@@ -63,7 +64,6 @@ class Client implements Http
         $this->requestFactory = Psr17FactoryDiscovery::findRequestFactory();
         $this->streamFactory = Psr17FactoryDiscovery::findStreamFactory();
         $this->headers = array_filter([
-            'Content-type' => 'application/json',
             'X-Meili-API-Key' => $this->apiKey,
         ]);
     }
@@ -97,18 +97,25 @@ class Client implements Http
      * @throws CommunicationException
      * @throws FailedJsonEncodingException
      */
-    public function post(string $path, $body = null, array $query = [])
+    public function post(string $path, $body = null, array $query = [], string $contentType = null)
     {
+        if ($contentType) {
+            $this->headers['Content-type'] = $contentType;
+        } else {
+            $this->headers['Content-type'] = 'application/json';
+            $body = $this->jsonEncode($body);
+        }
         $request = $this->requestFactory->createRequest(
             'POST',
             $this->baseUrl.$path.$this->buildQueryString($query)
-        )->withBody($this->streamFactory->createStream($this->jsonEncode($body)));
+            )->withBody($this->streamFactory->createStream($body));
 
         return $this->execute($request);
     }
 
     public function put($path, $body = null, $query = [])
     {
+        $this->headers['Content-type'] = 'application/json';
         $request = $this->requestFactory->createRequest(
             'PUT',
             $this->baseUrl.$path.$this->buildQueryString($query)
@@ -129,6 +136,7 @@ class Client implements Http
      */
     public function patch($path, $body = null, $query = [])
     {
+        $this->headers['Content-type'] = 'application/json';
         $request = $this->requestFactory->createRequest(
             'PATCH',
             $this->baseUrl.$path.$this->buildQueryString($query)
@@ -191,6 +199,10 @@ class Client implements Http
     {
         if (204 === $response->getStatusCode()) {
             return null;
+        }
+
+        if (!\in_array('application/json', $response->getHeader('content-type'), true)) {
+            throw new InvalidResponseBodyException($response, $response->getBody()->getContents());
         }
 
         if ($response->getStatusCode() >= 300) {

@@ -20,6 +20,16 @@ trait HandlesIndex
         return $this->index->all();
     }
 
+    public function getAllRawIndexes(): array
+    {
+        return $this->index->allRaw();
+    }
+
+    public function getRawIndex(string $uid): array
+    {
+        return $this->index($uid)->fetchRawInfo();
+    }
+
     public function index(string $uid): Indexes
     {
         return new Indexes($this->http, $uid);
@@ -33,6 +43,20 @@ trait HandlesIndex
     public function deleteIndex(string $uid): array
     {
         return $this->index($uid)->delete();
+    }
+
+    public function deleteIndexIfExists(string $uid): bool
+    {
+        try {
+            $this->deleteIndex($uid);
+
+            return true;
+        } catch (ApiException $e) {
+            if ('index_not_found' === $e->errorCode) {
+                return false;
+            }
+            throw ($e);
+        }
     }
 
     public function deleteAllIndexes(): void
@@ -61,7 +85,7 @@ trait HandlesIndex
         try {
             $index = $this->getIndex($uid);
         } catch (ApiException $e) {
-            if (\is_array($e->httpBody) && 'index_not_found' === $e->httpBody['errorCode']) {
+            if (\is_array($e->httpBody) && 'index_not_found' === $e->errorCode) {
                 $index = $this->createIndex($uid, $options);
             } else {
                 throw $e;
