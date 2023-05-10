@@ -24,7 +24,7 @@ class JobController extends Controller
 
     public function getpaidJobs()
     {
-        $jobs = Job::where('status', 'Invoiced')->get();
+        $jobs = Job::where('status', 'Invoiced')->paginate(10);
         return view('jobs.jobs', compact('jobs'));
     }
 
