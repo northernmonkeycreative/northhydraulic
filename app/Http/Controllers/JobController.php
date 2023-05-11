@@ -160,32 +160,11 @@ class JobController extends Controller
         }
         
 
-        $jobExists = Job::where('start', $start)
-        // ->where('end', $end)
-        ->where('department', $job->department)
-        ->exists();
-        
-        if ($jobExists) {
-            // get the job if it exsists
-            $jobExists = Job::where('start', $start)
-            ->where('end', $end)
-            ->first();
+        $job->save();
 
-        return redirect()->back()->withError('A Job is already starting in this department at this date and time')->withInput();
-            
-        } else {
-            // Job with this date and time does not exist
-            $job->save();
+        return redirect('jobs')->withSuccess('New Job has been Created');
 
-            return redirect('jobs')->withSuccess('New Job has been Created');
-
-        }
                 
-        
-
-      
-       
-
         // Send Email to Engineer About Job
         // Notification::send($engineer, new JobAdded($job));
 
