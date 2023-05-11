@@ -210,13 +210,12 @@
 
             (function($) {
                 "use strict";
+
                 // Call the dataTables jQuery plugin
                 $(document).ready(function() {
                     $('#dataTable').DataTable({
                         stateSave: true, //statesave to help keep pagination state
                         stateDuration:-1,
-                        responsive: true,
- 
                         stateSaveCallback: function(settings,data) {
                             localStorage.setItem( 'DataTables_' + settings.sInstance, JSON.stringify(data) )
                         },
@@ -227,14 +226,6 @@
                     });
 
                     console.log('databatble is loaded')
-
-
-
-
-
-                    
-
-
                 });
 
 
@@ -243,7 +234,6 @@
 
 
             </script>
-     
 
        
 
