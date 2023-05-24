@@ -258,7 +258,7 @@
                     //     });
                     // },
                     eventClick: function (event) {
-                        window.open('http://134.209.125.72/jobs/'+event.id, "_self");
+                        window.open(SITEURL +'/jobs/'+event.id, "_self");
                         return false;
                         
                     }
