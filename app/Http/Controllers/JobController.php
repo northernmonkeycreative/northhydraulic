@@ -24,20 +24,92 @@ class JobController extends Controller
 
     public function getpaidJobs(Request $request)
     {
-        if ($request->ajax()) {
+        $columns = array(
+            0 => 'id',
+            1 => 'customer_name',
+            2 => 'department',
+            3 => 'start_date',
+            4 => 'reg',
+            5 => 'internal_notes',
+            6 => 'invoice_number',
+            7 => 'engineer_name',
+            8 => 'status',
+        );
+        
+        $totalData = Job::where('status', 'Invoiced')->count();
+        
+        $totalFiltered = $totalData;
+        
+        $limit = $request->input('length');
+        $start = $request->input('start');
+        $orderColumnIndex = $request->input('order.0.column');
+        $order = $columns[$orderColumnIndex];
+        $dir = $request->input('order.0.dir');
+        
+        if (empty($request->input('search.value'))) {
             $jobs = Job::where('status', 'Invoiced')
                 ->select('id', 'customer_name', 'department', 'start_date', 'reg', 'internal_notes', 'invoice_number', 'engineer_name', 'status')
-                ->paginate(10);
-            
-            return response()->json([
-                'draw' => $request->input('draw'),
-                'recordsTotal' => $jobs->total(),
-                'recordsFiltered' => $jobs->total(),
-                'data' => $jobs->items(),
-            ]);
+                ->offset($start)
+                ->limit($limit)
+                ->orderBy($order, $dir)
+                ->get();
+        } else {
+            $search = $request->input('search.value');
+        
+            $jobs = Job::where('status', 'Invoiced')
+                ->where('id', 'LIKE', "%{$search}%")
+                ->orWhere('customer_name', 'LIKE', "%{$search}%")
+                ->orWhere('department', 'LIKE', "%{$search}%")
+                ->orWhere('start_date', 'LIKE', "%{$search}%")
+                ->orWhere('reg', 'LIKE', "%{$search}%")
+                ->orWhere('internal_notes', 'LIKE', "%{$search}%")
+                ->orWhere('invoice_number', 'LIKE', "%{$search}%")
+                ->orWhere('engineer_name', 'LIKE', "%{$search}%")
+                ->orWhere('status', 'LIKE', "%{$search}%")
+                ->offset($start)
+                ->limit($limit)
+                ->orderBy($order, $dir)
+                ->get();
+        
+            $totalFiltered = Job::where('status', 'Invoiced')
+                ->where('id', 'LIKE', "%{$search}%")
+                ->orWhere('customer_name', 'LIKE', "%{$search}%")
+                ->orWhere('department', 'LIKE', "%{$search}%")
+                ->orWhere('start_date', 'LIKE', "%{$search}%")
+                ->orWhere('reg', 'LIKE', "%{$search}%")
+                ->orWhere('internal_notes', 'LIKE', "%{$search}%")
+                ->orWhere('invoice_number', 'LIKE', "%{$search}%")
+                ->orWhere('engineer_name', 'LIKE', "%{$search}%")
+                ->orWhere('status', 'LIKE', "%{$search}%")
+                ->count();
         }
-    
-        return view('jobs.paid');
+        
+        $data = array();
+        if (!empty($jobs)) {
+            foreach ($jobs as $job) {
+                $nestedData['id'] = $job->id;
+                $nestedData['customer_name'] = $job->customer_name;
+                $nestedData['department'] = $job->department;
+                $nestedData['start_date'] = $job->start_date;
+                $nestedData['reg'] = $job->reg;
+                $nestedData['internal_notes'] = $job->internal_notes;
+                $nestedData['invoice_number'] = $job->invoice_number;
+                $nestedData['engineer_name'] = $job->engineer_name;
+                $nestedData['status'] = $job->status;
+        
+                $data[] = $nestedData;
+            }
+        }
+        
+        $json_data = array(
+            "draw" => intval($request->input('draw')),
+            "recordsTotal" => intval($totalData),
+            "recordsFiltered" => intval($totalFiltered),
+            "data" => $data
+        );
+        
+        return response()->json($json_data);
+        
     }
 
     public function deleteimage($image_id, Request $request)
