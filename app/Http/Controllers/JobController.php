@@ -38,7 +38,7 @@ class JobController extends Controller
         }
 
 
-        // $jobs = Job::where('status', 'Invoiced')->paginate(10);
+        $jobs = Job::where('status', 'Invoiced')->paginate(10);
         return view('jobs.jobs', compact('jobs'));
     }
 
