@@ -42,8 +42,6 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/jobsfurtheraction', [JobsController::class, 'jobsfurtheraction']);
     //get complete jobs
     Route::get('/jobscomplete', [JobsController::class, 'jobscomplete']);
-
-    Route::get('/jobs/paid',[JobController::class, 'getpaidJobs'])->name('jobs.paid');
     
     Route::get('/jobs/{id}', [JobsController::class, 'show']);
     Route::post('/jobs/{id}', [JobsController::class, 'updateStatus']);
