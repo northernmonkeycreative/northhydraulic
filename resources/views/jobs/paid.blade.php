@@ -110,7 +110,7 @@
 
                     console.log("DataTables initialization script is running.");
 
-
+                    $('#dataTable').DataTable().destroy();
                     $('#dataTable').DataTable({
                         processing: true,
                         serverSide: true,
