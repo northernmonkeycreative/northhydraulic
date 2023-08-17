@@ -25,7 +25,7 @@ class JobController extends Controller
     public function getpaidJobs()
     {
         $jobs = Job::where('status', 'Invoiced')->get();
-        return view('jobs.jobs', compact('jobs'));
+        return view('jobs.paid', compact('jobs'));
     }
 
     public function deleteimage($image_id, Request $request)
