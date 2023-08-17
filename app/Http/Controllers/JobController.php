@@ -36,7 +36,10 @@ class JobController extends Controller
             8 => 'status',
         );
         
-        $totalData = Job::where('status', 'Invoiced')->count();
+        $query = Job::where('status', 'Invoiced')
+            ->select('id', 'customer_name', 'department', 'start_date', 'reg', 'internal_notes', 'invoice_number', 'engineer_name', 'status');
+        
+        $totalData = $query->count();
         
         $totalFiltered = $totalData;
         
@@ -46,59 +49,36 @@ class JobController extends Controller
         $order = $columns[$orderColumnIndex];
         $dir = $request->input('order.0.dir');
         
-        if (empty($request->input('search.value'))) {
-            $jobs = Job::where('status', 'Invoiced')
-                ->select('id', 'customer_name', 'department', 'start_date', 'reg', 'internal_notes', 'invoice_number', 'engineer_name', 'status')
-                ->offset($start)
-                ->limit($limit)
-                ->orderBy($order, $dir)
-                ->get();
-        } else {
+        if (!empty($request->input('search.value'))) {
             $search = $request->input('search.value');
+            
+            $query->where(function ($q) use ($search) {
+                foreach ($columns as $column) {
+                    $q->orWhere($column, 'LIKE', "%{$search}%");
+                }
+            });
         
-            $jobs = Job::where('status', 'Invoiced')
-                ->where('id', 'LIKE', "%{$search}%")
-                ->orWhere('customer_name', 'LIKE', "%{$search}%")
-                ->orWhere('department', 'LIKE', "%{$search}%")
-                ->orWhere('start_date', 'LIKE', "%{$search}%")
-                ->orWhere('reg', 'LIKE', "%{$search}%")
-                ->orWhere('internal_notes', 'LIKE', "%{$search}%")
-                ->orWhere('invoice_number', 'LIKE', "%{$search}%")
-                ->orWhere('engineer_name', 'LIKE', "%{$search}%")
-                ->orWhere('status', 'LIKE', "%{$search}%")
-                ->offset($start)
-                ->limit($limit)
-                ->orderBy($order, $dir)
-                ->get();
-        
-            $totalFiltered = Job::where('status', 'Invoiced')
-                ->where('id', 'LIKE', "%{$search}%")
-                ->orWhere('customer_name', 'LIKE', "%{$search}%")
-                ->orWhere('department', 'LIKE', "%{$search}%")
-                ->orWhere('start_date', 'LIKE', "%{$search}%")
-                ->orWhere('reg', 'LIKE', "%{$search}%")
-                ->orWhere('internal_notes', 'LIKE', "%{$search}%")
-                ->orWhere('invoice_number', 'LIKE', "%{$search}%")
-                ->orWhere('engineer_name', 'LIKE', "%{$search}%")
-                ->orWhere('status', 'LIKE', "%{$search}%")
-                ->count();
+            $totalFiltered = $query->count();
         }
         
-        $data = array();
-        if (!empty($jobs)) {
-            foreach ($jobs as $job) {
-                $nestedData['id'] = $job->id;
-                $nestedData['customer_name'] = $job->customer_name;
-                $nestedData['department'] = $job->department;
-                $nestedData['start_date'] = $job->start_date;
-                $nestedData['reg'] = $job->reg;
-                $nestedData['internal_notes'] = $job->internal_notes;
-                $nestedData['invoice_number'] = $job->invoice_number;
-                $nestedData['engineer_name'] = $job->engineer_name;
-                $nestedData['status'] = $job->status;
+        $jobs = $query->offset($start)
+            ->limit($limit)
+            ->orderBy($order, $dir)
+            ->get();
         
-                $data[] = $nestedData;
-            }
+        $data = array();
+        foreach ($jobs as $job) {
+            $nestedData['id'] = $job->id;
+            $nestedData['customer_name'] = $job->customer_name;
+            $nestedData['department'] = $job->department;
+            $nestedData['start_date'] = $job->start_date;
+            $nestedData['reg'] = $job->reg;
+            $nestedData['internal_notes'] = $job->internal_notes;
+            $nestedData['invoice_number'] = $job->invoice_number;
+            $nestedData['engineer_name'] = $job->engineer_name;
+            $nestedData['status'] = $job->status;
+        
+            $data[] = $nestedData;
         }
         
         $json_data = array(
