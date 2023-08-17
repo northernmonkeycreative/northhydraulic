@@ -7,7 +7,6 @@ use App\Models\User;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use DB;
-use Response;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Support\Facades\Notification;
@@ -23,23 +22,10 @@ class JobController extends Controller
         return view('jobs.jobs', compact('jobs'));
     }
 
-    public function getpaidJobs(Request $request)
+    public function getpaidJobs()
     {
-
-        if ($request->ajax()) {
-            $jobs = Job::where('status', 'Invoiced')->paginate(10);
-            
-            return Response::json([
-                'draw' => $request->input('draw'),
-                'recordsTotal' => $jobs->total(),
-                'recordsFiltered' => $jobs->total(),
-                'data' => $jobs->items(),
-            ]);
-        }
-
-
-        // $jobs = Job::where('status', 'Invoiced')->paginate(10);
-        return view('jobs.jobs');
+        $jobs = Job::where('status', 'Invoiced')->get();
+        return view('jobs.jobs', compact('jobs'));
     }
 
     public function deleteimage($image_id, Request $request)
