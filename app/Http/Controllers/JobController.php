@@ -26,7 +26,7 @@ class JobController extends Controller
     {
         if ($request->ajax()) {
             $jobs = Job::where('status', 'Invoiced')
-                ->select('id', 'customer_name', 'department', 'start_date', 'reg', 'internal_notes', 'engineer_name', 'status')
+                ->select('id', 'customer_name', 'department', 'start_date', 'reg', 'internal_notes', 'invoice_number', 'engineer_name', 'status')
                 ->paginate(10);
             
             return response()->json([
