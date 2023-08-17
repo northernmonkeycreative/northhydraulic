@@ -23,7 +23,7 @@ class JobController extends Controller
         return view('jobs.jobs', compact('jobs'));
     }
 
-    public function getpaidJobs()
+    public function getpaidJobs(Request $request)
     {
 
         if ($request->ajax()) {
