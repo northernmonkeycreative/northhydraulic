@@ -94,6 +94,10 @@
 
                 // Call the dataTables jQuery plugin
                 $(document).ready(function() {
+
+                    console.log("DataTables initialization script is running.");
+
+                    
                     $('#dataTable').DataTable({
                         processing: true,
                         serverSide: true,
