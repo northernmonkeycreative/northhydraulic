@@ -114,6 +114,7 @@
                     $('#dataTable').DataTable({
                         processing: true,
                         serverSide: true,
+                        paging: true,
                         ajax: "{{ route('jobs.paid') }}",
                         columns: [
                             { data: 'id', name: 'id' },
