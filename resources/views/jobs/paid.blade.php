@@ -116,7 +116,7 @@
                         serverSide: true,
                         ajax: "{{ route('jobs.paid') }}",
                         columns: [
-                            { data: 'id', name: 'Job Number' },
+                            { data: 'id', name: 'id' },
                             // { data: 'customer_name', name: 'customer_name' },
                             // { data: 'reg', name: 'reg' },
                             // { data: 'department', name: 'department' },
