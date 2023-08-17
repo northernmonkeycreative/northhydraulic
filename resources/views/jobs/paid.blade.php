@@ -124,7 +124,7 @@
                             { data: 'engineer_name', name: 'engineer_name' },
                             { data: 'status', name: 'status' },
                             { data: 'internal_notes', name: 'internal_notes' },
-                            { data: '', name: 'actions' },
+                       
                             
                         ],
                         stateSave: true, //statesave to help keep pagination state
