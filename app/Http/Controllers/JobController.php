@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use DB;
+use Response;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Support\Facades\Notification;
@@ -36,7 +37,7 @@ class JobController extends Controller
             ]);
         }
 
-        
+
         $jobs = Job::where('status', 'Invoiced')->paginate(10);
         return view('jobs.jobs', compact('jobs'));
     }
