@@ -25,7 +25,7 @@ class JobController extends Controller
     public function getpaidJobs(Request $request)
     {
         if ($request->ajax()) {
-            $jobs = Job::where('status', 'Invoiced')->paginate(10);
+            $jobs = Job::where('status', 'Invoiced')->get();
             
             return response()->json([
                 'draw' => $request->input('draw'),
