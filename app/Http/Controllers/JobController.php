@@ -29,12 +29,14 @@ class JobController extends Controller
 
             dd($jobs);
             
-            return response()->json([
+            $test = response()->json([
                 'draw' => $request->input('draw'),
                 'recordsTotal' => $jobs->total(),
                 'recordsFiltered' => $jobs->total(),
                 'data' => $jobs->items(),
             ]);
+
+            dd($test);
         }
     
         return view('jobs.paid');
