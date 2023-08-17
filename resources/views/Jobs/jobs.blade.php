@@ -215,8 +215,8 @@
                 $(document).ready(function() {
                     $('#dataTable').DataTable({
                         processing: true,
-            serverSide: true,
-            ajax: "{{ route('jobs.paid') }}",
+                        serverSide: true,
+                        ajax: "{{ route('jobs.paid') }}",
                         stateSave: true, //statesave to help keep pagination state
                         stateDuration:-1,
                         stateSaveCallback: function(settings,data) {
