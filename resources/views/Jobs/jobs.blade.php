@@ -214,20 +214,7 @@
                 // Call the dataTables jQuery plugin
                 $(document).ready(function() {
                     $('#dataTable').DataTable({
-                        processing: true,
-                        serverSide: true,
-                        ajax: "{{ route('jobs.paid') }}",
-                        columns: [
-                            { data: 'id', name: 'id' },
-                            { data: 'customer_name', name: 'customer_name' },
-                            { data: 'reg', name: 'reg' },
-                            { data: 'department', name: 'department' },
-                            { data: 'start_date', name: 'start_date' },
-                            { data: 'engineer_name', name: 'engineer_name' },
-                            { data: 'status', name: 'status' },
-                            { data: 'internal_notes', name: 'internal_notes' },
-                            
-                        ],
+                        
                         stateSave: true, //statesave to help keep pagination state
                         stateDuration:-1,
                         stateSaveCallback: function(settings,data) {
