@@ -117,7 +117,7 @@
                 { data: 'customer_name', name: 'customer_name', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
                 { data: 'department', name: 'department', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
                 { data: 'start_date', name: 'start_date', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
-                { data: 'reg', name: 'reg', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
+                { data: 'reg', name: 'reg', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500  font-bold" },
                 { data: 'invoice_number', name: 'invoice_number', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
                 { data: 'engineer_name', name: 'engineer_name', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
                 { data: 'status', name: 'status', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
