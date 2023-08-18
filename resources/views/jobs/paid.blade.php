@@ -117,15 +117,15 @@
                         paging: true,
                         ajax: "{{ route('jobs.paid') }}",
                         columns: [
-                            { data: 'id', name: 'id' },
-                            { data: 'customer_name', name: 'customer_name' },
-                            { data: 'department', name: 'department' },
-                            { data: 'start_date', name: 'start_date' },
-                            { data: 'reg', name: 'reg' },
-                            { data: 'internal_notes', name: 'internal_notes' },
-                            { data: 'invoice_number', name: 'invoice_number' },
-                            { data: 'engineer_name', name: 'engineer_name' },
-                            { data: 'status', name: 'status' },
+                            { data: 'id', name: 'id', "className": "py-4 py-4 font-bold" },
+                            { data: 'customer_name', name: 'customer_name', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
+                            { data: 'department', name: 'department', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
+                            { data: 'start_date', name: 'start_date', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
+                            { data: 'reg', name: 'reg', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
+                            { data: 'internal_notes', name: 'internal_notes', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
+                            { data: 'invoice_number', name: 'invoice_number', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
+                            { data: 'engineer_name', name: 'engineer_name', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
+                            { data: 'status', name: 'status', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
                             
                        
                             
