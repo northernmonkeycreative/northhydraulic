@@ -95,6 +95,7 @@ class JobController extends Controller
 }
 
 
+
     public function deleteimage($image_id, Request $request)
     {
         $theimage = Image::where('id', $image_id)->first();
