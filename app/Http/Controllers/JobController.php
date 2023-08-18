@@ -23,86 +23,77 @@ class JobController extends Controller
     }
 
     public function getpaidJobs(Request $request)
-    {
-
-        // $jobs = Job::where('status', 'Invoiced')->get();
-        // $jobs = Job::where('status', 'Invoiced')
-        //         ->select('id', 'customer_name', 'department', 'start_date', 'reg', 'internal_notes', 'invoice_number', 'engineer_name', 'status')->get();
+{
+    if ($request->ajax()) {
+        $columns = array(
+            0 => 'id',
+            1 => 'customer_name',
+            2 => 'department',
+            3 => 'start_date',
+            4 => 'reg',
+            5 => 'invoice_number',
+            6 => 'engineer_name',
+            7 => 'status',
+        );
+        
+        $query = Job::where('status', 'Invoiced')
+            ->select('id', 'customer_name', 'department', 'start_date', 'reg', 'internal_notes', 'invoice_number', 'engineer_name', 'status');
+        
+        $totalFiltered = $query->count();
+        
+        $limit = $request->input('length');
+        $start = $request->input('start');
+        $orderColumnIndex = $request->input('order.0.column');
+        $order = $columns[$orderColumnIndex];
+        $dir = $request->input('order.0.dir');
+        
+        if (!empty($request->input('search.value'))) {
+            $search = $request->input('search.value');
             
-        // return view('jobs.jobs', compact('jobs'));
-
-
-        // working on below
-        if ($request->ajax()) {
-            $columns = array(
-                0 => 'id',
-                1 => 'customer_name',
-                2 => 'department',
-                3 => 'start_date',
-                4 => 'reg',
-                5 => 'invoice_number',
-                6 => 'engineer_name',
-                7 => 'status',
-            );
+            $query->where(function ($q) use ($search, $columns) {
+                foreach ($columns as $column) {
+                    $q->orWhere($column, 'LIKE', "%{$search}%");
+                }
+            });
             
-            $query = Job::where('status', 'Invoiced')
-                ->select('id', 'customer_name', 'department', 'start_date', 'reg', 'internal_notes', 'invoice_number', 'engineer_name', 'status');
-            
-            // Calculate the total number of records before pagination
             $totalFiltered = $query->count();
-            
-            $limit = $request->input('length');
-            $start = $request->input('start');
-            $orderColumnIndex = $request->input('order.0.column');
-            $order = $columns[$orderColumnIndex];
-            $dir = $request->input('order.0.dir');
-            
-            if (!empty($request->input('search.value'))) {
-                $search = $request->input('search.value');
-                
-                $query->where(function ($q) use ($search, $columns) {
-                    foreach ($columns as $column) {
-                        $q->orWhere($column, 'LIKE', "%{$search}%");
-                    }
-                });
-                
-            
-                // Update the total number of filtered records
-                $totalFiltered = $query->count();
-            }
-            
-            $jobs = $query->offset($start)
-                ->limit($limit)
-                ->orderBy($order, $dir)
-                ->get();
-            
-            $data = array();
-            foreach ($jobs as $job) {
-                $nestedData['id'] = $job->id;
-                $nestedData['customer_name'] = $job->customer_name;
-                $nestedData['department'] = $job->department;
-                $nestedData['start_date'] = $job->start_date;
-                $nestedData['reg'] = $job->reg;
-                $nestedData['invoice_number'] = $job->invoice_number;
-                $nestedData['engineer_name'] = $job->engineer_name;
-                $nestedData['status'] = $job->status;
-            
-                $data[] = $nestedData;
-            }
-            
-            $json_data = array(
-                "draw" => intval($request->input('draw')),
-                "recordsTotal" => intval($totalFiltered), // Use totalFiltered here
-                "recordsFiltered" => intval($totalFiltered),
-                "data" => $data
-            );
-            
-            return response()->json($json_data);
-            
         }
-    
-        return view('jobs.paid');
+        
+        $jobs = $query->offset($start)
+            ->limit($limit)
+            ->orderBy($order, $dir)
+            ->get();
+        
+        $data = array();
+        foreach ($jobs as $job) {
+            $nestedData['id'] = $job->id;
+            $nestedData['customer_name'] = $job->customer_name;
+            $nestedData['department'] = $job->department;
+            $nestedData['start_date'] = $job->start_date;
+            $nestedData['reg'] = $job->reg;
+            $nestedData['invoice_number'] = $job->invoice_number;
+            $nestedData['engineer_name'] = $job->engineer_name;
+            $nestedData['status'] = $job->status;
+            
+            $nestedData['view_url'] = route('jobs.show', $job->id);
+            $nestedData['edit_url'] = route('jobs.edit', $job->id);
+            
+            $data[] = $nestedData;
+        }
+        
+        $json_data = array(
+            "draw" => intval($request->input('draw')),
+            "recordsTotal" => intval($totalFiltered),
+            "recordsFiltered" => intval($totalFiltered),
+            "data" => $data
+        );
+        
+        return response()->json($json_data);
     }
+    
+    return view('jobs.paid');
+}
+
 
     public function deleteimage($image_id, Request $request)
     {

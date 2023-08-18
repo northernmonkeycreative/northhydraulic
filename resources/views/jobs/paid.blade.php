@@ -119,12 +119,12 @@
                 data: null,
                 className: "py-4 inline-flex items-center",
                 render: function(data, type, row) {
-                    return '<a href="' + row.view_url + '" title="View This Job" class="inline-flex items-center px-2 py-2 text-sm font-medium text-gray-700">' +
+                    return '<a href="' {{ route('jobs.show', $job->id) }} '" title="View This Job" class="inline-flex items-center px-2 py-2 text-sm font-medium text-gray-700">' +
                         '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">' +
                         // ... your SVG path here
                         '</svg>' +
                         '</a>' +
-                        '<a href="' + row.edit_url + '" title="Edit This Job" class="inline-flex items-center px-2 py-2 text-sm font-medium text-gray-700">' +
+                        '<a href="' {{ route('jobs.edit', $job->id) }} '" title="Edit This Job" class="inline-flex items-center px-2 py-2 text-sm font-medium text-gray-700">' +
                         '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">' +
                         // ... your SVG path here
                         '</svg>' +
