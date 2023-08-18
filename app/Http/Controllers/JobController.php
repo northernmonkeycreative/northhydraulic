@@ -40,10 +40,9 @@ class JobController extends Controller
                 2 => 'department',
                 3 => 'start_date',
                 4 => 'reg',
-                5 => 'internal_notes',
-                6 => 'invoice_number',
-                7 => 'engineer_name',
-                8 => 'status',
+                5 => 'invoice_number',
+                6 => 'engineer_name',
+                7 => 'status',
             );
             
             $query = Job::where('status', 'Invoiced')
@@ -84,7 +83,6 @@ class JobController extends Controller
                 $nestedData['department'] = $job->department;
                 $nestedData['start_date'] = $job->start_date;
                 $nestedData['reg'] = $job->reg;
-                $nestedData['internal_notes'] = $job->internal_notes;
                 $nestedData['invoice_number'] = $job->invoice_number;
                 $nestedData['engineer_name'] = $job->engineer_name;
                 $nestedData['status'] = $job->status;

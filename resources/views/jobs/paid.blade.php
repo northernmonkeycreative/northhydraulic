@@ -61,7 +61,7 @@
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Department</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Start Date</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Reg</th>
-                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Notes</th>
+                                            <!-- <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Notes</th> -->
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Invoice Number</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Engineeer</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
@@ -78,7 +78,7 @@
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Department</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Start Date</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Reg</th>
-                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Notes</th>
+                                            <!-- <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Notes</th> -->
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Invoice Number</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Engineeer</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
@@ -120,7 +120,7 @@
                             { data: 'department', name: 'department', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
                             { data: 'start_date', name: 'start_date', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
                             { data: 'reg', name: 'reg', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
-                            { data: 'internal_notes', name: 'internal_notes', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
+                            // { data: 'internal_notes', name: 'internal_notes', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
                             { data: 'invoice_number', name: 'invoice_number', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
                             { data: 'engineer_name', name: 'engineer_name', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
                             { data: 'status', name: 'status', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
