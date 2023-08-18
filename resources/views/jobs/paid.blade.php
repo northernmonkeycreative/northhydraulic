@@ -113,7 +113,13 @@
                         processing: true,
                         serverSide: true,
                         paging: true,
-                        ajax: "{{ route('jobs.paid') }}",
+                        ajax: {
+                        url: "{{ route('jobs.paid') }}",
+                        dataSrc: function(response) {
+                            console.log("Fetched data:", response); // Log the fetched data
+                            return response;
+                        }
+                    },
                         columns: [
                             { data: 'id', name: 'id', "className": "py-4 py-4 font-bold" },
                             { data: 'customer_name', name: 'customer_name', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
