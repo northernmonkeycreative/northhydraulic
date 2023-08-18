@@ -123,7 +123,7 @@
                 // Action buttons
                 // Add the view and edit buttons as additional columns
                 {
-                    "data": null,
+                    data: null,
                     "className": "py-4 inline-flex items-center",
                     "render": function(data, type, row) {
                         return '<a href="' + row.view_url + '" title="View This Job" class="inline-flex items-center px-2 py-2 text-sm font-medium text-gray-700">' +
