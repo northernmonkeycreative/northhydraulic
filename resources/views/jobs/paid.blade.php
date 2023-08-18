@@ -120,7 +120,28 @@
                 { data: 'reg', name: 'reg', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500  font-bold" },
                 { data: 'invoice_number', name: 'invoice_number', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
                 { data: 'engineer_name', name: 'engineer_name', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
-                { data: 'status', name: 'status', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
+                { 
+                    data: 'status', 
+                    name: 'status', 
+                    className: "px-6 py-4 whitespace-nowrap text-sm text-gray-500" ,
+                    render: function(data, type, row) {
+                        if (data === 'ongoing') {
+                            return '<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-200 text-yellow-900 uppercase">Job Ongoing</span>';
+                        } else if (data === 'complete') {
+                            return '<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 uppercase">Job Complete</span>';
+                        } else if (data === 'furtheraction') {
+                            return '<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-300 text-red-800 uppercase">Further Action</span>';
+                        } else if (data === 'invoice') {
+                            return '<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-500 text-white uppercase">Invoice Job</span>';
+                        } else if (data === 'unassinged') {
+                            return '<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-500 text-gray-500 uppercase border border-gray-300">Un-Assigned Job</span>';
+                        } else if (data === 'Invoiced') {
+                            return '<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-500 text-gray-500 uppercase border border-gray-300">Invoiced</span>';
+                        } else {
+                            return ''; // Default value if status doesn't match any condition
+                        }
+                    }
+                },
                 
                 // Action buttons
                 // Add the view and edit buttons as additional columns
