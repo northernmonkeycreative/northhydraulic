@@ -142,7 +142,7 @@
                     }
                 }
             ],
-            stateSave: false, //statesave to help keep pagination state
+            stateSave: true, //statesave to help keep pagination state
             stateDuration: -1,
             stateSaveCallback: function(settings, data) {
                 localStorage.setItem('DataTables_' + settings.sInstance, JSON.stringify(data));
