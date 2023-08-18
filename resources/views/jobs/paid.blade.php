@@ -120,7 +120,6 @@
                             { data: 'department', name: 'department', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
                             { data: 'start_date', name: 'start_date', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
                             { data: 'reg', name: 'reg', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
-                            // { data: 'internal_notes', name: 'internal_notes', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
                             { data: 'invoice_number', name: 'invoice_number', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
                             { data: 'engineer_name', name: 'engineer_name', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
                             { data: 'status', name: 'status', "className": "px-6 py-4 whitespace-nowrap text-sm text-gray-500" },
@@ -133,12 +132,13 @@
                                 "render": function(data, type, row) {
                                     return '<a href="' + row.view_url + '" title="View This Job" class="inline-flex items-center px-2 py-2 text-sm font-medium text-gray-700">' +
                                         '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">' +
-                                        // ... your SVG path here
+                                            '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />' +
+                                            '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />' +
                                         '</svg>' +
                                         '</a>' +
                                         '<a href="' + row.edit_url + '" title="Edit This Job" class="inline-flex items-center px-2 py-2 text-sm font-medium text-gray-700">' +
                                         '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">' +
-                                        // ... your SVG path here
+                                            '<path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />' +
                                         '</svg>' +
                                         '</a>';
                                 }
