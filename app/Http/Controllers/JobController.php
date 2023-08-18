@@ -61,11 +61,12 @@ class JobController extends Controller
             if (!empty($request->input('search.value'))) {
                 $search = $request->input('search.value');
                 
-                $query->where(function ($q) use ($search) {
+                $query->where(function ($q) use ($search, $columns) {
                     foreach ($columns as $column) {
                         $q->orWhere($column, 'LIKE', "%{$search}%");
                     }
                 });
+                
             
                 // Update the total number of filtered records
                 $totalFiltered = $query->count();
